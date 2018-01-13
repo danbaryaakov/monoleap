@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>75BF4EEA-8ACC-4ADF-8514-A0FC5D7ADBF9</string>
+	<key>IDESourceControlProjectName</key>
+	<string>monolit</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F8F86EDF1384EF1F31965D0CD38923E2C1D2D01B</key>
+		<string>github.com:danbaryak/xophone.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>monolit.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F8F86EDF1384EF1F31965D0CD38923E2C1D2D01B</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:danbaryak/xophone.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F8F86EDF1384EF1F31965D0CD38923E2C1D2D01B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F8F86EDF1384EF1F31965D0CD38923E2C1D2D01B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>xophone</string>
+		</dict>
+	</array>
+</dict>
+</plist>

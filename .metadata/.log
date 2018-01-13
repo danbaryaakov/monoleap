@@ -1,0 +1,19 @@
+!SESSION 2015-12-02 13:07:20.958 -----------------------------------------------
+eclipse.buildId=4.5.1.M20150904-0015
+java.version=1.8.0_45
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product -keyring /Users/danbar/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product -keyring /Users/danbar/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2015-12-02 13:07:21.673
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.ui.workbench.texteditor 4 0 2015-12-02 13:07:42.102
+!MESSAGE The 'tern.eclipse.ide.ui.hyperlink.TernHyperlinkDetector.SCRIPT' extension from plug-in 'tern.eclipse.ide.jsdt.ui' to the 'org.eclipse.ui.workbench.texteditor.hyperlinkDetectors' extension point will be ignored because it contains invalid attributes.
+
+!ENTRY org.eclipse.ui.workbench.texteditor 4 0 2015-12-02 13:07:42.106
+!MESSAGE The 'tern.eclipse.ide.ui.hyperlink.TernHyperlinkDetector.SCRIPT.events' extension from plug-in 'tern.eclipse.ide.jsdt.ui' to the 'org.eclipse.ui.workbench.texteditor.hyperlinkDetectors' extension point will be ignored because it contains invalid attributes.
+
+!ENTRY org.eclipse.ui.workbench.texteditor 4 0 2015-12-02 13:07:42.106
+!MESSAGE The 'tern.eclipse.ide.ui.hyperlink.TernHyperlinkDetector.HTML' extension from plug-in 'tern.eclipse.ide.jsdt.ui' to the 'org.eclipse.ui.workbench.texteditor.hyperlinkDetectors' extension point will be ignored because it contains invalid attributes.

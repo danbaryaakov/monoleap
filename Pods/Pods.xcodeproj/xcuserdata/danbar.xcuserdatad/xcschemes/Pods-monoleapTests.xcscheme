@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5502ADF518EF9E3BDA5FB13F92CFE471"
-               BuildableName = "libPods-monoleap.a"
-               BlueprintName = "Pods-monoleap"
+               BlueprintIdentifier = "828420A820F4041AADBA5CF8A3E760AC"
+               BuildableName = "libPods-monoleapTests.a"
+               BlueprintName = "Pods-monoleapTests"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

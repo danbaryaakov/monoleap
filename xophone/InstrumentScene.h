@@ -8,7 +8,6 @@
 #import <SpriteKit/SpriteKit.h>
 #import <CoreMIDI/CoreMIDI.h>
 #import <CoreMotion/CoreMotion.h>
-#import "PDPatch.h"
 
 /*!
     @class InstrumentScene
@@ -17,7 +16,6 @@
  */
 @interface InstrumentScene : SKScene  {
 }
-@property (strong, nonatomic) PDPatch *patch;
 
 
 

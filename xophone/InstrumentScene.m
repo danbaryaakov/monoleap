@@ -86,7 +86,7 @@
 //        [self drawPitchBendArea];
     }
     
-    self.patch = [[PDPatch alloc]initWithFile:@"MidiSyth.pd"];
+//    self.patch = [[PDPatch alloc]initWithFile:@"MidiSyth.pd"];
 }
 
 -(void)drawPitchBendArea {
@@ -128,7 +128,7 @@
     isTouchesEnded = false;
     
     SEL selector = @selector(handleTouches:);
-    [self debounce:selector delay:0.01];
+    [self debounce:selector delay:0.02];
 }
 
 /*!
@@ -220,7 +220,7 @@
     if (PDEnabled) {
         NSLog(@"PD Enabled");
         NSLog(@"Send note number %d and velocity %d", noteNumber, velocity);
-        [_patch sendMidi:noteNumber andVelocity:velocity];
+//        [_patch sendMidi:noteNumber andVelocity:velocity];
     }
     else{
         NSLog(@"PD Disabled");
@@ -376,7 +376,7 @@
         An array of touches of a given hand (up to 4)
 */
 -(int)getPattern:(NSMutableArray *)touches {
-    int width = 170;
+    int width = 155;
     if ([touches count] == 0) {
         return 0;
     }

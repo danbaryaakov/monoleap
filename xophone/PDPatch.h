@@ -7,9 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PdDispatcher.h"
 
-@interface PDPatch : NSObject <PdListener>
+@interface PDPatch : NSObject
 
 -(instancetype)initWithFile:(NSString*)pdFile;
 -(void)sendMidi:(int)midi andVelocity:(int)velocity;

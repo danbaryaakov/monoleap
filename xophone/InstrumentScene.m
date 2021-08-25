@@ -34,7 +34,7 @@
     Theme* theme;
     
     int leftXCtrlValue, leftYCtrlValue, rightYCtrlValue, rightXCtrlValue, leftXCurrent, leftYCurrent, rightXCurrent, rightYCurrent;
-    bool pitchBendEnabled, keySwitchEnabled, velocityEnabled, leftXCtrlEnabled, leftYCtrlEnabled, rightXCtrlEnabled, rightYCtrlEnabled, isTouchesEnded, PDEnabled;
+    bool pitchBendEnabled, keySwitchEnabled, velocityEnabled, leftXCtrlEnabled, leftYCtrlEnabled, rightXCtrlEnabled, rightYCtrlEnabled, isTouchesEnded, PDEnabled, isInvalidPattern;
     
     CGFloat lastRightTop, lastLeftTop;
     bool isLeftMuted, isRightMuted;
@@ -111,6 +111,7 @@
         The touch event
 */
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    NSLog(@"Touches Began");
     [left removeAllObjects];
     [right removeAllObjects];
     NSSet *allTouches = [event touchesForView:self.view];
@@ -126,9 +127,9 @@
         index++;
     }
     isTouchesEnded = false;
-    
+    isInvalidPattern = false;
     SEL selector = @selector(handleTouches:);
-    [self debounce:selector delay:0.02];
+    [self debounce:selector delay:0.050];
 }
 
 /*!
@@ -140,24 +141,43 @@
         The touch event
 */
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    NSLog(@"Touches Ended");
     [left removeAllObjects];
     [right removeAllObjects];
     NSSet *allTouches = [event touchesForView:self.view];
+    
+    int touchesMinY = INT_MAX;
+    int removedTouchMinY = INT_MAX;
+    
     for (UITouch *touch in allTouches) {
-        if ([touches containsObject:touch]){
-            continue;
-        }
         CGPoint position = [touch locationInView:self.view];
         CGFloat width = CGRectGetWidth(self.view.bounds);
+        
+        if ([touches containsObject:touch]){
+            // removed touch
+            CGPoint position = [touch locationInView:self.view];
+            NSLog(@"Removed touch position: %f, %f", position.x, position.y);
+            if (position.x < width / 2) {
+                removedTouchMinY = MIN(removedTouchMinY, position.y);
+            }
+            continue;
+        }
+        
         if (position.x < width / 2) {
             [left addObject:touch];
+            touchesMinY = MIN(touchesMinY, position.y);
         } else {
             [right addObject:touch];
         }
     }
     isTouchesEnded = true;
+    NSLog(@"removedTouchMinY = %d, touchesMinY = %d", removedTouchMinY, touchesMinY);
+    if (removedTouchMinY < touchesMinY) {
+        NSLog(@"Invalid pattern found (accidentally released topmost right touch");
+        isInvalidPattern = true;
+    }
     SEL selector = @selector(handleTouches:);
-    [self debounce:selector delay:0];
+    [self debounce:selector delay:0.08];
 }
 
 /*!
@@ -169,6 +189,9 @@
         The touch event
  */
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    if (isInvalidPattern) {
+        return;
+    }
     [left removeAllObjects];
     [right removeAllObjects];
     NSSet *allTouches = [event touchesForView:self.view];
@@ -202,6 +225,9 @@
 # pragma mark Midi
 
 -(void)noteOn:(int)noteNumber velocity:(int)velocity{
+//    if (playedNote == noteNumber) {
+//        return;
+//    }
     [midiConnector sendNoteOn:noteNumber inChannel:1 withVelocity:velocity];
     playedNote = noteNumber;
     [self sendMidiToPDwithNoteNumner:noteNumber andVelocity:velocity];
@@ -233,6 +259,8 @@
  Handles touches triggered by either an addition or removal of a one or several touches.
  */
 -(void)handleTouches:(NSArray *)args {
+    NSLog(@"handleTouches()");
+    [self hideMenu];
     
     [self sortTouches:left];
     [self sortTouches:right];
@@ -242,7 +270,7 @@
     
     int baseNote;
     
-    if (rightPattern <= 0) {
+    if (isInvalidPattern || rightPattern <= 0) {
 
         // stop audio and clear all visual indication
         [self noteOff:playedNote isOtherNotePlaying:false];
@@ -288,7 +316,6 @@
     lastLeftTop = [leftTop locationInView:self.view].y;
     lastRightTop = [rightTop locationInView:self.view].y;
     
-    
     if (! isTouchesEnded && rightPattern != 0 && leftPattern != 0) {
         [self handleLeftYCtrl:right.firstObject];
         [self handleLeftXCtrl:right.firstObject isMoved:false];
@@ -296,10 +323,6 @@
         [self handleRightXCtrl:left.firstObject];
     }
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"hideMenu" object:nil];
-    __weak typeof(self) weakSelf = self;
-    [NSObject cancelPreviousPerformRequestsWithTarget:weakSelf selector:@selector(showMenu) object:nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"hideMenu" object:nil];
     switch (leftPattern) {
         case 0:
             [self noteOff:playedNote isOtherNotePlaying:false];
@@ -353,6 +376,15 @@
     
 }
 
+-(void)hideMenu {
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"hideMenu" object:nil];
+    __weak typeof(self) weakSelf = self;
+    [NSObject cancelPreviousPerformRequestsWithTarget:weakSelf selector:@selector(showMenu) object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"hideMenu" object:nil];
+    
+}
+
 /*!
     Sorts a given array of touches by vertical screen position (top to bottom).
 */
@@ -376,7 +408,7 @@
         An array of touches of a given hand (up to 4)
 */
 -(int)getPattern:(NSMutableArray *)touches {
-    int width = 155;
+    int width = 167;
     if ([touches count] == 0) {
         return 0;
     }

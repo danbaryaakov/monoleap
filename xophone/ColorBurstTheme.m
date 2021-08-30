@@ -58,8 +58,7 @@
     UIColor *color = [self getColor];
     backgroundParticles.particleColorSequence = nil;
     backgroundParticles.particleColorBlendFactor = 1.0;
-    backgroundParticles.particleColor = color;
-    
+    backgroundParticles.particleColor = color;    
 }
 
 -(UIColor*)getColor {
@@ -137,6 +136,18 @@
             [self hideParticle:1 particles:particles];
             [self hideParticle:2 particles:particles];
             [self drawParticle:3 touch:[touches objectAtIndex:1] particles:particles color: color];
+            break;
+        case 7:
+            [self drawParticle:0 touch:[touches objectAtIndex:0] particles:particles color: color];
+            [self drawParticle:1 touch:[touches objectAtIndex:1] particles:particles color: color];
+            [self hideParticle:2 particles:particles];
+            [self drawParticle:3 touch:[touches objectAtIndex:2] particles:particles color: color];
+            break;
+        case 8:
+            [self drawParticle:0 touch:[touches objectAtIndex:0] particles:particles color: color];
+            [self drawParticle:1 touch:[touches objectAtIndex:1] particles:particles color: color];
+            [self drawParticle:2 touch:[touches objectAtIndex:2] particles:particles color: color];
+            [self drawParticle:3 touch:[touches objectAtIndex:3] particles:particles color: color];
             break;
     }
     

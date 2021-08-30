@@ -112,6 +112,7 @@
 */
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     NSLog(@"Touches Began");
+    bool noPatternPreviouslyPlayed = [left count] == 0;
     [left removeAllObjects];
     [right removeAllObjects];
     NSSet *allTouches = [event touchesForView:self.view];
@@ -129,7 +130,7 @@
     isTouchesEnded = false;
     isInvalidPattern = false;
     SEL selector = @selector(handleTouches:);
-    [self debounce:selector delay:0.050];
+    [self debounce:selector delay:noPatternPreviouslyPlayed ? 0.015: 0.045];
 }
 
 /*!
@@ -145,6 +146,8 @@
     [left removeAllObjects];
     [right removeAllObjects];
     NSSet *allTouches = [event touchesForView:self.view];
+    
+    bool allTouchesRemoved = [allTouches count] == 0;
     
     int touchesMinY = INT_MAX;
     int removedTouchMinY = INT_MAX;
@@ -177,7 +180,10 @@
         isInvalidPattern = true;
     }
     SEL selector = @selector(handleTouches:);
-    [self debounce:selector delay:0.08];
+    
+    // if no previous pattern was played before these touches, use
+    // a smaller debounce value, because there is little risk of accidental notes
+    [self debounce:selector delay:allTouchesRemoved ? 0 : 0.05];
 }
 
 /*!
@@ -265,8 +271,8 @@
     [self sortTouches:left];
     [self sortTouches:right];
     
-    int rightPattern = [self getPattern:right];
-    int leftPattern = [self getPattern:left];
+    int rightPattern = [self getPattern:right withAux:true];
+    int leftPattern = [self getPattern:left withAux:false];
     
     int baseNote;
     
@@ -407,8 +413,8 @@
     @param touches
         An array of touches of a given hand (up to 4)
 */
--(int)getPattern:(NSMutableArray *)touches {
-    int width = 167;
+-(int)getPattern:(NSMutableArray *)touches withAux:(bool)withAux {
+    int width = 164;
     if ([touches count] == 0) {
         return 0;
     }
@@ -430,6 +436,12 @@
     } else if ([touches count] == 2
                && [self distance:[touches objectAtIndex:0] second:[touches objectAtIndex:1]] < width * 3) {
         return 6;
+    } else if ([touches count] == 3
+               && [self distance:[touches objectAtIndex:0] second: [touches objectAtIndex:1]] < width
+               && [self distance:[touches objectAtIndex:1] second: [touches objectAtIndex:2]] < width * 2) {
+        return 7;
+    } else if ([touches count] == 4) {
+        return 8;
     }
     return -1;
 }

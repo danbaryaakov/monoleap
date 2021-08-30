@@ -37,7 +37,7 @@
 }
 
 -(void)sendNoteOff:(int)noteNumber inChannel:(int)channel withVelocity:(int)velocity {
-    Byte message[] = {0x80, noteNumber, 120};
+    Byte message[] = {0x80, noteNumber, 0};
     [self sendMidi:message];
 }
 

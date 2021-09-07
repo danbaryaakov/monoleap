@@ -130,7 +130,7 @@
     isTouchesEnded = false;
     isInvalidPattern = false;
     SEL selector = @selector(handleTouches:);
-    [self debounce:selector delay:noPatternPreviouslyPlayed ? 0.015: 0.045];
+    [self debounce:selector delay:noPatternPreviouslyPlayed ? 0.015: 0.05];
 }
 
 /*!

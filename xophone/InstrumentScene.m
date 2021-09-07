@@ -13,7 +13,7 @@
 #import "ColorBurstTheme.h"
 #import "BasicTheme.h"
 #import "MIDIConnector.h"
-
+#import "monoleap-Swift.h"
 
 @implementation InstrumentScene {
     MIDIClientRef client;
@@ -35,6 +35,8 @@
     
     int leftXCtrlValue, leftYCtrlValue, rightYCtrlValue, rightXCtrlValue, leftXCurrent, leftYCurrent, rightXCurrent, rightYCurrent;
     bool pitchBendEnabled, keySwitchEnabled, velocityEnabled, leftXCtrlEnabled, leftYCtrlEnabled, rightXCtrlEnabled, rightYCtrlEnabled, isTouchesEnded, PDEnabled, isInvalidPattern;
+    
+    bool synthEnabled;
     
     CGFloat lastRightTop, lastLeftTop;
     bool isLeftMuted, isRightMuted;
@@ -74,8 +76,7 @@
     rightYCtrlEnabled = settings.rightYCtrlEnabled.boolValue;
     isRightMuted = false;
     isLeftMuted = false;
-    PDEnabled = settings.PDEnabled.boolValue;
-
+    synthEnabled = settings.synthEnabled.boolValue;
     
     if (theme == nil) {
         theme = [Theme byName:settings.themeName];
@@ -85,7 +86,9 @@
     if (pitchBendEnabled) {
 //        [self drawPitchBendArea];
     }
-    
+    if (synthEnabled) {
+        SynthManager.instance;
+    }
 //    self.patch = [[PDPatch alloc]initWithFile:@"MidiSyth.pd"];
 }
 
@@ -237,13 +240,18 @@
     [midiConnector sendNoteOn:noteNumber inChannel:1 withVelocity:velocity];
     playedNote = noteNumber;
     [self sendMidiToPDwithNoteNumner:noteNumber andVelocity:velocity];
-    
+    if (synthEnabled) {
+        [SynthManager.instance noteOn:noteNumber];
+    }
 }
 
 -(void)noteOff:(int)noteNumber isOtherNotePlaying:(bool)otherNotePlaying {
     [midiConnector sendNoteOff:noteNumber inChannel:1 withVelocity:120];
     if (! otherNotePlaying) {
         [self sendMidiToPDwithNoteNumner:noteNumber andVelocity:0];
+    }
+    if (synthEnabled) {
+        [SynthManager.instance noteOff:noteNumber];
     }
 }
 
@@ -465,6 +473,9 @@
     if (currentVal != leftYCurrent) {
         leftYCurrent = currentVal;
         [midiConnector sendControllerChange:leftYCtrlValue value:currentVal inChannel:1];
+        if (synthEnabled) {
+            [SynthManager.instance resonance:currentVal];
+        }
     }
 
 }
@@ -516,6 +527,9 @@
     if (val != rightYCurrent) {
         rightYCurrent = val;
         [midiConnector sendControllerChange:rightYCtrlValue value:val inChannel:1];
+        if (synthEnabled) {
+            [SynthManager.instance filterCutoff:val];
+        }
     }
 }
 

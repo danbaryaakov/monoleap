@@ -24,7 +24,7 @@ NSString *const LEFT_X_CTRL_ENABLED = @"leftXCtrlEnabled";
 NSString *const LEFT_Y_CTRL_ENABLED = @"leftYCtrlEnabled";
 
 NSString *const MIDI_OUT_CH = @"midiOutChannel";
-NSString *const PD_ENABLED = @"PDEnabled";
+NSString *const SYNTH_ENABLED = @"SynthEnabled";
 
 NSString *const THEME_NAME = @"themeName";
 
@@ -108,9 +108,9 @@ NSString *const THEME_NAME = @"themeName";
             _midiOutChannel = [NSNumber numberWithInteger:1];
         }
         
-        _PDEnabled = [defaults objectForKey:PD_ENABLED];
-        if (_PDEnabled == nil) {
-            _PDEnabled = [NSNumber numberWithBool: false];
+        _synthEnabled = [defaults objectForKey:SYNTH_ENABLED];
+        if (_synthEnabled == nil) {
+            _synthEnabled = [NSNumber numberWithBool: true];
         }
         
     }
@@ -194,10 +194,10 @@ NSString *const THEME_NAME = @"themeName";
     [defaults setObject:_themeName forKey:THEME_NAME];
 }
 
--(void)setPDEnabled:(NSNumber *)PDEnabled {
-    _PDEnabled = PDEnabled;
+-(void)setSynthEnabled:(NSNumber *)synthEnabled {
+    _synthEnabled = synthEnabled;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:_PDEnabled forKey:PD_ENABLED];
+    [defaults setObject:_synthEnabled forKey:SYNTH_ENABLED];
 }
 
 -(void)setMidiOutChannel:(NSNumber *)midiOutChannel {

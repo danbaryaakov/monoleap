@@ -3,6 +3,17 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "SynthManager.noteOn(_:):SynthManager.swift">
+      </ContextState>
+      <ContextState
+         contextName = "SynthManager.map(value:):SynthManager.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "value  / 127 * 22040">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[MIDIConnector sendMidi:]:MIDIConnector.m">
          <PersistentStrings>
             <PersistentString

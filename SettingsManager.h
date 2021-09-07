@@ -34,7 +34,7 @@
 @property (nonatomic, retain) NSNumber *velocityEnabled;
 @property (nonatomic, retain) NSNumber *midiOutChannel;
 
-@property (nonatomic, retain) NSNumber *PDEnabled;
+@property (nonatomic, retain) NSNumber *synthEnabled;
 
 + (id)sharedInstance;
 

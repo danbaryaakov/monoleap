@@ -44,7 +44,7 @@
 @property (weak, nonatomic) IBOutlet UISwitch *pitchBendSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *velocitySwitch;
 
-@property (strong, nonatomic) IBOutlet UISwitch *enablePD;
+@property (strong, nonatomic) IBOutlet UISwitch *enableSynth;
 
 @end
 
@@ -80,7 +80,7 @@
 
     [[self btnMidiChannel] setTitle:settings.midiOutChannel.stringValue forState:UIControlStateNormal];
 
-    [[self enablePD]setOn:settings.PDEnabled.boolValue];
+    [[self enableSynth]setOn:settings.synthEnabled.boolValue];
     
     self.themeLabel.text = settings.themeName;
     
@@ -126,6 +126,12 @@
     SettingsManager *settings = [SettingsManager sharedInstance];
     settings.leftYCtrlEnabled = [NSNumber numberWithBool:sender.on];
 }
+
+- (IBAction)synthEnabled:(UISwitch*)sender {
+    SettingsManager *settings = [SettingsManager sharedInstance];
+    settings.synthEnabled = [NSNumber numberWithBool:sender.on];
+}
+
 
 - (IBAction)sendXAxisLeft:(id)sender {
     for (int i = 1; i < 127; i++) {
@@ -231,9 +237,9 @@
     settings.velocityEnabled = [NSNumber numberWithBool:sender.on];
 }
 
-- (IBAction)enablePDChanged:(UISwitch *)sender {
+- (IBAction)enableSythChanged:(UISwitch *)sender {
     SettingsManager *settings = [SettingsManager sharedInstance];
-    settings.PDEnabled = [NSNumber numberWithBool:sender.on];
+    settings.synthEnabled = [NSNumber numberWithBool:sender.on];
 }
 
 -(void)sendMidi:(Byte*)message {

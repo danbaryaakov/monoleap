@@ -1301,8 +1301,8 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ght-MT-r0s">
-                                        <rect key="frame" x="322" y="39" width="47" height="33"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ght-MT-r0s">
+                                        <rect key="frame" x="311" y="39" width="47" height="33"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="9iY-0o-p5r">
                                                 <variation key="heightClass=regular" constant="33"/>
@@ -1328,6 +1328,23 @@
                                             <action selector="selectTheme:" destination="bOO-l1-mM0" eventType="touchUpInside" id="NGK-wJ-cu3"/>
                                         </connections>
                                     </button>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vYf-MA-D6v">
+                                        <rect key="frame" x="320" y="90" width="51" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.67849691990000005" green="0.29832214629999998" blue="0.67929292929999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="onTintColor" red="0.67849691990000005" green="0.29832214629999998" blue="0.67929292929999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="thumbTintColor" red="0.89932528410000001" green="0.5408890368" blue="0.89333885229999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="synthEnabled:" destination="bOO-l1-mM0" eventType="valueChanged" id="2mH-9y-q5j"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Built In Synth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JlY-xH-AWK">
+                                        <rect key="frame" x="8" y="90" width="306" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -1543,6 +1560,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="enableSynth" destination="vYf-MA-D6v" id="goP-uA-Fw5"/>
                         <outlet property="leftXCtrlEnabled" destination="xDs-LX-cmH" id="iXj-dj-E6A"/>
                         <outlet property="leftXCtrlValueSlider" destination="PoD-8s-X19" id="H7U-1s-owZ"/>
                         <outlet property="leftXCtrlValueStepper" destination="Mvt-zQ-VPV" id="vnf-8U-h4l"/>

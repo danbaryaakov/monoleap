@@ -47,8 +47,8 @@
             filePath = "xophone/InstrumentScene.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "467"
-            endingLineNumber = "467"
+            startingLineNumber = "464"
+            endingLineNumber = "464"
             landmarkName = "-handleTouches:"
             landmarkType = "7">
          </BreakpointContent>
@@ -63,8 +63,8 @@
             filePath = "xophone/InstrumentScene.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "462"
-            endingLineNumber = "462"
+            startingLineNumber = "459"
+            endingLineNumber = "459"
             landmarkName = "-handleTouches:"
             landmarkType = "7">
          </BreakpointContent>
@@ -159,8 +159,8 @@
             filePath = "xophone/SynthManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "noteOn(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -177,8 +177,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "344"
             endingLineNumber = "344"
-            landmarkName = "InstrumentScene"
-            landmarkType = "3">
+            landmarkName = "-noteOn:velocity:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -191,8 +191,8 @@
             filePath = "xophone/SynthManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "filterCutoff(_:)"
             landmarkType = "7">
          </BreakpointContent>

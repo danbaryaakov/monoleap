@@ -386,12 +386,9 @@
     
     if (leftPattern == 8) {
         // calibrate
-        float firstDistance = [self distance:[left objectAtIndex:0] second:[left objectAtIndex:1]];
-        float secondDistance = [self distance:[left objectAtIndex:1] second:[left objectAtIndex:2]];
-        NSLog(@"First distance: %f, Second: %f", firstDistance, secondDistance);
-        fingerWidth = (firstDistance + secondDistance) / 2;
-        NSLog(@"Calibrate --> new finger width is %f", fingerWidth);
-        [self drawPatternGuides];
+        [self debounce:@selector(callibrate) delay:1];
+    } else {
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(callibrate) object:nil];
     }
     
     if (isInvalidPattern || rightPattern <= 0) {
@@ -500,6 +497,15 @@
     }
     [theme drawLeftHandTouches:leftPattern touches:left];
     
+}
+
+-(void)callibrate {
+    float firstDistance = [self distance:[left objectAtIndex:0] second:[left objectAtIndex:1]];
+    float secondDistance = [self distance:[left objectAtIndex:1] second:[left objectAtIndex:2]];
+    NSLog(@"First distance: %f, Second: %f", firstDistance, secondDistance);
+    fingerWidth = (firstDistance + secondDistance) / 2;
+    NSLog(@"Calibrate --> new finger width is %f", fingerWidth);
+    [self drawPatternGuides];
 }
 
 -(void)hideMenu {

@@ -39,7 +39,7 @@
     self.view.multipleTouchEnabled = YES;
     InstrumentScene *scene = [InstrumentScene unarchiveFromFile:@"InstrumentScene"];
     
-    scene.scaleMode = SKSceneScaleModeAspectFill;
+    scene.scaleMode = SKSceneScaleModeResizeFill;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showSettings) name:@"showSettings" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideMenu) name:@"hideMenu" object:nil];

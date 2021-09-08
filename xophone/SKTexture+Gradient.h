@@ -17,6 +17,10 @@
   backgroundGradient.position =     CGPointMake(self.size.width/2, self.size.height/2);
   [self addChild:backgroundGradient];
  */
++(SKTexture*)textureWithHorizontalGradientofSize:(CGSize)size
+                                      topColor:(CIColor*)topColor
+                                   bottomColor:(CIColor*)bottomColor;
+
 +(SKTexture*)textureWithVerticalGradientofSize:(CGSize)size
                                       topColor:(CIColor*)topColor
                                    bottomColor:(CIColor*)bottomColor;

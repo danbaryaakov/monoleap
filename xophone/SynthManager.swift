@@ -16,20 +16,29 @@ import SoundpipeAudioKit
     
     let engine = AudioEngine()
     var osc: PWMOscillator
+    var osc2: DynamicOscillator
+    
     var playingNote: Int?
     var filter: MoogLadder
     var limiter : PeakLimiter
     var delay: Delay
     var dryWetMixer: DryWetMixer
+    var mixer: Mixer
     
     private override init() {
         osc = PWMOscillator()
-        filter = MoogLadder(osc)
+        osc2 = DynamicOscillator()
+        osc2.setWaveform(Table(.sawtooth))
+        osc2.amplitude = 0.6;
+        
+        mixer = Mixer(osc, osc2)
+        
+        filter = MoogLadder(mixer)
         filter.start()
         
         delay = Delay(filter)
         dryWetMixer = DryWetMixer(filter, delay)
-        dryWetMixer.balance = 0.16
+        dryWetMixer.balance = 0.2
         delay.time = 0.4
         
         limiter = PeakLimiter(dryWetMixer)
@@ -37,6 +46,7 @@ import SoundpipeAudioKit
         
 //        osc.setWaveform(Table(.sawtooth))
         osc.stop()
+        osc2.stop()
         osc.amplitude = 0.6
         
         filter.cutoffFrequency = 0
@@ -52,28 +62,31 @@ import SoundpipeAudioKit
     @objc func noteOn(_ noteNumber: Int) {
         if (playingNote == nil) {
             osc.start();
+            osc2.start();
         }
         osc.frequency = noteNumber.midiNoteToFrequency()
-
+        osc2.frequency = noteNumber.midiNoteToFrequency()
+        
         playingNote = noteNumber;
     }
     
     @objc func noteOff(_ noteNumber: Int) {
         if (playingNote == noteNumber) {
             osc.stop();
+            osc2.stop();
             playingNote = nil;
         }
     }
     
     @objc func filterCutoff(_ value: Int) {
         NSLog("Setting Filter cutoff: %d", value)
-        let cutoff =  Float(value) / 127 * 3000
+        let cutoff =  max(200, Float(value) / 127 * 6000)
         NSLog("Filter cutoff: %f", cutoff)
         filter.cutoffFrequency = cutoff
     }
     
     @objc func resonance(_ value: Int) {
-        let resonance = Float(value) / 127
+        let resonance = min(Float(value) / 127, 0.8)
         filter.resonance = resonance
     }
 }

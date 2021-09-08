@@ -28,6 +28,7 @@
     
     MIDIConnector* midiConnector;
     
+    float fingerWidth;
     
     int prevNote;
 
@@ -40,6 +41,17 @@
     
     CGFloat lastRightTop, lastLeftTop;
     bool isLeftMuted, isRightMuted;
+    
+    SKSpriteNode* rectFingerOneLeft;
+    SKSpriteNode* rectFingerTwoLeft;
+    SKSpriteNode* rectFingerThreeLeft;
+    SKSpriteNode* rectFingerFourLeft;
+    
+    SKSpriteNode* rectFingerOneRight;
+    SKSpriteNode* rectFingerTwoRight;
+    SKSpriteNode* rectFingerThreeRight;
+    SKSpriteNode* rectFingerFourRight;
+    
 }
 
 # pragma mark Initialization
@@ -60,6 +72,7 @@
     
     left = [NSMutableArray new];
     right = [NSMutableArray new];
+    fingerWidth = 136;
     
     SettingsManager* settings = [SettingsManager sharedInstance];
     leftXCtrlValue = settings.leftXCtrlValue.intValue;
@@ -84,7 +97,7 @@
     }
     
     if (pitchBendEnabled) {
-//        [self drawPitchBendArea];
+        [self drawPitchBendArea];
     }
     if (synthEnabled) {
         SynthManager.instance;
@@ -96,11 +109,97 @@
 
     CIColor *rightColor = [CIColor colorWithRed:248.0/255.0 green:182.0/255.0 blue:250.0/255.0 alpha:0.2];
     CIColor *leftColor = [CIColor colorWithRed:248.0/255.0 green:182.0/255.0 blue:250.0/255.0 alpha:0.0];
-    SKTexture* backgroundTexture = [SKTexture textureWithVerticalGradientofSize:CGSizeMake(self.frame.size.width/8, self.frame.size.height) topColor:rightColor bottomColor:leftColor];
+    SKTexture* backgroundTexture = [SKTexture textureWithHorizontalGradientofSize:CGSizeMake(self.frame.size.width/8, self.frame.size.height) topColor:rightColor bottomColor:leftColor];
     SKSpriteNode* backgroundGradient = [[SKSpriteNode alloc] initWithTexture:backgroundTexture];
     backgroundGradient.position =  CGPointMake(self.frame.size.width / 2 - self.frame.size.width / 16, self.frame.size.height / 2);
     [self addChild:backgroundGradient];
 
+}
+
+-(void)drawPatternGuides {
+    if ([left count] > 0) {
+        UITouch *topRight = [left firstObject];
+        int leftTop = [topRight locationInView:self.view].y;
+        if (rectFingerOneLeft == nil) {
+            rectFingerOneLeft = [self createGradientRect:self.size.width / 2 - 20 height:fingerWidth];
+            rectFingerTwoLeft = [self createGradientRect:self.size.width / 2 - 20 height:fingerWidth];
+            rectFingerThreeLeft = [self createGradientRect:self.size.width / 2 - 20 height:fingerWidth];
+            rectFingerFourLeft = [self createGradientRect:self.size.width / 2 - 20 height:fingerWidth * 2];
+            
+            [self addChild:rectFingerOneLeft];
+            [self addChild:rectFingerTwoLeft];
+            [self addChild:rectFingerThreeLeft];
+            [self addChild:rectFingerFourLeft];
+        }
+        rectFingerOneLeft.position = CGPointMake(self.size.width / 4, self.size.height - leftTop);
+        
+        rectFingerTwoLeft.position = CGPointMake(self.size.width / 4, self.size.height - leftTop - fingerWidth);
+        
+        rectFingerThreeLeft.position = CGPointMake(self.size.width / 4, self.size.height - leftTop - fingerWidth * 2);
+        
+        rectFingerFourLeft.position = CGPointMake(self.size.width / 4, self.size.height - leftTop - fingerWidth * 3.5);
+        
+        [rectFingerOneLeft setHidden:false];
+        [rectFingerOneLeft setSize:CGSizeMake(self.size.width / 2 - 20, fingerWidth) ];
+        [rectFingerTwoLeft setHidden:false];
+        [rectFingerTwoLeft setSize:CGSizeMake(self.size.width / 2 - 20, fingerWidth) ];
+        [rectFingerThreeLeft setHidden:false];
+        [rectFingerThreeLeft setSize:CGSizeMake(self.size.width / 2 - 20, fingerWidth) ];
+        [rectFingerFourLeft setHidden:false];
+        [rectFingerFourLeft setSize:CGSizeMake(self.size.width / 2 - 20, fingerWidth * 2) ];
+        
+    } else {
+        [rectFingerOneLeft setHidden:true];
+        [rectFingerTwoLeft setHidden:true];
+        [rectFingerThreeLeft setHidden:true];
+        [rectFingerFourLeft setHidden:true];
+    }
+    
+    if ([right count] > 0) {
+        UITouch *topRight = [right firstObject];
+        int rightTop = [topRight locationInView:self.view].y;
+        if (rectFingerOneRight == nil) {
+            rectFingerOneRight = [self createGradientRect:self.size.width / 2 - 20 height:fingerWidth];
+            rectFingerTwoRight = [self createGradientRect:self.size.width / 2 - 20 height:fingerWidth];
+            rectFingerThreeRight = [self createGradientRect:self.size.width / 2 - 20 height:fingerWidth];
+            rectFingerFourRight = [self createGradientRect:self.size.width / 2 - 20 height:fingerWidth * 2];
+            
+            [self addChild:rectFingerOneRight];
+            [self addChild:rectFingerTwoRight];
+            [self addChild:rectFingerThreeRight];
+            [self addChild:rectFingerFourRight];
+        }
+        rectFingerOneRight.position = CGPointMake(self.size.width * 3/4, self.size.height - rightTop);
+        
+        rectFingerTwoRight.position = CGPointMake(self.size.width * 3/4, self.size.height - rightTop - fingerWidth);
+        
+        rectFingerThreeRight.position = CGPointMake(self.size.width * 3/4, self.size.height - rightTop - fingerWidth * 2);
+        
+        rectFingerFourRight.position = CGPointMake(self.size.width * 3/4, self.size.height - rightTop - fingerWidth * 3.5);
+        
+        [rectFingerOneRight setHidden:false];
+        [rectFingerOneRight setSize:CGSizeMake(self.size.width / 2 - 20, fingerWidth) ];
+        [rectFingerTwoRight setHidden:false];
+        [rectFingerTwoRight setSize:CGSizeMake(self.size.width / 2 - 20, fingerWidth) ];
+        [rectFingerThreeRight setHidden:false];
+        [rectFingerThreeRight setSize:CGSizeMake(self.size.width / 2 - 20, fingerWidth) ];
+        [rectFingerFourRight setHidden:false];
+        [rectFingerFourRight setSize:CGSizeMake(self.size.width / 2 - 20, fingerWidth * 2) ];
+        
+    } else {
+        [rectFingerOneRight setHidden:true];
+        [rectFingerTwoRight setHidden:true];
+        [rectFingerThreeRight setHidden:true];
+        [rectFingerFourRight setHidden:true];
+    }
+}
+
+-(SKSpriteNode*)createGradientRect:(int)width height:(int)height {
+    CIColor *topColor = [CIColor colorWithRed:248.0/255.0 green:182.0/255.0 blue:250.0/255.0 alpha:0.15];
+    CIColor *btmColor = [CIColor colorWithRed:248.0/255.0 green:182.0/255.0 blue:250.0/255.0 alpha:0.01];
+    SKTexture* backgroundTexture = [SKTexture textureWithVerticalGradientofSize:CGSizeMake(width , height) topColor:topColor bottomColor:btmColor];
+    
+    return [[SKSpriteNode alloc] initWithTexture:backgroundTexture];
 }
 
 # pragma mark Touch event callbacks
@@ -219,6 +318,7 @@
     [self sortTouches:right];
     [theme leftHandMoved:left];
     [theme rightHandMoved:right];
+    [self drawPatternGuides];
     
     UITouch *topRight = [left firstObject];
     lastRightTop = [topRight locationInView:self.view].y;
@@ -278,11 +378,21 @@
     
     [self sortTouches:left];
     [self sortTouches:right];
-    
+    [self drawPatternGuides];
     int rightPattern = [self getPattern:right withAux:true];
-    int leftPattern = [self getPattern:left withAux:false];
+    int leftPattern = [self getPattern:left withAux:true];
     
     int baseNote;
+    
+    if (leftPattern == 8) {
+        // calibrate
+        float firstDistance = [self distance:[left objectAtIndex:0] second:[left objectAtIndex:1]];
+        float secondDistance = [self distance:[left objectAtIndex:1] second:[left objectAtIndex:2]];
+        NSLog(@"First distance: %f, Second: %f", firstDistance, secondDistance);
+        fingerWidth = (firstDistance + secondDistance) / 2;
+        NSLog(@"Calibrate --> new finger width is %f", fingerWidth);
+        [self drawPatternGuides];
+    }
     
     if (isInvalidPattern || rightPattern <= 0) {
 
@@ -300,6 +410,8 @@
         [theme drawRightHandTouches:rightPattern touches:right];
         baseNote = 48 + 6 * (rightPattern - 1);
     }
+    
+    
     
     UITouch *leftTop = [right firstObject];
     UITouch *rightTop = [left firstObject];
@@ -422,31 +534,32 @@
         An array of touches of a given hand (up to 4)
 */
 -(int)getPattern:(NSMutableArray *)touches withAux:(bool)withAux {
-    int width = 164;
+    
     if ([touches count] == 0) {
         return 0;
     }
     if ([touches count] == 1) {
         return 1;
-    } else if ([touches count] == 2 && [self distance:[touches objectAtIndex:0] second:[touches objectAtIndex:1]] < width) {
+    } else if ([touches count] == 2 && [self distance:[touches objectAtIndex:0] second:[touches objectAtIndex:1]] < fingerWidth * 1.5) {
         return 2;
-    } else if ([touches count] == 2 && [self distance:[touches objectAtIndex:0] second:[touches objectAtIndex:1]] < width * 2) {
+    } else if ([touches count] == 2 && [self distance:[touches objectAtIndex:0] second:[touches objectAtIndex:1]] < fingerWidth * 2.5) {
         return 4;
     } else if ([touches count] == 3
-               && [self distance:[touches objectAtIndex:0] second:[touches objectAtIndex:1]] < width
-               && [self distance:[touches objectAtIndex:1] second:[touches objectAtIndex:2]] < width) {
+               && [self distance:[touches objectAtIndex:0] second:[touches objectAtIndex:1]] < fingerWidth * 1.5
+               && [self distance:[touches objectAtIndex:0] second:[touches objectAtIndex:2]] < fingerWidth * 2.5) {
         return 3;
         
     } else if ([touches count] == 3
-               && [self distance:[touches objectAtIndex:0] second:[touches objectAtIndex:1]] < width * 2
-               && [self distance:[touches objectAtIndex:1] second:[touches objectAtIndex:2]] < width) {
+               && [self distance:[touches objectAtIndex:0] second:[touches objectAtIndex:1]] < fingerWidth * 2.5
+               && [self distance:[touches objectAtIndex:0] second:[touches objectAtIndex:1]] > fingerWidth * 1.5
+               && [self distance:[touches objectAtIndex:1] second:[touches objectAtIndex:2]] < fingerWidth * 2.5) {
         return 5;
     } else if ([touches count] == 2
-               && [self distance:[touches objectAtIndex:0] second:[touches objectAtIndex:1]] < width * 3) {
+               && [self distance:[touches objectAtIndex:0] second:[touches objectAtIndex:1]] < fingerWidth * 4.5) {
         return 6;
     } else if ([touches count] == 3
-               && [self distance:[touches objectAtIndex:0] second: [touches objectAtIndex:1]] < width
-               && [self distance:[touches objectAtIndex:1] second: [touches objectAtIndex:2]] < width * 2) {
+               && [self distance:[touches objectAtIndex:0] second: [touches objectAtIndex:1]] < fingerWidth * 1.5
+               && [self distance:[touches objectAtIndex:1] second: [touches objectAtIndex:2]] < fingerWidth * 2.5) {
         return 7;
     } else if ([touches count] == 4) {
         return 8;

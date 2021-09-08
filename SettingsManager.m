@@ -27,6 +27,7 @@ NSString *const MIDI_OUT_CH = @"midiOutChannel";
 NSString *const SYNTH_ENABLED = @"SynthEnabled";
 
 NSString *const THEME_NAME = @"themeName";
+NSString *const FINGER_WIDTH = @"fingerWidth";
 
 + (id)sharedInstance {
     static SettingsManager *sharedMyManager = nil;
@@ -111,6 +112,11 @@ NSString *const THEME_NAME = @"themeName";
         _synthEnabled = [defaults objectForKey:SYNTH_ENABLED];
         if (_synthEnabled == nil) {
             _synthEnabled = [NSNumber numberWithBool: true];
+        }
+        
+        _fingerWidth = [defaults objectForKey:FINGER_WIDTH];
+        if (_fingerWidth == nil) {
+            _fingerWidth = [NSNumber numberWithFloat:136];
         }
         
     }
@@ -204,6 +210,12 @@ NSString *const THEME_NAME = @"themeName";
     _midiOutChannel = midiOutChannel;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:_midiOutChannel forKey:MIDI_OUT_CH];
+}
+
+-(void)setFingerWidth:(NSNumber *)fingerWidth {
+    _fingerWidth = fingerWidth;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:_fingerWidth forKey:FINGER_WIDTH];
 }
 
 @end

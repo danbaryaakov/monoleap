@@ -72,9 +72,9 @@
     
     left = [NSMutableArray new];
     right = [NSMutableArray new];
-    fingerWidth = 136;
     
     SettingsManager* settings = [SettingsManager sharedInstance];
+    fingerWidth = settings.fingerWidth.floatValue;
     leftXCtrlValue = settings.leftXCtrlValue.intValue;
     leftYCtrlValue = settings.leftYCtrlValue.intValue;
     rightYCtrlValue = settings.rightYCtrlValue.intValue;
@@ -504,6 +504,8 @@
     float secondDistance = [self distance:[left objectAtIndex:1] second:[left objectAtIndex:2]];
     NSLog(@"First distance: %f, Second: %f", firstDistance, secondDistance);
     fingerWidth = (firstDistance + secondDistance) / 2;
+    SettingsManager* settings = [SettingsManager sharedInstance];
+    [settings setFingerWidth:[NSNumber numberWithFloat:fingerWidth]];
     NSLog(@"Calibrate --> new finger width is %f", fingerWidth);
     [self drawPatternGuides];
 }

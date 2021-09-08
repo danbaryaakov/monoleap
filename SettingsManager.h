@@ -35,6 +35,7 @@
 @property (nonatomic, retain) NSNumber *midiOutChannel;
 
 @property (nonatomic, retain) NSNumber *synthEnabled;
+@property (nonatomic, retain) NSNumber *fingerWidth;
 
 + (id)sharedInstance;
 

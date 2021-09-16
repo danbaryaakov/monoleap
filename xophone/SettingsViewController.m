@@ -117,7 +117,7 @@
 - (IBAction)xAxisLeftStepperChanged:(UIStepper*)sender {
     int value = floor(sender.value);
     
-    SettingsManager.leftXCtrlValue = [NSNumber numberWithInt: value];
+    SettingsManager.leftXCtrlValue = value;
     self.leftXLabel.text = [NSString stringWithFormat:@"%i", value];
     [self.leftXCtrlValueSlider setValue:value animated:YES ];
 }
@@ -128,8 +128,7 @@
 }
 
 - (IBAction)synthEnabled:(UISwitch*)sender {
-    
-    SettingsManager.synthEnabled = [NSNumber numberWithBool:sender.on];
+    SettingsManager.synthEnabled = sender.on;
 }
 
 
@@ -151,7 +150,7 @@
 - (IBAction)yAxisLeftStepperChanged:(UIStepper*)sender {
     int value = floor(sender.value);
     
-    SettingsManager.leftYCtrlValue = [NSNumber numberWithInt:value];
+    SettingsManager.leftYCtrlValue = value;
     self.leftYLabel.text = [NSString stringWithFormat:@"%i", value];
     [self.leftYCtrlValueSlider setValue: value animated:YES];
 }
@@ -178,9 +177,7 @@
 
 - (IBAction)yAxisRightStepperChanged:(UIStepper*)sender {
     int value = floor(sender.value);
-    
     SettingsManager.rightYCtrlValue = value;
-//    settings.rightYCtrlValue = [NSNumber numberWithInt:value];
     self.rightYLabel.text = [NSString stringWithFormat:@"%i", value];
     [self.rightYCtrlValueSlider setValue: value animated:YES];
 }

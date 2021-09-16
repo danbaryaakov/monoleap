@@ -10,7 +10,9 @@ import Foundation
 import AudioKit
 
 class MIDIConnector: NSObject, MidiConnectorImpl {
-
+    func sendMidi(_ message: UnsafePointer<Byte>) {
+        
+    }
     @objc static let sharedInstance = MIDIConnector()
     var midi = AudioKit.MIDI()
     

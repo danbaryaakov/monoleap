@@ -11,7 +11,7 @@
 		277FA7CD26F343CB0063022A /* InstrumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277FA7CA26F33FA70063022A /* InstrumentViewController.swift */; };
 		277FA7D726F364260063022A /* InstrumentScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 95FC67561B5E607C00C756F5 /* InstrumentScene.m */; };
 		277FA7DA26F378410063022A /* BasicTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A8B79E1BDF8B0E007494D1 /* BasicTheme.m */; };
-		277FA7DC26F37A0F0063022A /* SettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 95451D021B6E52D100FB9D12 /* SettingsManager.m */; };
+		277FA7E026F381880063022A /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277FA7D226F358200063022A /* SettingsManager.swift */; };
 		278DD63426EB485E0079F8B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278DD63326EB485E0079F8B8 /* AppDelegate.swift */; };
 		278DD63626EB4A1E0079F8B8 /* MidiConnectorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278DD63526EB4A1E0079F8B8 /* MidiConnectorImpl.swift */; };
 		456AEA0FD551FF79B0329260 /* libPods-monoleapTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 784AE53788D6059DE943738B /* libPods-monoleapTests.a */; };
@@ -671,11 +671,11 @@
 				95BE49841BE298700094A02B /* ThemeSelectionController.m in Sources */,
 				278DD63626EB4A1E0079F8B8 /* MidiConnectorImpl.swift in Sources */,
 				278DD63426EB485E0079F8B8 /* AppDelegate.swift in Sources */,
-				277FA7DC26F37A0F0063022A /* SettingsManager.m in Sources */,
 				277FA7D726F364260063022A /* InstrumentScene.m in Sources */,
 				95D147261B6D510600770BF3 /* Model.xcdatamodeld in Sources */,
 				277FA7CD26F343CB0063022A /* InstrumentViewController.swift in Sources */,
 				2757768326ED0AEC00134DDC /* MIDIConnector.swift in Sources */,
+				277FA7E026F381880063022A /* SettingsManager.swift in Sources */,
 				9586003126E7721D00A4A712 /* Second.swift in Sources */,
 				9586002C26E76BE800A4A712 /* SynthManager.swift in Sources */,
 				952BCD401B6971A800B67629 /* SettingsViewController.m in Sources */,

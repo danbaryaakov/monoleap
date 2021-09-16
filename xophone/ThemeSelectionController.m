@@ -7,9 +7,9 @@
 //
 
 #import "ThemeSelectionController.h"
-#import "SettingsManager.h"
+//#import "SettingsManager.h"
 #import "Theme.h"
-
+#import "monoleap-Swift.h"
 @interface ThemeSelectionController ()
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *themeSelector;
@@ -20,10 +20,10 @@
 @implementation ThemeSelectionController
 - (void)viewDidLoad {
     [super viewDidLoad];
-    SettingsManager* settings = [SettingsManager sharedInstance];
+    //* settings = [SettingsManager sharedInstance];
     for (int i = 0; i < [self.themeSelector numberOfSegments]; i++)
     {
-        if ([[self.themeSelector titleForSegmentAtIndex:i] isEqualToString:settings.themeName])
+        if ([[self.themeSelector titleForSegmentAtIndex:i] isEqualToString:SettingsManager.themeName])
         {
             [self.themeSelector setSelectedSegmentIndex:i];
             break;
@@ -32,7 +32,7 @@
     
     self.descriptionLabel.numberOfLines = 3;
     self.descriptionLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    self.descriptionLabel.text = [Theme themeDescription:settings.themeName];
+    self.descriptionLabel.text = [Theme themeDescription:SettingsManager.themeName];
 }
 
 - (void)didReceiveMemoryWarning {

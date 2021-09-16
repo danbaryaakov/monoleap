@@ -5,4 +5,3 @@
 #import "InstrumentScene.h"
 #import "InstrumentViewController.h"
 #import "Theme.h"
-#import "SettingsManager.h"

@@ -8,10 +8,10 @@
 
 #import <CoreMIDI/CoreMIDI.h>
 #import "SettingsViewController.h"
-#import "SettingsManager.h"
+//#import "SettingsManager.h"
 #import "ThemeSelectionController.h"
 #import "ActionSheetPicker.h"
-
+#import "monoleap-Swift.h"
 @interface SettingsViewController ()<UIPopoverPresentationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *btnMidiChannel;
 
@@ -52,37 +52,37 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    SettingsManager *settings = [SettingsManager sharedInstance];
+    //
     
-    [self.leftXCtrlEnabled setOn: settings.leftXCtrlEnabled.boolValue];
-    [self.leftXCtrlValueSlider setValue: settings.leftXCtrlValue.floatValue];
-    [self.leftXCtrlValueStepper setValue: settings.leftXCtrlValue.intValue];
-    self.leftXLabel.text = [NSString stringWithFormat:@"%i", settings.leftXCtrlValue.intValue];
+    [self.leftXCtrlEnabled setOn: SettingsManager.leftXCtrlEnabled];
+    [self.leftXCtrlValueSlider setValue: SettingsManager.leftXCtrlValue];
+    [self.leftXCtrlValueStepper setValue: SettingsManager.leftXCtrlValue];
+    self.leftXLabel.text = [NSString stringWithFormat:@"%i", SettingsManager.leftXCtrlValue];
     
-    [self.leftYCtrlEnabled setOn: settings.leftYCtrlEnabled.boolValue];
-    [[self leftYCtrlValueSlider]setValue: settings.leftYCtrlValue.floatValue];
-    [self.leftYCtrlValueStepper setValue:settings.leftYCtrlValue.intValue];
-    self.leftYLabel.text = [NSString stringWithFormat:@"%i", settings.leftYCtrlValue.intValue];
+    [self.leftYCtrlEnabled setOn: SettingsManager.leftYCtrlEnabled];
+    [[self leftYCtrlValueSlider]setValue: SettingsManager.leftYCtrlValue];
+    [self.leftYCtrlValueStepper setValue:SettingsManager.leftYCtrlValue];
+    self.leftYLabel.text = [NSString stringWithFormat:@"%i", SettingsManager.leftYCtrlValue];
     
-    [self.rightYCtrlEnabled setOn: settings.rightYCtrlEnabled.boolValue];
-    [[self rightYCtrlValueSlider]setValue: settings.rightYCtrlValue.floatValue];
-    [self.rightYCtrlValueStepper setValue:settings.rightYCtrlValue.intValue];
-    self.rightYLabel.text = [NSString stringWithFormat:@"%i", settings.rightYCtrlValue.intValue];
+    [self.rightYCtrlEnabled setOn: SettingsManager.rightYCtrlEnabled];
+    [[self rightYCtrlValueSlider]setValue: SettingsManager.rightYCtrlValue];
+    [self.rightYCtrlValueStepper setValue:SettingsManager.rightYCtrlValue];
+    self.rightYLabel.text = [NSString stringWithFormat:@"%ld", (long)SettingsManager.rightYCtrlValue];
     
-    [self.rightXCtrlEnabled setOn: settings.rightXCtrlEnabled.boolValue];
-    [[self rightXCtrlValueSlider]setValue: settings.rightXCtrlValue.floatValue];
-    [self.rightXCtrlValueStepper setValue:settings.rightXCtrlValue.intValue];
-    self.rightXLabel.text = [NSString stringWithFormat:@"%i", settings.rightXCtrlValue.intValue];
+    [self.rightXCtrlEnabled setOn: SettingsManager.rightXCtrlEnabled];
+    [[self rightXCtrlValueSlider]setValue: SettingsManager.rightXCtrlValue];
+    [self.rightXCtrlValueStepper setValue:SettingsManager.rightXCtrlValue];
+    self.rightXLabel.text = [NSString stringWithFormat:@"%ld", SettingsManager.rightXCtrlValue];
     
-    [[self pitchBendSwitch] setOn: settings.pitchBendEnabled.boolValue];
-    [[self keySwitchEnabled] setOn: settings.keySwitchEnabled.boolValue];
-    [[self velocitySwitch] setOn: settings.velocityEnabled.boolValue];
+    [[self pitchBendSwitch] setOn: SettingsManager.pitchBendEnabled];
+    [[self keySwitchEnabled] setOn: SettingsManager.keySwitchEnabled];
+    [[self velocitySwitch] setOn: SettingsManager.velocityEnabled];
 
-    [[self btnMidiChannel] setTitle:settings.midiOutChannel.stringValue forState:UIControlStateNormal];
+    [[self btnMidiChannel] setTitle:SettingsManager.midiOutChannel forState:UIControlStateNormal];
 
-    [[self enableSynth]setOn:settings.synthEnabled.boolValue];
+    [[self enableSynth]setOn:SettingsManager.synthEnabled];
     
-    self.themeLabel.text = settings.themeName;
+    self.themeLabel.text = SettingsManager.themeName;
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(themeSelected:)
@@ -97,39 +97,39 @@
 }
 
 - (IBAction)pitchBendEnableChanged:(UISwitch*)sender {
-    SettingsManager *settings = [SettingsManager sharedInstance];
-    settings.pitchBendEnabled = [NSNumber numberWithBool:sender.on];
+    
+    SettingsManager.pitchBendEnabled = sender.on;
 }
 
 - (IBAction)xAxisLeftCtrlEnable:(UISwitch *)sender {
-    SettingsManager *settings = [SettingsManager sharedInstance];
-    settings.leftXCtrlEnabled = [NSNumber numberWithBool:sender.on];
+    
+    SettingsManager.leftXCtrlEnabled = sender.on;
 }
 
 - (IBAction)xAxisLeftChanged:(UISlider*)sender {
     int value = floor(sender.value);
-    SettingsManager *settings = [SettingsManager sharedInstance];
-    settings.leftXCtrlValue = [NSNumber numberWithInt: value];
+    
+    SettingsManager.leftXCtrlValue = value;
     self.leftXLabel.text = [NSString stringWithFormat:@"%i", value];
     [self.leftXCtrlValueStepper setValue:value];
 }
 
 - (IBAction)xAxisLeftStepperChanged:(UIStepper*)sender {
     int value = floor(sender.value);
-    SettingsManager *settings = [SettingsManager sharedInstance];
-    settings.leftXCtrlValue = [NSNumber numberWithInt: value];
+    
+    SettingsManager.leftXCtrlValue = [NSNumber numberWithInt: value];
     self.leftXLabel.text = [NSString stringWithFormat:@"%i", value];
     [self.leftXCtrlValueSlider setValue:value animated:YES ];
 }
 
 - (IBAction)yAxisLeftCtrlEnable:(UISwitch*)sender {
-    SettingsManager *settings = [SettingsManager sharedInstance];
-    settings.leftYCtrlEnabled = [NSNumber numberWithBool:sender.on];
+    
+    SettingsManager.leftYCtrlEnabled = [NSNumber numberWithBool:sender.on];
 }
 
 - (IBAction)synthEnabled:(UISwitch*)sender {
-    SettingsManager *settings = [SettingsManager sharedInstance];
-    settings.synthEnabled = [NSNumber numberWithBool:sender.on];
+    
+    SettingsManager.synthEnabled = [NSNumber numberWithBool:sender.on];
 }
 
 
@@ -142,16 +142,16 @@
 
 - (IBAction)yAxisLeftChanged:(UISlider*)sender {
     int value = floor(sender.value);
-    SettingsManager *settings = [SettingsManager sharedInstance];
-    settings.leftYCtrlValue = [NSNumber numberWithInt:value];
+    
+    SettingsManager.leftYCtrlValue = value;
     self.leftYLabel.text = [NSString stringWithFormat:@"%i", value];
     [self.leftYCtrlValueStepper setValue:value];
 }
 
 - (IBAction)yAxisLeftStepperChanged:(UIStepper*)sender {
     int value = floor(sender.value);
-    SettingsManager *settings = [SettingsManager sharedInstance];
-    settings.leftYCtrlValue = [NSNumber numberWithInt:value];
+    
+    SettingsManager.leftYCtrlValue = [NSNumber numberWithInt:value];
     self.leftYLabel.text = [NSString stringWithFormat:@"%i", value];
     [self.leftYCtrlValueSlider setValue: value animated:YES];
 }
@@ -164,22 +164,23 @@
     }
 }
 - (IBAction)yAxisRightCtrlEnable:(UISwitch*)sender {
-    SettingsManager *settings = [SettingsManager sharedInstance];
-    settings.rightYCtrlEnabled = [NSNumber numberWithBool:sender.on];
+    
+    SettingsManager.rightYCtrlEnabled = sender.on;
 }
 
 - (IBAction)yAxisRightSliderChanged:(UISlider*)sender {
     int value = floor(sender.value);
-    SettingsManager *settings = [SettingsManager sharedInstance];
-    settings.rightYCtrlValue = [NSNumber numberWithInt:value];
+    
+    SettingsManager.rightYCtrlValue = value;
     self.rightYLabel.text = [NSString stringWithFormat:@"%i", value];
     [self.rightYCtrlValueStepper setValue:value];
 }
 
 - (IBAction)yAxisRightStepperChanged:(UIStepper*)sender {
     int value = floor(sender.value);
-    SettingsManager *settings = [SettingsManager sharedInstance];
-    settings.rightYCtrlValue = [NSNumber numberWithInt:value];
+    
+    SettingsManager.rightYCtrlValue = value;
+//    settings.rightYCtrlValue = [NSNumber numberWithInt:value];
     self.rightYLabel.text = [NSString stringWithFormat:@"%i", value];
     [self.rightYCtrlValueSlider setValue: value animated:YES];
 }
@@ -193,14 +194,14 @@
 }
 
 - (IBAction)xAxisRightCtrlEnable:(UISwitch*)sender {
-    SettingsManager *settings = [SettingsManager sharedInstance];
-    settings.rightXCtrlEnabled = [NSNumber numberWithBool:sender.on];
+    
+    SettingsManager.rightXCtrlEnabled = sender.on;
 }
 
 - (IBAction)xAxisRightSliderChanged:(UISlider*)sender {
     int value = floor(sender.value);
-    SettingsManager *settings = [SettingsManager sharedInstance];
-    settings.rightXCtrlValue = [NSNumber numberWithInt:value];
+    
+    SettingsManager.rightXCtrlValue = value;
     self.rightXLabel.text = [NSString stringWithFormat:@"%i", value];
     [self.rightXCtrlValueStepper setValue:value];
 
@@ -208,8 +209,8 @@
 
 - (IBAction)xAxisRightStepperChanged:(UIStepper*)sender {
     int value = floor(sender.value);
-    SettingsManager *settings = [SettingsManager sharedInstance];
-    settings.rightYCtrlValue = [NSNumber numberWithInt:value];
+    
+    SettingsManager.rightYCtrlValue = value;
     self.rightXLabel.text = [NSString stringWithFormat:@"%i", value];
     [self.rightXCtrlValueSlider setValue: value animated:YES];
 
@@ -228,18 +229,18 @@
 }
 
 - (IBAction)enableKSChanged:(UISwitch*)sender {
-    SettingsManager *settings = [SettingsManager sharedInstance];
-    settings.keySwitchEnabled = [NSNumber numberWithBool:sender.on];
+    
+    SettingsManager.keySwitchEnabled = sender.on;
 }
 
 - (IBAction)enableVelocityChanged:(UISwitch*)sender {
-    SettingsManager *settings = [SettingsManager sharedInstance];
-    settings.velocityEnabled = [NSNumber numberWithBool:sender.on];
+    
+    SettingsManager.velocityEnabled = sender.on;
 }
 
 - (IBAction)enableSythChanged:(UISwitch *)sender {
-    SettingsManager *settings = [SettingsManager sharedInstance];
-    settings.synthEnabled = [NSNumber numberWithBool:sender.on];
+    
+    SettingsManager.synthEnabled = sender.on;
 }
 
 -(void)sendMidi:(Byte*)message {
@@ -283,8 +284,8 @@
 -(void)themeSelected:(NSNotification*)notification {
     NSString* themeName = notification.object;
     self.themeLabel.text = themeName;
-    SettingsManager *settings = [SettingsManager sharedInstance];
-    settings.themeName = themeName;
+    
+    SettingsManager.themeName = themeName;
 }
 
 /*
@@ -318,9 +319,9 @@
                                            
                                            [self.btnMidiChannel setTitle:selectedValue forState:UIControlStateNormal];
                                            
-                                           SettingsManager *settings = [SettingsManager sharedInstance];
                                            
-                                           settings.midiOutChannel = [NSNumber numberWithInteger:self.btnMidiChannel.titleLabel.text.integerValue];
+                                           
+                                           SettingsManager.midiOutChannel =  self.btnMidiChannel.titleLabel.text;
                                        }
                                      cancelBlock:^(ActionSheetStringPicker *picker) {
                                          

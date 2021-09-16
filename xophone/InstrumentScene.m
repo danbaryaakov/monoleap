@@ -8,7 +8,7 @@
 
 #import "InstrumentScene.h"
 #import "SKTexture+Gradient.h"
-#import "SettingsManager.h"
+//#import "SettingsManager.h"
 #import "Theme.h"
 #import "ColorBurstTheme.h"
 #import "BasicTheme.h"
@@ -72,26 +72,25 @@
     left = [NSMutableArray new];
     right = [NSMutableArray new];
     
-    SettingsManager* settings = [SettingsManager sharedInstance];
-    fingerWidth = settings.fingerWidth.floatValue;
-    leftXCtrlValue = settings.leftXCtrlValue.intValue;
-    leftYCtrlValue = settings.leftYCtrlValue.intValue;
-    rightYCtrlValue = settings.rightYCtrlValue.intValue;
-    rightXCtrlValue = settings.rightXCtrlValue.intValue;
-    pitchBendEnabled = settings.pitchBendEnabled.boolValue;
-    keySwitchEnabled = settings.keySwitchEnabled.boolValue;
-    velocityEnabled = settings.velocityEnabled.boolValue;
+    fingerWidth = SettingsManager.fingerWidth;
+    leftXCtrlValue = SettingsManager.leftXCtrlValue;
+    leftYCtrlValue = SettingsManager.leftYCtrlValue;
+    rightYCtrlValue = SettingsManager.rightYCtrlValue;
+    rightXCtrlValue = SettingsManager.rightXCtrlValue;
+    pitchBendEnabled = SettingsManager.pitchBendEnabled;
+    keySwitchEnabled = SettingsManager.keySwitchEnabled;
+    velocityEnabled = SettingsManager.velocityEnabled;
     
-    leftXCtrlEnabled = settings.leftXCtrlEnabled.boolValue;
-    leftYCtrlEnabled = settings.leftYCtrlEnabled.boolValue;
-    rightXCtrlEnabled = settings.rightXCtrlEnabled.boolValue;
-    rightYCtrlEnabled = settings.rightYCtrlEnabled.boolValue;
+    leftXCtrlEnabled = SettingsManager.leftXCtrlEnabled;
+    leftYCtrlEnabled = SettingsManager.leftYCtrlEnabled;
+    rightXCtrlEnabled = SettingsManager.rightXCtrlEnabled;
+    rightYCtrlEnabled = SettingsManager.rightYCtrlEnabled;
     isRightMuted = false;
     isLeftMuted = false;
-    synthEnabled = settings.synthEnabled.boolValue;
+    synthEnabled = SettingsManager.synthEnabled;
     
     if (theme == nil) {
-        theme = [Theme byName:settings.themeName];
+        theme = [Theme byName:SettingsManager.themeName];
         [theme applyTo:self];
     }
     
@@ -503,8 +502,7 @@
     float secondDistance = [self distance:[left objectAtIndex:1] second:[left objectAtIndex:2]];
     NSLog(@"First distance: %f, Second: %f", firstDistance, secondDistance);
     fingerWidth = (firstDistance + secondDistance) / 2;
-    SettingsManager* settings = [SettingsManager sharedInstance];
-    [settings setFingerWidth:[NSNumber numberWithFloat:fingerWidth]];
+    SettingsManager.fingerWidth = fingerWidth;
     NSLog(@"Calibrate --> new finger width is %f", fingerWidth);
     [self drawPatternGuides];
 }

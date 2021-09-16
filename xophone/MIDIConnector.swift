@@ -9,8 +9,9 @@
 import Foundation
 import CoreMIDI
 
-class MIDIConnector2: NSObject, MidiConnectorImpl {
-    @objc static let shared = MIDIConnector2()
+class MIDIConnector: NSObject, MidiConnectorImpl {
+
+    @objc static let sharedInstance = MIDIConnector()
     var outputPort: MIDIPortRef = MIDIPortRef()
     var client: MIDIClientRef = MIDIClientRef()
     
@@ -19,52 +20,29 @@ class MIDIConnector2: NSObject, MidiConnectorImpl {
         MIDIClientCreate("Monoleap" as CFString, nil, nil, &client);
         MIDIOutputPortCreate(client, "MonoLeap Output Port" as CFString, &outputPort);
     }
-    public func sendNoteOn(noteNumber n: UInt8, inChannel channel: Int, withVelocity velocity: UInt8) {
-        let message: [UInt8] = [UInt8(0x90), n, velocity]
-        self.sendMidi(message: message)
+    
+    func sendNote(on noteNumber: Int, inChannel channel: Int, withVelocity velocity: Int) {
+        let message: [UInt8] = [0x90, UInt8(channel), UInt8(velocity)]
+        self.sendMidi(message)
     }
     
-    public func sendNoteOff(noteNumber: Int, inChannel channel: Int, withVelocity velocity: Int) {
-        
+    public func sendNoteOff(_ noteNumber: Int, inChannel channel: Int, withVelocity velocity: Int) {
+        let message: [UInt8] = [0x80, UInt8(noteNumber), 0]
+        self.sendMidi(message)
     }
     
-    public func sendControllerChange(ccNumber: Int, value: Int, inChannel channel: Int) {
-        
+    public func sendControllerChange(_ ccNumber: Int, value: Int, inChannel channel: Int) {
+        let message: [UInt8] = [176, UInt8(ccNumber), UInt8(value)]
+        self.sendMidi(message)
     }
-    
-    func sendMidi(message: [UInt8]) {
-//        guard let p = MIDIProtocolID(rawValue: 0) else { return }
-//        if #available(iOS 14.0, *) {
-//            var packetList: MIDIEventList = MIDIEventList()
-//            let packet = MIDIEventListInit(&packetList, p)
-//            MIDIEventListAdd(&packetList, Int(packetList.numPackets), packet, 0, message.count, message)
-//            let destinationCount = MIDIGetNumberOfDestinations()
-//            for i in 0...destinationCount - 1 {
-//                MIDISendEventList(outputPort, MIDIGetDestination(i), &packetList)
-//            }
-//        } else { // fallback
-//            var packetList: MIDIPacketList = MIDIPacketList()
-//            let packet = MIDIPacketListInit(&packetList)
-//            var outputArr = [UInt8]()
-//            memcpy(&outputArr, message, message.count);
-//            MIDIPacketListAdd(&packetList, Int(packetList.numPackets), packet, 0, message.count, outputArr)
-//            let destinationCount = MIDIGetNumberOfDestinations()
-//            for i in 0...destinationCount - 1 {
-//                MIDISend(outputPort, MIDIGetDestination(i), &packetList)
-//            }
-//
-//        }
+
+    func sendMidi(_ message: UnsafePointer<Byte>) {
         var packetList: MIDIPacketList = MIDIPacketList()
         let packet = MIDIPacketListInit(&packetList)
-        var outputArr = [UInt8]()
-        memcpy(&outputArr, message, message.count);
-        MIDIPacketListAdd(&packetList, Int(packetList.numPackets), packet, 0, message.count, outputArr)
+        MIDIPacketListAdd(&packetList, MemoryLayout.size(ofValue: packetList), packet, 0, MemoryLayout.size(ofValue: message), message)
         let destinationCount = MIDIGetNumberOfDestinations()
         for i in 0...destinationCount - 1 {
             MIDISend(outputPort, MIDIGetDestination(i), &packetList)
         }
-        
     }
-    
-    
 }

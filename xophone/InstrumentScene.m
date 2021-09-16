@@ -12,7 +12,7 @@
 #import "Theme.h"
 #import "ColorBurstTheme.h"
 #import "BasicTheme.h"
-#import "MIDIConnector.h"
+//#import "MIDIConnector.h"
 #import "monoleap-Swift.h"
 
 @implementation InstrumentScene {
@@ -69,7 +69,6 @@
     self.backgroundColor = [SKColor blackColor];
     
     midiConnector = [MIDIConnector sharedInstance];
-    
     left = [NSMutableArray new];
     right = [NSMutableArray new];
     

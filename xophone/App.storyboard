@@ -1706,7 +1706,7 @@
         <!--Instrument View Controller-->
         <scene sceneID="Tzp-Hn-8Xm">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="wZG-gi-D16" customClass="InstrumentViewController" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="wZG-gi-D16" customClass="InstrumentViewController" customModule="monoleap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="05l-a6-IvE"/>
                         <viewControllerLayoutGuide type="bottom" id="MkM-kN-GmN"/>

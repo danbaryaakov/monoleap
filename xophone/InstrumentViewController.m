@@ -52,7 +52,7 @@
     
     [self initMenu];
     
-    [skView presentScene:scene];
+ //   [skView presentScene:scene];
 }
 
 - (void)orientationChanged:(NSNotification *)notification{

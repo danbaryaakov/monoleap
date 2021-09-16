@@ -7,42 +7,28 @@
 //
 
 import Foundation
-import CoreMIDI
+import AudioKit
 
 class MIDIConnector: NSObject, MidiConnectorImpl {
 
     @objc static let sharedInstance = MIDIConnector()
-    var outputPort: MIDIPortRef = MIDIPortRef()
-    var client: MIDIClientRef = MIDIClientRef()
+    var midi = AudioKit.MIDI()
     
     override init() {
         super.init()
-        MIDIClientCreate("Monoleap" as CFString, nil, nil, &client);
-        MIDIOutputPortCreate(client, "MonoLeap Output Port" as CFString, &outputPort);
+        midi.openOutput()
     }
     
     func sendNote(on noteNumber: Int, inChannel channel: Int, withVelocity velocity: Int) {
-        let message: [UInt8] = [0x90, UInt8(channel), UInt8(velocity)]
-        self.sendMidi(message)
+        midi.sendEvent(MIDIEvent(noteOn: MIDINoteNumber(noteNumber), velocity: MIDIVelocity(127), channel: MIDIChannel(1)))
     }
     
     public func sendNoteOff(_ noteNumber: Int, inChannel channel: Int, withVelocity velocity: Int) {
-        let message: [UInt8] = [0x80, UInt8(noteNumber), 0]
-        self.sendMidi(message)
+        midi.sendEvent(MIDIEvent(noteOff: MIDINoteNumber(noteNumber), velocity: MIDIVelocity(127), channel: MIDIChannel(1)))
     }
     
     public func sendControllerChange(_ ccNumber: Int, value: Int, inChannel channel: Int) {
-        let message: [UInt8] = [176, UInt8(ccNumber), UInt8(value)]
-        self.sendMidi(message)
+        midi.sendControllerMessage(MIDIByte(ccNumber), value: MIDIByte(value))
     }
 
-    func sendMidi(_ message: UnsafePointer<Byte>) {
-        var packetList: MIDIPacketList = MIDIPacketList()
-        let packet = MIDIPacketListInit(&packetList)
-        MIDIPacketListAdd(&packetList, MemoryLayout.size(ofValue: packetList), packet, 0, MemoryLayout.size(ofValue: message), message)
-        let destinationCount = MIDIGetNumberOfDestinations()
-        for i in 0...destinationCount - 1 {
-            MIDISend(outputPort, MIDIGetDestination(i), &packetList)
-        }
-    }
 }

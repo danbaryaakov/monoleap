@@ -95,7 +95,7 @@
     }
     
     if (pitchBendEnabled) {
-        [self drawPitchBendArea];
+//        [self drawPitchBendArea];
     }
     if (synthEnabled) {
         SynthManager.instance;
@@ -670,16 +670,15 @@
 }
 
 -(void)handlePitchBend: (UITouch*) touch {
-    CGPoint location = [touch locationInView:self.view];
-    CGFloat width = CGRectGetWidth(self.view.bounds);
-    CGFloat percent = MAX(0, location.x - width / 4) * 100 / (width / 4);
-    int val = floor(percent * 63 / 100);
-    if (val != pitchBend) {
-        Byte message[] = {224, 0, 64 + val};
-        pitchBend = val;
-        [midiConnector sendMidi:message];
-    }
-
+//    CGPoint location = [touch locationInView:self.view];
+//    CGFloat width = CGRectGetWidth(self.view.bounds);
+//    CGFloat percent = MAX(0, location.x - width / 4) * 100 / (width / 4);
+//    int val = floor(percent * 63 / 100);
+//    if (val != pitchBend) {
+//        Byte message[] = {224, 0, 64 + val};
+//        pitchBend = val;
+//        [midiConnector sendMidi:message];
+//    }
 }
 
 -(void)handleLeftXCtrl:(UITouch*)touch isMoved:(bool)moved{

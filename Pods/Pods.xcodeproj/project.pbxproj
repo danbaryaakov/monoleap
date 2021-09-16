@@ -532,8 +532,8 @@
 		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -588,8 +588,8 @@
 			files = (
 				FD69607941B869576405785043433556 /* MVScrollerClipView.m in Sources */,
 				80DA74601DF46C149DF1C4E7FB42F0F2 /* MVSelectorContentView.m in Sources */,
-				B544953FBCB5D037120194444784E566 /* MVSelectorScrollView.m in Sources */,
 				05DC860CF8CBA26522A8E985D6B248AE /* MVSelectorScrollView-dummy.m in Sources */,
+				B544953FBCB5D037120194444784E566 /* MVSelectorScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -597,8 +597,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79462DFFAAD7E7F756F7D81F50509C76 /* AwesomeMenu.m in Sources */,
 				0E89BB1ABDE8506FD88EDCE4726012CC /* AwesomeMenu-dummy.m in Sources */,
+				79462DFFAAD7E7F756F7D81F50509C76 /* AwesomeMenu.m in Sources */,
 				F35EEC6C619304F466AA4FC911E605FF /* AwesomeMenuItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -33,6 +33,7 @@ class MIDIConnector: NSObject, MidiConnectorImpl {
     
     public func sendControllerChange(_ ccNumber: Int, value: Int, inChannel channel: Int) {
         midi.openOutput()
+        midi.sendEvent(MIDIEvent(controllerChange: MIDIByte(ccNumber), value: MIDIByte(value), channel: 0))
         midi.sendControllerMessage(MIDIByte(ccNumber), value: MIDIByte(value))
     }
 

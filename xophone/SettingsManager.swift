@@ -8,9 +8,7 @@
 
 import Foundation
 
-class SettingsManager: NSObject {
-    @objc static let sharedInstance = SettingsManager()
-    
+class SettingsManager: NSObject {    
     static let defaults = UserDefaults.standard
     struct Constants {
         static let leftXCtrlValue = "leftXCtrlValue"
@@ -104,8 +102,8 @@ class SettingsManager: NSObject {
         set { defaults.setValue(newValue, forKey: Constants.themeName)}
     }
     
-    @objc static var fingerWidth: Float {
-        get { return defaults.value(forKey: Constants.fingerWidth) as? Float ?? 136.0 }
+    @objc static var fingerWidth: CGFloat {
+        get { return defaults.value(forKey: Constants.fingerWidth) as? CGFloat ?? 136.0 }
         set { defaults.setValue(newValue, forKey: Constants.fingerWidth)}
     }
 

@@ -11,7 +11,7 @@
 //#import "SettingsManager.h"
 #import "Theme.h"
 #import "ColorBurstTheme.h"
-#import "BasicTheme.h"
+//#import "BasicTheme.h"
 //#import "MIDIConnector.h"
 #import "monoleap-Swift.h"
 
@@ -32,7 +32,7 @@
     
     int prevNote;
 
-    Theme* theme;
+    ColorBurstTheme* theme;
     
     int leftXCtrlValue, leftYCtrlValue, rightYCtrlValue, rightXCtrlValue, leftXCurrent, leftYCurrent, rightXCurrent, rightYCurrent;
     bool pitchBendEnabled, keySwitchEnabled, velocityEnabled, leftXCtrlEnabled, leftYCtrlEnabled, rightXCtrlEnabled, rightYCtrlEnabled, isTouchesEnded, PDEnabled, isInvalidPattern;
@@ -90,7 +90,7 @@
     synthEnabled = SettingsManager.synthEnabled;
     
     if (theme == nil) {
-        theme = [Theme byName:SettingsManager.themeName];
+        theme = [ColorBurstTheme byName:SettingsManager.themeName];
         [theme applyTo:self];
     }
     
@@ -531,6 +531,7 @@
         return (NSComparisonResult)NSOrderedSame;
     }];
 }
+
 
 /*!
     Analyzes the given array of (already sorted) touches and returns a pattern if one is matched.

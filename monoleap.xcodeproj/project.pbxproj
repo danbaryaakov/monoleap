@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		272D07552703792E0039D6FB /* InstrumentScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 95FC67561B5E607C00C756F5 /* InstrumentScene.m */; };
+		272D075627037AA90039D6FB /* InstrumentScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277FA7CF26F350130063022A /* InstrumentScene.swift */; };
 		2757768326ED0AEC00134DDC /* MIDIConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278DD63726EB4A9F0079F8B8 /* MIDIConnector.swift */; };
 		277FA7CD26F343CB0063022A /* InstrumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277FA7CA26F33FA70063022A /* InstrumentViewController.swift */; };
-		277FA7D726F364260063022A /* InstrumentScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 95FC67561B5E607C00C756F5 /* InstrumentScene.m */; };
-		277FA7DA26F378410063022A /* BasicTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A8B79E1BDF8B0E007494D1 /* BasicTheme.m */; };
+		277FA7DF26F380300063022A /* ThemeImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277FA7D526F361670063022A /* ThemeImpl.swift */; };
 		277FA7E026F381880063022A /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277FA7D226F358200063022A /* SettingsManager.swift */; };
 		278DD63426EB485E0079F8B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278DD63326EB485E0079F8B8 /* AppDelegate.swift */; };
 		278DD63626EB4A1E0079F8B8 /* MidiConnectorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278DD63526EB4A1E0079F8B8 /* MidiConnectorImpl.swift */; };
@@ -663,15 +664,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				277FA7DF26F380300063022A /* ThemeImpl.swift in Sources */,
 				952BCD381B6917E800B67629 /* SKTexture+Gradient.m in Sources */,
 				95A8B79C1BDEC7C9007494D1 /* ColorBurstTheme.m in Sources */,
-				277FA7DA26F378410063022A /* BasicTheme.m in Sources */,
+				272D07552703792E0039D6FB /* InstrumentScene.m in Sources */,
 				95A8B7991BDEC77C007494D1 /* Theme.m in Sources */,
 				95BE49891BE36D800094A02B /* SettingsView.m in Sources */,
+				272D075627037AA90039D6FB /* InstrumentScene.swift in Sources */,
 				95BE49841BE298700094A02B /* ThemeSelectionController.m in Sources */,
 				278DD63626EB4A1E0079F8B8 /* MidiConnectorImpl.swift in Sources */,
 				278DD63426EB485E0079F8B8 /* AppDelegate.swift in Sources */,
-				277FA7D726F364260063022A /* InstrumentScene.m in Sources */,
 				95D147261B6D510600770BF3 /* Model.xcdatamodeld in Sources */,
 				277FA7CD26F343CB0063022A /* InstrumentViewController.swift in Sources */,
 				2757768326ED0AEC00134DDC /* MIDIConnector.swift in Sources */,

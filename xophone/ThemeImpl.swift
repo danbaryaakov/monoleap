@@ -37,7 +37,7 @@ import UIKit
 typealias Particle = [Int: SKEmitterNode]
 
 @objc class BaseTheme: NSObject {
-    var parent: InstrumentScene?
+    var parent: InstrumentScene1?
     var leftParticles: Particle!
     var rightParticles: Particle!
 }
@@ -61,7 +61,7 @@ import SpriteKit
         self.adjustParticlePositions(rightParticles, touchs: touches)
     }
     
-    @objc func apply(to scene: InstrumentScene?) {
+    @objc func apply(to scene: InstrumentScene1?) {
         parent = scene
         leftParticles = Particle()
         rightParticles = Particle()

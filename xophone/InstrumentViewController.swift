@@ -28,7 +28,7 @@ import SpriteKit
         self.view.isMultipleTouchEnabled = true
         skView.isMultipleTouchEnabled = true
         view.addSubview(skView)
-        let scene = InstrumentScene.unarchive(fromFile: "InstrumentScene")
+        let scene = InstrumentScene1.unarchive(fromFile: "InstrumentScene")
         scene?.scaleMode = .resizeFill
         
 

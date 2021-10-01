@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "InstrumentScene1.touchesEnded(_:with:):InstrumentScene.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "allTouches!.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "InstrumentScene1.handleTouches(args:):InstrumentScene.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "left.first.location(in: view)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "InstrumentScene1.getPattern(_:withAux:):InstrumentScene.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "">
+            </PersistentString>
+            <PersistentString
+               value = "distance(first: touches[0], second: touches[1]) ">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "InstrumentScene1.noteOn(_:velocity:):InstrumentScene.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "SettingsManager.synthEnabled">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "InstrumentScene1.handleRightYCtrl(touch:):InstrumentScene.swift">
+      </ContextState>
+      <ContextState
+         contextName = "InstrumentScene1.handleLeftYCtrl(touch:):InstrumentScene.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "SettingsManager.leftYCtrlValue">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

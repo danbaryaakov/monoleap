@@ -29,9 +29,9 @@ import SoundpipeAudioKit
         osc = PWMOscillator()
         osc2 = DynamicOscillator()
         osc2.setWaveform(Table(.sawtooth))
-        osc2.amplitude = 0.6;
+        osc2.amplitude = 0.8;
         
-        mixer = Mixer(osc, osc2)
+        mixer = Mixer(osc2)
         
         filter = MoogLadder(mixer)
         filter.start()
@@ -60,12 +60,13 @@ import SoundpipeAudioKit
     }
     
     @objc func noteOn(_ noteNumber: Int) {
+        osc.frequency = noteNumber.midiNoteToFrequency()
+        osc2.frequency = noteNumber.midiNoteToFrequency()
+        
         if (playingNote == nil) {
             osc.start();
             osc2.start();
         }
-        osc.frequency = noteNumber.midiNoteToFrequency()
-        osc2.frequency = noteNumber.midiNoteToFrequency()
         
         playingNote = noteNumber;
     }

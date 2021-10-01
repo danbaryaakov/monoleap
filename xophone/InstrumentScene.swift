@@ -102,7 +102,7 @@ class InstrumentScene1: SKScene {
             rectFingerThreeLeft?.position = CGPoint(x: leftPositionX, y: size.height - leftTop - fingerWidth * 2)
             rectFingerFourLeft?.position = CGPoint(x: leftPositionX, y: size.height - leftTop - fingerWidth * 3.5)
             
-            [rectFingerFourLeft, rectFingerTwoLeft, rectFingerThreeLeft].forEach { node in
+            [rectFingerOneLeft, rectFingerTwoLeft, rectFingerThreeLeft].forEach { node in
                 node?.isHidden = false
                 node?.size = CGSize(width: guideWidth , height: fingerWidth)
             }
@@ -115,7 +115,7 @@ class InstrumentScene1: SKScene {
         if right.count > 0 {
             let touch = right.first
             let rightTop = touch?.location(in: self.view).y ?? 0
-            
+
             if rectFingerOneRight == nil {
                 rectFingerOneRight = createGradientRect(width: guideWidth, height: fingerWidth)
                 rectFingerTwoRight = createGradientRect(width: guideWidth, height: fingerWidth)
@@ -123,14 +123,14 @@ class InstrumentScene1: SKScene {
                 rectFingerFourRight = createGradientRect(width: guideWidth, height: fingerWidth * 2)
                 [rectFingerOneRight, rectFingerTwoRight, rectFingerThreeRight, rectFingerFourRight].forEach({addChild($0!)})
             }
-            
+
             let rightPositionX = self.size.width * 3/4
-            
+
             rectFingerOneRight?.position = CGPoint(x: rightPositionX, y: size.height - rightTop)
             rectFingerTwoRight?.position = CGPoint(x: rightPositionX, y: size.height - rightTop - fingerWidth)
             rectFingerThreeRight?.position = CGPoint(x: rightPositionX, y: size.height - rightTop - fingerWidth * 2)
             rectFingerFourRight?.position = CGPoint(x: rightPositionX, y: size.height - rightTop - fingerWidth * 3.5)
-            
+
             [rectFingerOneRight, rectFingerTwoRight, rectFingerThreeRight].forEach { node in
                 node?.isHidden = false
                 node?.size = CGSize(width: guideWidth, height: fingerWidth)
@@ -179,7 +179,7 @@ class InstrumentScene1: SKScene {
         left.removeAll()
         right.removeAll()
         guard let view = self.view else { return }
-        let allTouches = event?.touches(for: view)
+        let allTouches = event!.touches(for: view)
         let allTouchesRemoved = allTouches?.count ?? 0 == 0
         
         var touchesMinY = Int.max
@@ -187,6 +187,8 @@ class InstrumentScene1: SKScene {
         let width = view.bounds.width
         
         for touch in allTouches! {
+            let position = touch.location(in: view)
+            
             if touches.contains(touch) {
                 let position = touch.location(in: view)
                 print("Removed touch position \(position.x) \(position.y)")
@@ -195,6 +197,7 @@ class InstrumentScene1: SKScene {
                 }
                 continue
             }
+            print("touchesEnded(): touch x pos = \(position.x)")
             if position.x < width / 2 {
                 left.append(touch)
                 touchesMinY = min(touchesMinY, Int(position.y))
@@ -220,7 +223,7 @@ class InstrumentScene1: SKScene {
         guard let view = self.view else { return }
         let allTouches = event?.touches(for: view)
         var index = 0
-        
+
         for touch in allTouches! {
             let position = touch.location(in: self.view)
             let width = self.view?.bounds.width ?? 0
@@ -236,17 +239,17 @@ class InstrumentScene1: SKScene {
         theme?.leftHandMoved(left)
         theme?.rightHandMoved(right)
         self.drawPatternGuides()
-        
+
         let topRight = left.first
         lastRightTop = topRight?.location(in: view).y
-        
+
         if right.count > 0, left.count > 0 {
             handleLeftYCtrl(touch: right.first)
             self.handleLeftXCtrl(touch: right.first, isMoved: true)
             self.handleRightYCtrl(touch: left.first)
             self.handleRightXCtrl(touch: left.first)
         }
-        
+
     }
     @objc func handleTouches(args: [Any]) {
         
@@ -255,9 +258,9 @@ class InstrumentScene1: SKScene {
         self.sortTouches(&left)
         self.sortTouches(&right)
         self.drawPatternGuides()
-    
-        let rightPattern = self.getPattern(right, withAux: true)
-        let leftPattern = self.getPattern(left, withAux: true )
+        
+        let rightPattern = self.getPattern(&right, withAux: true)
+        let leftPattern = self.getPattern(&left, withAux: true )
     
         var baseNote: Int = 0
         if leftPattern == 8 {
@@ -278,6 +281,15 @@ class InstrumentScene1: SKScene {
             baseNote = 48 + 6 * (rightPattern - 1)
         }
         
+        print("handleTouches() - left touches:")
+        for touch in left {
+            print("handleTouches(): touch y position = \(touch.location(in: view).y)")
+        }
+        
+        if (!left.isEmpty) {
+            print("handleTouches(): first left y = \(left.first!.location(in: view).y)")
+        }
+        
         let leftTop = right.first
         let rightTop = left.first
         
@@ -290,8 +302,9 @@ class InstrumentScene1: SKScene {
         
         lastLeftTop = leftTop?.location(in: view).y
         lastRightTop = rightTop?.location(in: view).y
-       
-        if !(isTouchesEnded ?? true) && rightPattern != 0 && leftPattern != 0 {
+        print("handleTouches(): left count = \(left.count), right count = \(right.count)")
+        print("handleTouches(): left pattern = \(leftPattern), right pattern = \(rightPattern)")
+        if !(isTouchesEnded ?? false) && rightPattern != 0 && leftPattern != 0 {
             self.handleLeftYCtrl(touch: right.first)
             self.handleLeftXCtrl(touch: right.first, isMoved: false)
             self.handleRightYCtrl(touch: left.first)
@@ -351,7 +364,12 @@ class InstrumentScene1: SKScene {
         }
     }
     
-    func getPattern(_ touches: [UITouch], withAux: Bool) -> Int {
+    func getPattern(_ touches: inout [UITouch], withAux: Bool) -> Int {
+        print("IN: getPattern()")
+        for touch in touches {
+            let location = touch.location(in: view).y
+            print("getPattern(): Touch location \(location)")
+        }
         if touches.count == 0 {
             return 0
         }
@@ -384,10 +402,10 @@ class InstrumentScene1: SKScene {
         // < accending
         // > decending
         
-        touches = touches.sorted(by: { a, b in
+        touches.sort(by: { a, b in
             let firstLoc = a.location(in: view)
             let secondLoc = b.location(in: view)
-            return firstLoc.y > secondLoc.y
+            return firstLoc.y < secondLoc.y
         })
     }
     
@@ -420,7 +438,7 @@ class InstrumentScene1: SKScene {
     
     func distance(first: UITouch?, second: UITouch?) -> CGFloat {
         guard let first = first, let second = second else { return 0 }
-        return first.location(in: self.view).y - second.location(in: self.view).y
+        return abs(first.location(in: self.view).y - second.location(in: self.view).y)
     }
     
     //MARK: - Operator handling
@@ -465,11 +483,12 @@ class InstrumentScene1: SKScene {
             return
         }
         
-        if SettingsManager.rightYCtrlEnabled || self.isRightMuted ?? false {
+        if !SettingsManager.rightYCtrlEnabled || self.isRightMuted ?? false {
             return
         }
         let location = touch.location(in: self.view)
         let height = self.view?.bounds.height ?? 0
+        print("handleTouches() - right Y Ctrl touch y value = \(location.y)")
         let maxPercent = max(0, location.y - height / 4) * 100 / (height / 3)
         let percent = min(maxPercent, 100)
         let currentVal = Int(floor(percent * 127 / 100))

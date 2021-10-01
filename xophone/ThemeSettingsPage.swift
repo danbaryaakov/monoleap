@@ -35,11 +35,11 @@ struct ThemeSettingsPage: View {
                             selectedTheme = theme.key
                         }.onLongPressGesture {
                             selectedTheme = theme.key
-                        }.overlay(RoundedRectangle(cornerRadius: 10).strokeBorder(theme.key == selectedTheme ? MonoleapAssets.controlColor : MonoleapAssets.controlColor.opacity(0.2))).padding([.leading, .trailing], 10)
+                        }.overlay(RoundedRectangle(cornerRadius: 10).strokeBorder(theme.key == selectedTheme ? MonoleapAssets.controlColor : MonoleapAssets.controlColor.opacity(0.5))).padding([.leading, .trailing], 10)
                     }
                 }.padding(30)
             }
-        }.overlay(RoundedRectangle(cornerRadius:10).strokeBorder(MonoleapAssets.controlColor)).padding([.top, .leading, .trailing], 30)
+        }.background(MonoleapAssets.sectionBackground).overlay(RoundedRectangle(cornerRadius:10).strokeBorder(MonoleapAssets.controlColor)).padding([.top, .leading, .trailing], 30)
     }
 }
 

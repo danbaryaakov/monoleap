@@ -9,12 +9,12 @@
 #import "Theme.h"
 
 @interface ColorBurstTheme : Theme {
-    InstrumentScene* parent;
+    InstrumentSceneOld* parent;
     SKEmitterNode* backgroundParticles;
 }
 
--(void)applyTo:(InstrumentScene*)scene;
--(void)removeFrom:(InstrumentScene*)scene;
+-(void)applyTo:(InstrumentSceneOld*)scene;
+-(void)removeFrom:(InstrumentSceneOld*)scene;
 -(void)verticalRightChanged:(int)position;
 -(void)verticalLeftChanged:(int)position;
 -(void)drawParticlesForPattern:(int)pattern touches:(NSArray*)touches particles:(NSMutableDictionary*) particles;

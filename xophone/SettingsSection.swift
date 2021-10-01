@@ -33,7 +33,7 @@ struct SettingsSection<Content: View>: View {
                 }.padding(30).frame(minWidth: 200, maxWidth: .infinity)
                 
             }.zIndex(1.0)
-        }.frame(maxWidth: .infinity).padding([.leading, .trailing, .top], 30)
+        }.background(MonoleapAssets.sectionBackground).frame(maxWidth: .infinity).padding([.leading, .trailing, .top], 30)
     }
     
 }

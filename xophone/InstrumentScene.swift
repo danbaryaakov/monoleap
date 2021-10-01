@@ -11,7 +11,7 @@ import SpriteKit
 import UIKit
 import CoreMIDI
 
-class InstrumentScene1: SKScene {
+class InstrumentScene: SKScene {
     
     var playedNote: Int? = nil
     

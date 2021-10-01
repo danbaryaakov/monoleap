@@ -46,11 +46,11 @@
     return [NSClassFromString(className) description];
 }
 
--(void)applyTo:(InstrumentScene *)scene {
+-(void)applyTo:(InstrumentSceneOld *)scene {
     
 }
 
--(void)removeFrom:(InstrumentScene *)scene {
+-(void)removeFrom:(InstrumentSceneOld *)scene {
     
 }
 

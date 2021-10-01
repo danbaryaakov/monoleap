@@ -137,6 +137,8 @@ struct MonoleapAssets {
     
     static let dark_background = Color(hex: "120929")
     
+    static let sectionBackground = Color(hex: "1A1131")
+    
     static let linearGradientTopBottom = LinearGradient(gradient: Gradient(colors: [pink, blue, cyan]), startPoint: .top, endPoint: .bottom)
 
     static let radialGradient = RadialGradient(colors: [pink, blue, cyan], center: UnitPoint(x: 0.75, y: 0.25), startRadius: 1, endRadius: 50)

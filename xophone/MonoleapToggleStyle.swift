@@ -9,6 +9,10 @@
 import SwiftUI
 
 struct MonoleapToggleStyle: ToggleStyle {
+    
+    var offText = "Off"
+    var onText = "On"
+    
     func makeBody(configuration: Configuration) -> some View {
         return HStack(spacing: 0) {
             configuration.label
@@ -21,7 +25,7 @@ struct MonoleapToggleStyle: ToggleStyle {
                 } else {
                     MonoleapAssets.rect(topLeftRadius: 10, bottomLeftRadius: 10).stroke(MonoleapAssets.controlColor).frame(width: 70, height: 35).contentShape(Rectangle())
                 }
-                Text("Off").foregroundColor(!configuration.isOn ? Color.white : MonoleapAssets.controlColor).fontWeight(.bold)
+                Text(offText).foregroundColor(!configuration.isOn ? Color.white : MonoleapAssets.controlColor).fontWeight(.bold)
             }.onTapGesture {
                 configuration.isOn = false
             }
@@ -33,7 +37,7 @@ struct MonoleapToggleStyle: ToggleStyle {
                         MonoleapAssets.controlColor
                     ).frame(width: 70, height: 35)
                 }
-                Text("On").foregroundColor(configuration.isOn ? Color.white : MonoleapAssets.controlColor).fontWeight(.bold)
+                Text(onText).foregroundColor(configuration.isOn ? Color.white : MonoleapAssets.controlColor).fontWeight(.bold)
             }.onTapGesture {
                 configuration.isOn = true
             }

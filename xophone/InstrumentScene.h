@@ -14,7 +14,7 @@
     @discussion The main scene, allowing users to play the instrument.
  
  */
-@interface InstrumentScene : SKScene  {
+@interface InstrumentSceneOld : SKScene  {
 }
 
 

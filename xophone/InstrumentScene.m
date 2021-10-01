@@ -15,7 +15,7 @@
 //#import "MIDIConnector.h"
 #import "monoleap-Swift.h"
 
-@implementation InstrumentScene {
+@implementation InstrumentSceneOld {
     MIDIClientRef client;
     MIDIPortRef outputPort;
     int playedNote;

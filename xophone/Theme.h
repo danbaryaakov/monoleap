@@ -13,7 +13,7 @@
 @interface Theme : NSObject
 
 -(void)applyTo:(SKScene*)scene;
--(void)removeFrom:(InstrumentScene*)scene;
+-(void)removeFrom:(InstrumentSceneOld*)scene;
 -(void)verticalRightChanged:(int)position;
 -(void)verticalLeftChanged:(int)position;
 -(void)drawLeftHandTouches:(int)pattern touches:(NSArray<UITouch*>*)touches;

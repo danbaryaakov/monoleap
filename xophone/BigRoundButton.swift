@@ -12,7 +12,7 @@ struct BigRoundButton: View {
     var size: CGFloat = 100.0
     var body: some View {
         ZStack(alignment: .center) {
-            Circle().fill(MonoleapAssets.dark_background).shadow(color: .black.opacity(0.75), radius: 4, x: 4, y: 4).shadow(color: .white.opacity(0.1), radius: 4, x: -2, y: -2).frame(width: size - 60, height: size - 60)
+            Circle().fill(MonoleapAssets.dark_background).shadow(color: .black.opacity(0.75), radius: 4, x: 0, y: 4).shadow(color: .white.opacity(0.15), radius: 2, x: 0, y: -2).frame(width: size - 60, height: size - 60)
             Image(image)
         }.frame(width: size, height: size).overlay(Circle().strokeBorder(MonoleapAssets.linearGradientTopBottom))
     }

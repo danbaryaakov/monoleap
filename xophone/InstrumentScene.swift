@@ -27,8 +27,6 @@ class InstrumentScene1: SKScene {
     
     var theme: BasicTheme?
 
-    
-    var synthEnabled: Bool?
     var isLeftMuted, isRightMuted: Bool?
     
     var rectFingerOneLeft: SKSpriteNode?
@@ -268,10 +266,12 @@ class InstrumentScene1: SKScene {
         
         if isInvalidPattern ?? false || rightPattern == 0 {
             // stop audio and clear all visual indication
+            noteOff(playedNote, isOtherNotePlaying: false)
             self.theme?.drawLeftHandTouches(0, touches: left)
             self.theme?.drawRightHandTouches(0, touches: right)
             
             self.debounce(action: #selector(showMenu), delay: 1)
+            return
         } else {
             theme?.drawRightHandTouches(rightPattern, touches: right)
             baseNote = 48 + 6 * (rightPattern - 1)
@@ -335,7 +335,7 @@ class InstrumentScene1: SKScene {
         midiConnector.sendNote(on: noteNumber, inChannel: 1, withVelocity: velocity)
         playedNote = noteNumber
         self.sendMidiToPDwithNoteNumner(noteNumber, andVelocity: velocity)
-        if SettingsManager.synthEnabled {
+        if Settings.isSynthEnabled.value {
             SynthManager.instance.noteOn(noteNumber)
         }
     }
@@ -355,7 +355,7 @@ class InstrumentScene1: SKScene {
         if !isOtherNotePlaying {
             self.sendMidiToPDwithNoteNumner(noteNumber, andVelocity: 0)
         }
-        if SettingsManager.synthEnabled {
+        if Settings.isSynthEnabled.value {
             SynthManager.instance.noteOff(noteNumber)
         }
     }
@@ -421,7 +421,7 @@ class InstrumentScene1: SKScene {
         let secondDistance = self.distance(first: left[1], second: left[2])
         print("FirstDiscance \(firstDistance), Second: \(secondDistance)")
         fingerWidth = (firstDistance + secondDistance) / 2
-        SettingsManager.fingerWidth = abs(fingerWidth) // quick calibration fix but might not be accurate
+        SettingsManager.fingerWidth = max(firstDistance, secondDistance) // quick calibration fix but might not be accurate
         print("Calibrate --> new finger width is \(fingerWidth ?? 0)")
         self.drawPatternGuides()
         
@@ -452,7 +452,7 @@ class InstrumentScene1: SKScene {
         if Int(currentVal) != leftYCurrent {
             leftYCurrent = Int(currentVal)
             midiConnector.sendControllerChange(SettingsManager.leftYCtrlValue, value: Int(currentVal), inChannel: 1)
-            if SettingsManager.synthEnabled {
+            if Settings.isSynthEnabled.value {
                 SynthManager.instance.resonance(Int(currentVal))
             }
         }
@@ -492,7 +492,7 @@ class InstrumentScene1: SKScene {
         if Int(currentVal) != rightYCurrent {
             rightYCurrent = Int(currentVal)
             midiConnector.sendControllerChange(SettingsManager.rightYCtrlValue, value: Int(currentVal), inChannel: 1)
-            if SettingsManager.synthEnabled {
+            if Settings.isSynthEnabled.value {
                 SynthManager.instance.filterCutoff(currentVal)
             }
         }

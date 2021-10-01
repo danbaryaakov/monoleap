@@ -33,19 +33,19 @@ struct MainSettingsView: View {
     var body: some View {
         ZStack {
             MonoleapAssets.dark_background
-            VStack {
+            VStack(spacing: 0) {
                 HStack(alignment: .center) {
-                    Image("final_logo_w").resizable().scaledToFit().frame(height: 50).onTapGesture {
+                    Image("final_logo_w").resizable().scaledToFit().frame(height: 55).onTapGesture {
                         showVersion = !showVersion
                     }
-                    if showVersion {
-                        Text(Bundle.main.releaseVersionNumber ?? "").foregroundColor(MonoleapAssets.controlColor).font(.system(size: 12))
-                    }
+//                    if showVersion {
+//                        Text(Bundle.main.releaseVersionNumber ?? "").foregroundColor(MonoleapAssets.controlColor).font(.system(size: 12))
+//                    }
                     Spacer()
                     Link(destination: URL(string: "https://www.monoleap.com/documentation")!) {
                         PageToggleButton(image: "help_icon", showLabel: false)
                     }
-                }.padding(30)
+                }.padding([.leading, .trailing, .top], 20).padding(.top, 10)
                 VStack {
                     switch selectedPage {
                     case .instrument:
@@ -73,6 +73,8 @@ struct MainSettingsView: View {
                     }.padding(30)
                     Spacer()
                     BigRoundButton(image: "play", size: 140).onTapGesture {
+                        parent?.performSegue(withIdentifier: "instrument", sender: self)
+                    }.onLongPressGesture {
                         parent?.performSegue(withIdentifier: "instrument", sender: self)
                     }.padding(30)
                 }

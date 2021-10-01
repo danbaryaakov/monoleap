@@ -76,6 +76,8 @@
 		ECC1DF0627072E8B006ADBAA /* MIDISettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC1DF0527072E8B006ADBAA /* MIDISettingsPage.swift */; };
 		ECC1DF0827072E96006ADBAA /* ThemeSettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC1DF0727072E96006ADBAA /* ThemeSettingsPage.swift */; };
 		ECC1DF0A27073073006ADBAA /* splash_new.png in Resources */ = {isa = PBXBuildFile; fileRef = ECC1DF0927073073006ADBAA /* splash_new.png */; };
+		ECC1DF0C27073123006ADBAA /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC1DF0B27073123006ADBAA /* SettingsSection.swift */; };
+		ECC1DF0E270732DE006ADBAA /* MonoleapToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC1DF0D270732DE006ADBAA /* MonoleapToggleStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -180,6 +182,8 @@
 		ECC1DF0527072E8B006ADBAA /* MIDISettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDISettingsPage.swift; sourceTree = "<group>"; };
 		ECC1DF0727072E96006ADBAA /* ThemeSettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSettingsPage.swift; sourceTree = "<group>"; };
 		ECC1DF0927073073006ADBAA /* splash_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash_new.png; sourceTree = "<group>"; };
+		ECC1DF0B27073123006ADBAA /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
+		ECC1DF0D270732DE006ADBAA /* MonoleapToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonoleapToggleStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -420,6 +424,8 @@
 				ECC1DF0327072E82006ADBAA /* InstrumentSettingsPage.swift */,
 				ECC1DF0527072E8B006ADBAA /* MIDISettingsPage.swift */,
 				ECC1DF0727072E96006ADBAA /* ThemeSettingsPage.swift */,
+				ECC1DF0B27073123006ADBAA /* SettingsSection.swift */,
+				ECC1DF0D270732DE006ADBAA /* MonoleapToggleStyle.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -577,6 +583,7 @@
 				95A8B79C1BDEC7C9007494D1 /* ColorBurstTheme.m in Sources */,
 				ECC1DEFC270724BF006ADBAA /* MonoleapAssets.swift in Sources */,
 				272D07552703792E0039D6FB /* InstrumentScene.m in Sources */,
+				ECC1DF0E270732DE006ADBAA /* MonoleapToggleStyle.swift in Sources */,
 				95A8B7991BDEC77C007494D1 /* Theme.m in Sources */,
 				95BE49891BE36D800094A02B /* SettingsView.m in Sources */,
 				272D075627037AA90039D6FB /* InstrumentScene.swift in Sources */,
@@ -585,6 +592,7 @@
 				95BE49841BE298700094A02B /* ThemeSelectionController.m in Sources */,
 				278DD63626EB4A1E0079F8B8 /* MidiConnectorImpl.swift in Sources */,
 				278DD63426EB485E0079F8B8 /* AppDelegate.swift in Sources */,
+				ECC1DF0C27073123006ADBAA /* SettingsSection.swift in Sources */,
 				95D147261B6D510600770BF3 /* Model.xcdatamodeld in Sources */,
 				277FA7CD26F343CB0063022A /* InstrumentViewController.swift in Sources */,
 				ECC1DF0827072E96006ADBAA /* ThemeSettingsPage.swift in Sources */,

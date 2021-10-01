@@ -9,8 +9,19 @@
 import SwiftUI
 
 struct InstrumentSettingsPage: View {
+    
+    @AppStorage(Settings.isSynthEnabled.key) private var isSynthEnabled = Settings.isSynthEnabled.defaultValue
+    
     var body: some View {
-        Text("Instrument Settings")
+        SettingsSection(image: "settings_icon", label: "General") {
+            Toggle("Internal Synth", isOn: $isSynthEnabled).toggleStyle(MonoleapToggleStyle())
+//            Toggle("Hand Size Calibration", isOn: $isHandSizeCalibrationEnabled).toggleStyle(MonoleapToggleStyle())
+//
+//            Toggle("Show Pattern Guides", isOn: $isPatternGuidesEnabled).toggleStyle(MonoleapToggleStyle())
+        }
+        SettingsSection(image: "settings_icon", label: "Scale") {
+//            ScaleSelector()
+        }
     }
 }
 

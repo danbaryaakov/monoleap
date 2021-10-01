@@ -269,11 +269,14 @@ class InstrumentScene1: SKScene {
         }
         
         var baseNote: Int = 0
-        if leftPattern == 8 {
-            // calibrate
-            debounce(action: #selector(calibrate), delay: 1.0)
-        } else {
-            NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(calibrate), object: nil)
+        
+        if Settings.calibrationEnabled.value {
+            if leftPattern == 8 {
+                // calibrate
+                debounce(action: #selector(calibrate), delay: 1.0)
+            } else {
+                NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(calibrate), object: nil)
+            }
         }
         
         if isInvalidPattern ?? false || rightPattern == 0 {

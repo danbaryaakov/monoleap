@@ -48,7 +48,7 @@ class InstrumentScene: SKScene {
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         
-        self.backgroundColor = SKColor(MonoleapAssets.dark_background)
+        self.backgroundColor = SKColor(MonoleapAssets.darkBackground)
         
         self.midiConnector = MIDIConnector.sharedInstance
         self.left = [UITouch]()
@@ -322,6 +322,14 @@ class InstrumentScene: SKScene {
             self.handleRightXCtrl(touch: left.first)
         }
         
+        theme?.drawLeftHandTouches(pattern: leftPattern, touches: left)
+        if (leftPattern > 0) {
+            let noteToPlay = baseNote + leftPattern - 1;
+            if !ScaleMatcher.doesNoteMatchCurrentScale(noteToPlay) {
+                return;
+            }
+        }
+        
         switch leftPattern {
         case 0:
             self.noteOff(playedNote, isOtherNotePlaying: false)
@@ -343,7 +351,7 @@ class InstrumentScene: SKScene {
         default:
            break
         }
-        theme?.drawLeftHandTouches(pattern: leftPattern, touches: left)
+        
     }
     
     func noteOn(_ noteNumber: Int, velocity: Int) {

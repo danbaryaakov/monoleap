@@ -14,7 +14,7 @@ class MainViewController : UIViewController {
     var contentView: UIHostingController<MainSettingsView>?
     
     override func viewDidLoad() {
-        view.backgroundColor = UIColor(MonoleapAssets.dark_background)
+        view.backgroundColor = UIColor(MonoleapAssets.darkBackground)
         var settingsView = MainSettingsView()
         settingsView.parent = self
         contentView = UIHostingController(rootView: settingsView)

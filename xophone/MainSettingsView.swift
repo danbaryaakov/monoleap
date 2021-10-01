@@ -32,7 +32,7 @@ struct MainSettingsView: View {
     
     var body: some View {
         ZStack {
-            MonoleapAssets.dark_background
+            MonoleapAssets.darkBackground
             VStack(spacing: 0) {
                 HStack(alignment: .center) {
                     Image("final_logo_w").resizable().scaledToFit().frame(height: 55).onTapGesture {
@@ -55,7 +55,7 @@ struct MainSettingsView: View {
                 }.frame(maxWidth: .infinity, maxHeight: .infinity)
                 HStack {
                     ZStack {
-                        Capsule().fill(MonoleapAssets.dark_background).shadow(color: .black.opacity(0.75), radius: 4, x: 0, y: 4).shadow(color: .white.opacity(0.1), radius: 4, x: 0, y: -2).frame(width: 300, height: 100)
+                        Capsule().fill(MonoleapAssets.sectionBackground).shadow(color: .black.opacity(0.75), radius: 4, x: 0, y: 4).shadow(color: .white.opacity(0.2), radius: 2, x: 0, y: -2).frame(width: 300, height: 110)
                         HStack {
                             PageToggleButton(image: "theme_icon", label: "Theme", selected: selectedPage == .theme).onTapGesture {
                                 selectedPage = .theme

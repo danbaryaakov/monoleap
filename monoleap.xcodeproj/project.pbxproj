@@ -98,6 +98,9 @@
 		ECC1DF3B27073FDA006ADBAA /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC1DF3A27073FDA006ADBAA /* Theme.swift */; };
 		ECC1DF3D27075D4D006ADBAA /* NumberSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC1DF3C27075D4D006ADBAA /* NumberSelector.swift */; };
 		ECC1DF3F27075DAD006ADBAA /* MIDICCSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC1DF3E27075DAD006ADBAA /* MIDICCSelector.swift */; };
+		ECC1DF412707649E006ADBAA /* DropdownSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC1DF402707649E006ADBAA /* DropdownSelector.swift */; };
+		ECC1DF43270764B3006ADBAA /* ScaleSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC1DF42270764B3006ADBAA /* ScaleSelector.swift */; };
+		ECC1DF45270764CC006ADBAA /* Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC1DF44270764CC006ADBAA /* Scale.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -217,6 +220,9 @@
 		ECC1DF3A27073FDA006ADBAA /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		ECC1DF3C27075D4D006ADBAA /* NumberSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberSelector.swift; sourceTree = "<group>"; };
 		ECC1DF3E27075DAD006ADBAA /* MIDICCSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDICCSelector.swift; sourceTree = "<group>"; };
+		ECC1DF402707649E006ADBAA /* DropdownSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownSelector.swift; sourceTree = "<group>"; };
+		ECC1DF42270764B3006ADBAA /* ScaleSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleSelector.swift; sourceTree = "<group>"; };
+		ECC1DF44270764CC006ADBAA /* Scale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scale.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,14 +259,6 @@
 				95FC67561B5E607C00C756F5 /* InstrumentSceneOld.m */,
 			);
 			name = objc;
-			sourceTree = "<group>";
-		};
-		277FA7D126F358170063022A /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				ECC1DF0127072D3B006ADBAA /* Settings.swift */,
-			);
-			name = Settings;
 			sourceTree = "<group>";
 		};
 		277FA7D426F361050063022A /* Theme */ = {
@@ -388,10 +386,11 @@
 				277FA7CF26F350130063022A /* InstrumentScene.swift */,
 				9586002B26E76BE800A4A712 /* SynthManager.swift */,
 				EC59C3DB2707191300866708 /* MainViewController.swift */,
+				ECC1DF0127072D3B006ADBAA /* Settings.swift */,
+				ECC1DF44270764CC006ADBAA /* Scale.swift */,
 				95D147221B6D470C00770BF3 /* App.storyboard */,
 				95FC67621B5E607C00C756F5 /* LaunchScreen.xib */,
 				EC59C3DF2707220700866708 /* UI */,
-				277FA7D126F358170063022A /* Settings */,
 				277FA7D426F361050063022A /* Theme */,
 				9515ABD31BE456DB008B8FDA /* Images */,
 				95FC67581B5E607C00C756F5 /* InstrumentScene.sks */,
@@ -454,6 +453,8 @@
 				ECC1DF0D270732DE006ADBAA /* MonoleapToggleStyle.swift */,
 				ECC1DF3C27075D4D006ADBAA /* NumberSelector.swift */,
 				ECC1DF3E27075DAD006ADBAA /* MIDICCSelector.swift */,
+				ECC1DF402707649E006ADBAA /* DropdownSelector.swift */,
+				ECC1DF42270764B3006ADBAA /* ScaleSelector.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -650,11 +651,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECC1DF45270764CC006ADBAA /* Scale.swift in Sources */,
 				ECC1DF0027072844006ADBAA /* PageToggleButton.swift in Sources */,
 				ECC1DF3F27075DAD006ADBAA /* MIDICCSelector.swift in Sources */,
 				277FA7DF26F380300063022A /* ThemeImpl.swift in Sources */,
 				952BCD381B6917E800B67629 /* SKTexture+Gradient.m in Sources */,
 				95A8B79C1BDEC7C9007494D1 /* ColorBurstTheme.m in Sources */,
+				ECC1DF412707649E006ADBAA /* DropdownSelector.swift in Sources */,
 				ECC1DEFC270724BF006ADBAA /* MonoleapAssets.swift in Sources */,
 				272D07552703792E0039D6FB /* InstrumentSceneOld.m in Sources */,
 				ECC1DF0E270732DE006ADBAA /* MonoleapToggleStyle.swift in Sources */,
@@ -666,6 +669,7 @@
 				ECC1DF1227073ABC006ADBAA /* RGBShaderTheme.swift in Sources */,
 				278DD63426EB485E0079F8B8 /* AppDelegate.swift in Sources */,
 				ECC1DF0C27073123006ADBAA /* SettingsSection.swift in Sources */,
+				ECC1DF43270764B3006ADBAA /* ScaleSelector.swift in Sources */,
 				95D147261B6D510600770BF3 /* Model.xcdatamodeld in Sources */,
 				ECC1DF3D27075D4D006ADBAA /* NumberSelector.swift in Sources */,
 				277FA7CD26F343CB0063022A /* InstrumentViewController.swift in Sources */,

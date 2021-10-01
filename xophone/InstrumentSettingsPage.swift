@@ -22,8 +22,8 @@ struct InstrumentSettingsPage: View {
             Toggle("Calibration Enabled", isOn: $calibrationEnabled).toggleStyle(MonoleapToggleStyle())
             Toggle("Leading Hand", isOn: $isRightHanded).toggleStyle(MonoleapToggleStyle(offText: "Left", onText: "Right"))
         }
-        SettingsSection(image: "settings_icon", label: "Scale") {
-//            ScaleSelector()
+        SettingsSection(image: "scale_icon", label: "Scale") {
+            ScaleSelector()
         }
     }
 }

@@ -57,7 +57,7 @@ import SpriteKit
     }
     
     @objc func orientationChanged(_ notification: Notification) {
-        settingsButton.frame = CGRect(x: view.frame.width - 138, y: view.frame.height - 138, width: 128, height: 128)
+        settingsButton.frame = CGRect(x: view.frame.width - 168, y: view.frame.height - 168, width: 140, height: 140)
     }
     
     @objc func showSettings() {

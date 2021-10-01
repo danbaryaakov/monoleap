@@ -9,11 +9,13 @@ import SwiftUI
 
 struct BigRoundButton: View {
     var image: String
-    var size: CGFloat = 100.0
+    var size: CGFloat = 130.0
     var body: some View {
         ZStack(alignment: .center) {
-            Circle().fill(MonoleapAssets.dark_background).shadow(color: .black.opacity(0.75), radius: 4, x: 0, y: 4).shadow(color: .white.opacity(0.15), radius: 2, x: 0, y: -2).frame(width: size - 60, height: size - 60)
+            Circle().fill(MonoleapAssets.sectionBackground)
+            Circle().strokeBorder(MonoleapAssets.linearGradientTopBottom)
+            Circle().fill(MonoleapAssets.sectionBackground).shadow(color: .black.opacity(0.75), radius: 4, x: 0, y: 4).shadow(color: .white.opacity(0.15), radius: 2, x: 0, y: -2).frame(width: 90, height: 90)
             Image(image)
-        }.frame(width: size, height: size).overlay(Circle().strokeBorder(MonoleapAssets.linearGradientTopBottom))
+        }.frame(width: size, height: size)
     }
 }

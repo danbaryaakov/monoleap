@@ -67,6 +67,8 @@
 		95FC67701B5E607C00C756F5 /* xophoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 95FC676F1B5E607C00C756F5 /* xophoneTests.m */; };
 		BA4AA2701C04E0F70067635F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA4AA26F1C04E0F70067635F /* AVFoundation.framework */; };
 		BA4AA2721C04E18D0067635F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA4AA2711C04E18D0067635F /* AudioToolbox.framework */; };
+		EC59C3DC2707191300866708 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC59C3DB2707191300866708 /* MainViewController.swift */; };
+		EC59C3DE2707193B00866708 /* MainSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC59C3DD2707193B00866708 /* MainSettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,6 +169,8 @@
 		BA4AA26F1C04E0F70067635F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		BA4AA2711C04E18D0067635F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D1D08F9F43E63BD421D8CC86 /* Pods-monoleapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-monoleapTests.release.xcconfig"; path = "Target Support Files/Pods-monoleapTests/Pods-monoleapTests.release.xcconfig"; sourceTree = "<group>"; };
+		EC59C3DB2707191300866708 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		EC59C3DD2707193B00866708 /* MainSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +223,7 @@
 		277FA7D426F361050063022A /* Theme */ = {
 			isa = PBXGroup;
 			children = (
+				9515ABD21BE456A1008B8FDA /* Particles */,
 				277FA7D526F361670063022A /* ThemeImpl.swift */,
 			);
 			name = Theme;
@@ -251,6 +256,7 @@
 				952C46671B60F14C00548952 /* bokeh.png */,
 			);
 			name = Particles;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		9515ABD31BE456DB008B8FDA /* Images */ = {
@@ -326,7 +332,6 @@
 		95FC67421B5E607C00C756F5 = {
 			isa = PBXGroup;
 			children = (
-				9515ABD21BE456A1008B8FDA /* Particles */,
 				95FC674D1B5E607C00C756F5 /* monoleap */,
 				95FC676C1B5E607C00C756F5 /* monoleapTests */,
 				95FC674C1B5E607C00C756F5 /* Products */,
@@ -354,8 +359,10 @@
 				277FA7CA26F33FA70063022A /* InstrumentViewController.swift */,
 				277FA7CF26F350130063022A /* InstrumentScene.swift */,
 				9586002B26E76BE800A4A712 /* SynthManager.swift */,
+				EC59C3DB2707191300866708 /* MainViewController.swift */,
 				95D147221B6D470C00770BF3 /* App.storyboard */,
 				95FC67621B5E607C00C756F5 /* LaunchScreen.xib */,
+				EC59C3DF2707220700866708 /* UI */,
 				277FA7D126F358170063022A /* Settings */,
 				277FA7D426F361050063022A /* Theme */,
 				9515ABD31BE456DB008B8FDA /* Images */,
@@ -405,6 +412,14 @@
 				784AE53788D6059DE943738B /* libPods-monoleapTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EC59C3DF2707220700866708 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				EC59C3DD2707193B00866708 /* MainSettingsView.swift */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -660,12 +675,14 @@
 				95A8B7991BDEC77C007494D1 /* Theme.m in Sources */,
 				95BE49891BE36D800094A02B /* SettingsView.m in Sources */,
 				272D075627037AA90039D6FB /* InstrumentScene.swift in Sources */,
+				EC59C3DC2707191300866708 /* MainViewController.swift in Sources */,
 				95BE49841BE298700094A02B /* ThemeSelectionController.m in Sources */,
 				278DD63626EB4A1E0079F8B8 /* MidiConnectorImpl.swift in Sources */,
 				278DD63426EB485E0079F8B8 /* AppDelegate.swift in Sources */,
 				95D147261B6D510600770BF3 /* Model.xcdatamodeld in Sources */,
 				277FA7CD26F343CB0063022A /* InstrumentViewController.swift in Sources */,
 				2757768326ED0AEC00134DDC /* MIDIConnector.swift in Sources */,
+				EC59C3DE2707193B00866708 /* MainSettingsView.swift in Sources */,
 				277FA7E026F381880063022A /* SettingsManager.swift in Sources */,
 				9586002C26E76BE800A4A712 /* SynthManager.swift in Sources */,
 				952BCD401B6971A800B67629 /* SettingsViewController.m in Sources */,

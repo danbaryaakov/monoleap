@@ -7,27 +7,27 @@
 		<key>ActionSheetPicker-3.0.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>18</integer>
 		</dict>
 		<key>AwesomeMenu.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>20</integer>
 		</dict>
 		<key>MVSelectorScrollView.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>21</integer>
 		</dict>
 		<key>Pods-monoleap.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>22</integer>
 		</dict>
 		<key>Pods-monoleapTests.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>19</integer>
 		</dict>
 	</dict>
 </dict>

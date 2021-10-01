@@ -53,9 +53,9 @@ struct Dropdown: View {
         .frame(minHeight: 180, maxHeight: 180)
         .padding(.vertical, 5)
         .background(MonoleapAssets.sectionBackground)
-        .cornerRadius(5)
+        .cornerRadius(10)
         .overlay(
-            RoundedRectangle(cornerRadius: 5).strokeBorder(
+            RoundedRectangle(cornerRadius: 10).strokeBorder(
                 MonoleapAssets.controlColor
             )
         )
@@ -94,10 +94,10 @@ struct DropdownSelector: View {
             }
         }
         .padding(.horizontal)
-        .cornerRadius(5)
+        .cornerRadius(10)
         .frame(height: self.buttonHeight)
         .overlay(
-            RoundedRectangle(cornerRadius: 5).strokeBorder(
+            RoundedRectangle(cornerRadius: 10).strokeBorder(
                 MonoleapAssets.controlColor
             )
         )
@@ -114,7 +114,7 @@ struct DropdownSelector: View {
             }, alignment: .topLeading
         )
         .background(
-            RoundedRectangle(cornerRadius: 5).fill(MonoleapAssets.sectionBackground)
+            RoundedRectangle(cornerRadius: 10).fill(MonoleapAssets.sectionBackground)
         )
     }
 }

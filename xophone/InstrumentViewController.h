@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
-#import <AwesomeMenu/AwesomeMenu.h>
 
 @interface InstrumentViewController : UIViewController {
     UIButton *settingsButton;

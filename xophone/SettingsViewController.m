@@ -10,7 +10,7 @@
 #import "SettingsViewController.h"
 //#import "SettingsManager.h"
 #import "ThemeSelectionController.h"
-#import "ActionSheetPicker.h"
+
 #import "monoleap-Swift.h"
 @interface SettingsViewController ()<UIPopoverPresentationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *btnMidiChannel;
@@ -305,21 +305,21 @@
 - (IBAction)selectMidiChannel:(id)sender {
     NSArray *channels = [NSArray arrayWithObjects:@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12", @"13", @"14", @"15", @"16", nil];
     
-    [ActionSheetStringPicker showPickerWithTitle:@"Select MIDI Channel"
-                                            rows: channels
-                                initialSelection: self.btnMidiChannel.titleLabel.text.integerValue - 1
-                                       doneBlock:^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue) {
-                                           
-                                           [self.btnMidiChannel setTitle:selectedValue forState:UIControlStateNormal];
-                                           
-                                           
-                                           
-                                           SettingsManager.midiOutChannel =  self.btnMidiChannel.titleLabel.text;
-                                       }
-                                     cancelBlock:^(ActionSheetStringPicker *picker) {
-                                         
-                                     }
-                                          origin:sender];
+//    [ActionSheetStringPicker showPickerWithTitle:@"Select MIDI Channel"
+//                                            rows: channels
+//                                initialSelection: self.btnMidiChannel.titleLabel.text.integerValue - 1
+//                                       doneBlock:^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue) {
+//                                           
+//                                           [self.btnMidiChannel setTitle:selectedValue forState:UIControlStateNormal];
+//                                           
+//                                           
+//                                           
+//                                           SettingsManager.midiOutChannel =  self.btnMidiChannel.titleLabel.text;
+//                                       }
+//                                     cancelBlock:^(ActionSheetStringPicker *picker) {
+//                                         
+//                                     }
+//                                          origin:sender];
 }
 
 @end

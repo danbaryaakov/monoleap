@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MVSelectorScrollView.h"
 
 @interface SettingsViewController : UIViewController {
     MIDIClientRef client;

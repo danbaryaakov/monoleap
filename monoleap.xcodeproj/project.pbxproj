@@ -15,7 +15,6 @@
 		277FA7E026F381880063022A /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277FA7D226F358200063022A /* SettingsManager.swift */; };
 		278DD63426EB485E0079F8B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278DD63326EB485E0079F8B8 /* AppDelegate.swift */; };
 		278DD63626EB4A1E0079F8B8 /* MidiConnectorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278DD63526EB4A1E0079F8B8 /* MidiConnectorImpl.swift */; };
-		456AEA0FD551FF79B0329260 /* libPods-monoleapTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 784AE53788D6059DE943738B /* libPods-monoleapTests.a */; };
 		952BCD381B6917E800B67629 /* SKTexture+Gradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 952BCD371B6917E800B67629 /* SKTexture+Gradient.m */; };
 		952BCD401B6971A800B67629 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 952BCD3F1B6971A800B67629 /* SettingsViewController.m */; };
 		952C46681B60F14C00548952 /* Bokeh.sks in Resources */ = {isa = PBXBuildFile; fileRef = 952C46661B60F14C00548952 /* Bokeh.sks */; };
@@ -82,8 +81,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		100DD20F071A3C6635821F84 /* libPods-monoleap.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-monoleap.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		23A0955A55548196DAB8B156 /* Pods-monoleap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-monoleap.debug.xcconfig"; path = "Target Support Files/Pods-monoleap/Pods-monoleap.debug.xcconfig"; sourceTree = "<group>"; };
 		277FA7CA26F33FA70063022A /* InstrumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentViewController.swift; sourceTree = "<group>"; };
 		277FA7CF26F350130063022A /* InstrumentScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentScene.swift; sourceTree = "<group>"; };
 		277FA7D226F358200063022A /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
@@ -92,9 +89,6 @@
 		278DD63326EB485E0079F8B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		278DD63526EB4A1E0079F8B8 /* MidiConnectorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidiConnectorImpl.swift; sourceTree = "<group>"; };
 		278DD63726EB4A9F0079F8B8 /* MIDIConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIConnector.swift; sourceTree = "<group>"; };
-		5EC54342A3902C5E22DA32EA /* Pods-monoleapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-monoleapTests.debug.xcconfig"; path = "Target Support Files/Pods-monoleapTests/Pods-monoleapTests.debug.xcconfig"; sourceTree = "<group>"; };
-		784AE53788D6059DE943738B /* libPods-monoleapTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-monoleapTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		825851D338D3AD62EB146056 /* Pods-monoleap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-monoleap.release.xcconfig"; path = "Target Support Files/Pods-monoleap/Pods-monoleap.release.xcconfig"; sourceTree = "<group>"; };
 		95145EBA1BEB7C1E0040FD28 /* MIDIConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIDIConnector.h; sourceTree = "<group>"; };
 		95145EBB1BEB7C1E0040FD28 /* MIDIConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIDIConnector.m; sourceTree = "<group>"; };
 		9515ABD41BE458C2008B8FDA /* CalmTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalmTheme.h; sourceTree = "<group>"; };
@@ -168,7 +162,6 @@
 		95FC676F1B5E607C00C756F5 /* xophoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xophoneTests.m; sourceTree = "<group>"; };
 		BA4AA26F1C04E0F70067635F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		BA4AA2711C04E18D0067635F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		D1D08F9F43E63BD421D8CC86 /* Pods-monoleapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-monoleapTests.release.xcconfig"; path = "Target Support Files/Pods-monoleapTests/Pods-monoleapTests.release.xcconfig"; sourceTree = "<group>"; };
 		EC59C3DB2707191300866708 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		EC59C3DD2707193B00866708 /* MainSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -189,7 +182,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				456AEA0FD551FF79B0329260 /* libPods-monoleapTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,17 +219,6 @@
 				277FA7D526F361670063022A /* ThemeImpl.swift */,
 			);
 			name = Theme;
-			sourceTree = "<group>";
-		};
-		6D8C8DB86CFB5B5BD38A57CE /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				23A0955A55548196DAB8B156 /* Pods-monoleap.debug.xcconfig */,
-				825851D338D3AD62EB146056 /* Pods-monoleap.release.xcconfig */,
-				5EC54342A3902C5E22DA32EA /* Pods-monoleapTests.debug.xcconfig */,
-				D1D08F9F43E63BD421D8CC86 /* Pods-monoleapTests.release.xcconfig */,
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 		9515ABD21BE456A1008B8FDA /* Particles */ = {
@@ -336,7 +317,6 @@
 				95FC676C1B5E607C00C756F5 /* monoleapTests */,
 				95FC674C1B5E607C00C756F5 /* Products */,
 				E1BCFE8774C6B36D7473CD86 /* Frameworks */,
-				6D8C8DB86CFB5B5BD38A57CE /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -408,8 +388,6 @@
 			children = (
 				BA4AA2711C04E18D0067635F /* AudioToolbox.framework */,
 				BA4AA26F1C04E0F70067635F /* AVFoundation.framework */,
-				100DD20F071A3C6635821F84 /* libPods-monoleap.a */,
-				784AE53788D6059DE943738B /* libPods-monoleapTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -429,11 +407,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 95FC67731B5E607C00C756F5 /* Build configuration list for PBXNativeTarget "monoleap" */;
 			buildPhases = (
-				16180C902A4333DAD9B9B2B0 /* [CP] Check Pods Manifest.lock */,
 				95FC67471B5E607C00C756F5 /* Sources */,
 				95FC67481B5E607C00C756F5 /* Frameworks */,
 				95FC67491B5E607C00C756F5 /* Resources */,
-				30A3B9694DEB48744BC06BAE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -452,7 +428,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 95FC67761B5E607C00C756F5 /* Build configuration list for PBXNativeTarget "monoleapTests" */;
 			buildPhases = (
-				5599E86C2E5461EF1CCFD759 /* [CP] Check Pods Manifest.lock */,
 				95FC67651B5E607C00C756F5 /* Sources */,
 				95FC67661B5E607C00C756F5 /* Frameworks */,
 				95FC67671B5E607C00C756F5 /* Resources */,
@@ -565,103 +540,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		16180C902A4333DAD9B9B2B0 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-monoleap-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		30A3B9694DEB48744BC06BAE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-monoleap/Pods-monoleap-resources.sh",
-				"${PODS_ROOT}/AwesomeMenu/AwesomeMenu/Images/bg-addbutton-highlighted.png",
-				"${PODS_ROOT}/AwesomeMenu/AwesomeMenu/Images/bg-addbutton-highlighted@2x.png",
-				"${PODS_ROOT}/AwesomeMenu/AwesomeMenu/Images/bg-addbutton.png",
-				"${PODS_ROOT}/AwesomeMenu/AwesomeMenu/Images/bg-addbutton@2x.png",
-				"${PODS_ROOT}/AwesomeMenu/AwesomeMenu/Images/bg-menuitem-highlighted.png",
-				"${PODS_ROOT}/AwesomeMenu/AwesomeMenu/Images/bg-menuitem-highlighted@2x.png",
-				"${PODS_ROOT}/AwesomeMenu/AwesomeMenu/Images/bg-menuitem.png",
-				"${PODS_ROOT}/AwesomeMenu/AwesomeMenu/Images/bg-menuitem@2x.png",
-				"${PODS_ROOT}/AwesomeMenu/AwesomeMenu/Images/icon-plus-highlighted.png",
-				"${PODS_ROOT}/AwesomeMenu/AwesomeMenu/Images/icon-plus-highlighted@2x.png",
-				"${PODS_ROOT}/AwesomeMenu/AwesomeMenu/Images/icon-plus.png",
-				"${PODS_ROOT}/AwesomeMenu/AwesomeMenu/Images/icon-plus@2x.png",
-				"${PODS_ROOT}/AwesomeMenu/AwesomeMenu/Images/icon-star.png",
-				"${PODS_ROOT}/AwesomeMenu/AwesomeMenu/Images/icon-star@2x.png",
-				"${PODS_ROOT}/MVSelectorScrollView/MVSelectorScrollView/scroller_bg@2x.png",
-				"${PODS_ROOT}/MVSelectorScrollView/MVSelectorScrollView/scroller_glass@2x.png",
-				"${PODS_ROOT}/MVSelectorScrollView/MVSelectorScrollView/MVSelectorScrollView.xib",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/bg-addbutton-highlighted.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/bg-addbutton-highlighted@2x.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/bg-addbutton.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/bg-addbutton@2x.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/bg-menuitem-highlighted.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/bg-menuitem-highlighted@2x.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/bg-menuitem.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/bg-menuitem@2x.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/icon-plus-highlighted.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/icon-plus-highlighted@2x.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/icon-plus.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/icon-plus@2x.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/icon-star.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/icon-star@2x.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/scroller_bg@2x.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/scroller_glass@2x.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MVSelectorScrollView.nib",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-monoleap/Pods-monoleap-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5599E86C2E5461EF1CCFD759 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-monoleapTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		95FC67471B5E607C00C756F5 /* Sources */ = {
@@ -804,7 +682,6 @@
 		};
 		95FC67741B5E607C00C756F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 23A0955A55548196DAB8B156 /* Pods-monoleap.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -841,7 +718,6 @@
 		};
 		95FC67751B5E607C00C756F5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 825851D338D3AD62EB146056 /* Pods-monoleap.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -871,7 +747,6 @@
 		};
 		95FC67771B5E607C00C756F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5EC54342A3902C5E22DA32EA /* Pods-monoleapTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -897,7 +772,6 @@
 		};
 		95FC67781B5E607C00C756F5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D1D08F9F43E63BD421D8CC86 /* Pods-monoleapTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

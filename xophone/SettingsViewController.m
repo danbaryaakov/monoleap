@@ -134,8 +134,7 @@
 
 - (IBAction)sendXAxisLeft:(id)sender {
     for (int i = 1; i < 127; i++) {
-        Byte message[] = {176, self.leftXCtrlValueSlider.value, i};
-        [self sendMidi:message];
+        [[MIDIConnector sharedInstance] sendControllerChange:self.leftXCtrlValueSlider.value value:i inChannel:1];
     }
 }
 
@@ -157,9 +156,7 @@
 
 - (IBAction)sendYAxisLeft:(id)sender {
     for (int i = 1; i < 127; i++) {
-        
-        Byte message[] = {176, self.leftYCtrlValueSlider.value, i};
-        [self sendMidi:message];
+        [[MIDIConnector sharedInstance] sendControllerChange:self.leftYCtrlValueSlider.value value:i inChannel:1];
     }
 }
 - (IBAction)yAxisRightCtrlEnable:(UISwitch*)sender {
@@ -184,8 +181,7 @@
 
 - (IBAction)sendYAxisRight:(id)sender {
     for (int i = 1; i < 127; i++) {
-        Byte message[] = {176, self.rightYCtrlValueSlider.value, i};
-        [self sendMidi:message];
+        [[MIDIConnector sharedInstance] sendControllerChange:self.rightYCtrlValueSlider.value value:i inChannel:1];
     }
 
 }
@@ -215,8 +211,8 @@
 
 - (IBAction)sendXAxisRight:(id)sender {
     for (int i = 1; i < 127; i++) {
-        Byte message[] = {176, self.rightXCtrlValueSlider.value, i};
-        [self sendMidi:message];
+        [[MIDIConnector sharedInstance] sendControllerChange:self.rightXCtrlValueSlider.value value:i inChannel:1];
+        
     }
 }
 

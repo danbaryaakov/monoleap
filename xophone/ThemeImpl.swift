@@ -67,7 +67,7 @@ import SpriteKit
         rightParticles = Particle()
     }
     
-    @objc func remove(from scene: InstrumentSceneOld?) {
+    @objc func remove(from scene: SKScene?) {
         parent = nil
     }
     

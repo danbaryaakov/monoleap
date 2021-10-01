@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "InstrumentScene.h"
+#import "InstrumentSceneOld.h"
 
 @interface Theme : NSObject
 

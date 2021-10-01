@@ -21,10 +21,6 @@ struct InstrumentSettingsPage: View {
             Toggle("Show Pattern Guides", isOn: $showPatternGuides).toggleStyle(MonoleapToggleStyle())
             Toggle("Calibration Enabled", isOn: $calibrationEnabled).toggleStyle(MonoleapToggleStyle())
             Toggle("Leading Hand", isOn: $isRightHanded).toggleStyle(MonoleapToggleStyle(offText: "Left", onText: "Right"))
-            Spacer()
-//            Toggle("Hand Size Calibration", isOn: $isHandSizeCalibrationEnabled).toggleStyle(MonoleapToggleStyle())
-//
-//            Toggle("Show Pattern Guides", isOn: $isPatternGuidesEnabled).toggleStyle(MonoleapToggleStyle())
         }
         SettingsSection(image: "settings_icon", label: "Scale") {
 //            ScaleSelector()

@@ -22,7 +22,8 @@ struct ThemeSettingsPage: View {
     
     var body: some View {
         VStack {
-            ScrollView {
+//            ScrollView {
+                Spacer()
                 LazyVGrid(columns: columns, spacing: 30) {
                     ForEach(ThemeManager.instance.getAllThemes(), id: \.self) { theme in
                         VStack (spacing: 0) {
@@ -38,7 +39,8 @@ struct ThemeSettingsPage: View {
                         }.overlay(RoundedRectangle(cornerRadius: 10).strokeBorder(theme.key == selectedTheme ? MonoleapAssets.controlColor : MonoleapAssets.controlColor.opacity(0.5))).padding([.leading, .trailing], 10)
                     }
                 }.padding(30)
-            }
+                Spacer()
+//            }
         }.background(MonoleapAssets.sectionBackground).overlay(RoundedRectangle(cornerRadius:10).strokeBorder(MonoleapAssets.controlColor)).padding([.top, .leading, .trailing], 30)
     }
 }

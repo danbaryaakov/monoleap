@@ -67,7 +67,7 @@ struct MainSettingsView: View {
                                 selectedPage = .midi
                             }.padding(.trailing, 40)
                         }
-                    }.padding(30)
+                    }.padding([.trailing, .top, .bottom], 30).padding(.leading, 20)
                     Spacer()
                     BigRoundButton(image: "play", size: 140).onTapGesture {
                         parent?.performSegue(withIdentifier: "instrument", sender: self)

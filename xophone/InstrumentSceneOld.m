@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Dan Bar-Yaakov. All rights reserved.
 //
 
-#import "InstrumentScene.h"
+#import "InstrumentSceneOld.h"
 #import "SKTexture+Gradient.h"
 //#import "SettingsManager.h"
 #import "Theme.h"
@@ -72,25 +72,25 @@
     left = [NSMutableArray new];
     right = [NSMutableArray new];
     
-    fingerWidth = SettingsManager.fingerWidth;
-    leftXCtrlValue = SettingsManager.leftXCtrlValue;
-    leftYCtrlValue = SettingsManager.leftYCtrlValue;
-    rightYCtrlValue = SettingsManager.rightYCtrlValue;
-    rightXCtrlValue = SettingsManager.rightXCtrlValue;
-    pitchBendEnabled = SettingsManager.pitchBendEnabled;
-    keySwitchEnabled = SettingsManager.keySwitchEnabled;
-    velocityEnabled = SettingsManager.velocityEnabled;
+    fingerWidth = 130;
+    leftXCtrlValue = 60;
+    leftYCtrlValue = 71;
+    rightYCtrlValue = 0;
+    rightXCtrlValue = 0;
+    pitchBendEnabled = false;
+    keySwitchEnabled = false;
+    velocityEnabled = false;
     
-    leftXCtrlEnabled = SettingsManager.leftXCtrlEnabled;
-    leftYCtrlEnabled = SettingsManager.leftYCtrlEnabled;
-    rightXCtrlEnabled = SettingsManager.rightXCtrlEnabled;
-    rightYCtrlEnabled = SettingsManager.rightYCtrlEnabled;
+    leftXCtrlEnabled = false;
+    leftYCtrlEnabled = false;
+    rightXCtrlEnabled = false;
+    rightYCtrlEnabled = false;
     isRightMuted = false;
     isLeftMuted = false;
-    synthEnabled = SettingsManager.synthEnabled;
+    synthEnabled = true;
     
     if (theme == nil) {
-        theme = [ColorBurstTheme byName:SettingsManager.themeName];
+        theme = [ColorBurstTheme byName:@""];
         [theme applyTo:self];
     }
     
@@ -502,7 +502,7 @@
     float secondDistance = [self distance:[left objectAtIndex:1] second:[left objectAtIndex:2]];
     NSLog(@"First distance: %f, Second: %f", firstDistance, secondDistance);
     fingerWidth = (firstDistance + secondDistance) / 2;
-    SettingsManager.fingerWidth = fingerWidth;
+//    SettingsManager.fingerWidth = fingerWidth;
     NSLog(@"Calibrate --> new finger width is %f", fingerWidth);
     [self drawPatternGuides];
 }

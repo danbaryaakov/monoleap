@@ -46,6 +46,7 @@ struct Settings {
     static var selectedTheme = Setting(key: "selectedTheme", defaultValue: "SPARK")
     
     // midi
+    static var isMidiEnabled = Setting(key: "MIDI_ENABLED", defaultValue: true)
     static var midiChannel = Setting(key: "MIDI_CHANNEL", defaultValue: 1)
     
     static var leftXCtrlEnabled = Setting(key: "leftXCtrlEnabled", defaultValue: false)

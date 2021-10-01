@@ -70,9 +70,9 @@ class InstrumentScene1: SKScene {
         if SettingsManager.pitchBendEnabled {
             self.drawPitchBendArea()
         }
-        if SettingsManager.pitchBendEnabled {
-            let _ = SynthManager.instance
-        }
+        
+        let _ = SynthManager.instance
+        
     }
     
     func drawPitchBendArea() {
@@ -456,7 +456,7 @@ class InstrumentScene1: SKScene {
         if Int(currentVal) != leftYCurrent {
             leftYCurrent = Int(currentVal)
             midiConnector.sendControllerChange(SettingsManager.leftYCtrlValue, value: Int(currentVal), inChannel: 1)
-            if synthEnabled ?? false {
+            if SettingsManager.synthEnabled {
                 SynthManager.instance.resonance(Int(currentVal))
             }
         }
@@ -496,7 +496,7 @@ class InstrumentScene1: SKScene {
         if Int(currentVal) != rightYCurrent {
             rightYCurrent = Int(currentVal)
             midiConnector.sendControllerChange(SettingsManager.rightYCtrlValue, value: Int(currentVal), inChannel: 1)
-            if synthEnabled ?? false {
+            if SettingsManager.synthEnabled {
                 SynthManager.instance.filterCutoff(currentVal)
             }
         }

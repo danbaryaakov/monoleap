@@ -13,11 +13,8 @@ import CoreMIDI
 
 class InstrumentScene1: SKScene {
     
-    var client: MIDIClientRef = MIDIClientRef()
-    var outputPort: MIDIPortRef = MIDIPortRef()
-    
     var playedNote: Int? = nil
-    var frequencies: Array<Any>?
+    
     var previousArgs: Array<Any>?
     
     var left = [UITouch]()
@@ -52,8 +49,7 @@ class InstrumentScene1: SKScene {
     var isTouchesEnded, isInvalidPattern, PDEnabled: Bool?
     override func didMove(to view: SKView) {
         super.didMove(to: view)
-        MIDIClientCreate("Xophone" as CFString, nil, nil, &client)
-        MIDIOutputPortCreate(client, "Xophone Output Port" as CFString,  &outputPort)
+        
         self.backgroundColor = SKColor.black
         
         self.midiConnector = MIDIConnector.sharedInstance

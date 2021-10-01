@@ -38,6 +38,10 @@ import SpriteKit
         initMenuButton()
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     func setupObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(showSettings), name: .showSettings, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(hideMenu), name: .hideMenu, object: nil)
@@ -102,4 +106,6 @@ extension SKScene {
         arch?.finishDecoding()
         return scene
     }
+    
+    
 }

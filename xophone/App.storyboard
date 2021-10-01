@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bOO-l1-mM0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bOO-l1-mM0">
     <device id="ipad11_0rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,10 +20,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S0q-7q-fne" customClass="SettingsView">
-                                <rect key="frame" x="20" y="87" width="377" height="291"/>
+                                <rect key="frame" x="20" y="111" width="377" height="267"/>
                                 <subviews>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CVJ-ZC-gz3">
-                                        <rect key="frame" x="320" y="249" width="51" height="35"/>
+                                        <rect key="frame" x="320" y="229" width="51" height="31"/>
                                         <color key="tintColor" red="0.67849691990000005" green="0.29832214629999998" blue="0.67929292929999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="onTintColor" red="0.67849691990000005" green="0.29832214629999998" blue="0.67929292929999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="thumbTintColor" red="0.89932528410000001" green="0.5408890368" blue="0.89333885229999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -32,13 +32,13 @@
                                         </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable Pitch Bend" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0f2-pZ-i7K">
-                                        <rect key="frame" x="8" y="210" width="138" height="31"/>
+                                        <rect key="frame" x="8" y="195.5" width="138" height="25.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable Velocity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVM-db-PpK">
-                                        <rect key="frame" x="8" y="256" width="116" height="21"/>
+                                        <rect key="frame" x="8" y="236" width="116" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -63,10 +63,10 @@
                                         </variation>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Dq-4w-ZeX">
-                                        <rect key="frame" x="0.0" y="103" width="377" height="92"/>
+                                        <rect key="frame" x="0.0" y="103" width="377" height="77.5"/>
                                         <subviews>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" value="1" minValue="1" maxValue="127" translatesAutoresizingMaskIntoConstraints="NO" id="KBy-Jj-oAq">
-                                                <rect key="frame" x="6" y="-7" width="305" height="31"/>
+                                                <rect key="frame" x="6" y="8" width="305" height="31"/>
                                                 <color key="minimumTrackTintColor" red="0.89932528410000001" green="0.5408890368" blue="0.89333885229999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="maximumTrackTintColor" red="0.89932528410000001" green="0.5408890368" blue="0.89333885229999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="thumbTintColor" red="0.89932528410000001" green="0.5408890368" blue="0.89333885229999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -82,7 +82,7 @@
                                                 </connections>
                                             </stepper>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fa-NY-43f">
-                                                <rect key="frame" x="8" y="31" width="42" height="50"/>
+                                                <rect key="frame" x="8" y="46" width="42" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -216,7 +216,7 @@
                                         </variation>
                                     </imageView>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="moO-7E-tfH">
-                                        <rect key="frame" x="320" y="210" width="51" height="31"/>
+                                        <rect key="frame" x="320" y="195.5" width="51" height="25.5"/>
                                         <color key="tintColor" red="0.67849691990000005" green="0.29832214629999998" blue="0.67929292929999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="onTintColor" red="0.67849691990000005" green="0.29832214629999998" blue="0.67929292929999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="thumbTintColor" red="0.89932528410000001" green="0.5408890368" blue="0.89333885229999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -686,13 +686,13 @@
                                 </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qde-Af-tct" customClass="SettingsView">
-                                <rect key="frame" x="405" y="87" width="416" height="291"/>
+                                <rect key="frame" x="405" y="111" width="416" height="267"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nVR-AZ-J3L">
-                                        <rect key="frame" x="0.0" y="104" width="416" height="92"/>
+                                        <rect key="frame" x="0.0" y="104" width="416" height="68"/>
                                         <subviews>
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Mvt-zQ-VPV">
-                                                <rect key="frame" x="252" y="55" width="94" height="32"/>
+                                                <rect key="frame" x="252" y="31" width="94" height="32"/>
                                                 <connections>
                                                     <action selector="xAxisLeftStepperChanged:" destination="bOO-l1-mM0" eventType="valueChanged" id="37s-Qa-Oo7"/>
                                                 </connections>
@@ -726,7 +726,7 @@
                                                 </connections>
                                             </slider>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lcr-Rc-JOr">
-                                                <rect key="frame" x="368" y="18" width="40" height="56"/>
+                                                <rect key="frame" x="368" y="18" width="40" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="69" id="8kr-BV-Z24">
                                                         <variation key="heightClass=regular" constant="40"/>
@@ -1421,7 +1421,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="monoleap.png" translatesAutoresizingMaskIntoConstraints="NO" id="TIf-pe-jlh">
-                                <rect key="frame" x="20" y="17" width="320" height="59"/>
+                                <rect key="frame" x="20" y="41" width="320" height="59"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="AHr-y0-WEk"/>
                                 </constraints>
@@ -1722,24 +1722,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dAy-5p-Avv" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1153" y="1264"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="gTY-V4-dMi">
-            <objects>
-                <viewController id="Koq-Ak-REy" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="xjg-iq-GVW"/>
-                        <viewControllerLayoutGuide type="bottom" id="KHQ-ej-BTs"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="tfG-DT-XFk">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="c6D-bK-JmY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="34" y="666"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.49276079680000001" green="0.2390160144" blue="0.89646464650000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -39,7 +39,6 @@
 		9586002926E76B9B00A4A712 /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9586002826E76B9B00A4A712 /* AudioKit */; };
 		9586002C26E76BE800A4A712 /* SynthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9586002B26E76BE800A4A712 /* SynthManager.swift */; };
 		9586002F26E76FF400A4A712 /* SoundpipeAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9586002E26E76FF400A4A712 /* SoundpipeAudioKit */; };
-		9586003126E7721D00A4A712 /* Second.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9586003026E7721D00A4A712 /* Second.swift */; };
 		9586FFF726E213F100A4A712 /* hand_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 9586FFF526E213F100A4A712 /* hand_left.png */; };
 		9586FFF826E213F100A4A712 /* hand_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 9586FFF626E213F100A4A712 /* hand_right.png */; };
 		9586FFFD26E2165600A4A712 /* left_v.png in Resources */ = {isa = PBXBuildFile; fileRef = 9586FFF926E2165500A4A712 /* left_v.png */; };
@@ -123,7 +122,6 @@
 		957A9EED1B862DE500543172 /* leftHorizontal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leftHorizontal.png; sourceTree = "<group>"; };
 		9586002A26E76BE700A4A712 /* monoleap-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "monoleap-Bridging-Header.h"; sourceTree = "<group>"; };
 		9586002B26E76BE800A4A712 /* SynthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthManager.swift; sourceTree = "<group>"; };
-		9586003026E7721D00A4A712 /* Second.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Second.swift; sourceTree = "<group>"; };
 		9586FFF326E210A200A4A712 /* logo_test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo_test.png; path = ../../../Documents/logo_test.png; sourceTree = "<group>"; };
 		9586FFF526E213F100A4A712 /* hand_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hand_left.png; sourceTree = "<group>"; };
 		9586FFF626E213F100A4A712 /* hand_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hand_right.png; sourceTree = "<group>"; };
@@ -197,10 +195,15 @@
 		277FA7C926F33F1B0063022A /* objc */ = {
 			isa = PBXGroup;
 			children = (
+				95DF40331B768246007C89A4 /* Graphics */,
+				95DF40351B76827E007C89A4 /* Settings */,
+				95A8B7961BDEC75C007494D1 /* Theme */,
 				95FC675A1B5E607C00C756F5 /* InstrumentViewController.h */,
 				95FC675B1B5E607C00C756F5 /* InstrumentViewController.m */,
 				95145EBA1BEB7C1E0040FD28 /* MIDIConnector.h */,
 				95145EBB1BEB7C1E0040FD28 /* MIDIConnector.m */,
+				95FC67551B5E607C00C756F5 /* InstrumentScene.h */,
+				95FC67561B5E607C00C756F5 /* InstrumentScene.m */,
 			);
 			name = objc;
 			sourceTree = "<group>";
@@ -219,21 +222,6 @@
 				277FA7D526F361670063022A /* ThemeImpl.swift */,
 			);
 			name = Theme;
-			sourceTree = "<group>";
-		};
-		278DD63126EB484B0079F8B8 /* Swift */ = {
-			isa = PBXGroup;
-			children = (
-				277FA7D426F361050063022A /* Theme */,
-				277FA7D126F358170063022A /* Settings */,
-				278DD63326EB485E0079F8B8 /* AppDelegate.swift */,
-				278DD63226EB485D0079F8B8 /* monoleap-Bridging-Header.h */,
-				278DD63526EB4A1E0079F8B8 /* MidiConnectorImpl.swift */,
-				278DD63726EB4A9F0079F8B8 /* MIDIConnector.swift */,
-				277FA7CA26F33FA70063022A /* InstrumentViewController.swift */,
-				277FA7CF26F350130063022A /* InstrumentScene.swift */,
-			);
-			name = Swift;
 			sourceTree = "<group>";
 		};
 		6D8C8DB86CFB5B5BD38A57CE /* Pods */ = {
@@ -359,22 +347,23 @@
 		95FC674D1B5E607C00C756F5 /* monoleap */ = {
 			isa = PBXGroup;
 			children = (
-				277FA7C926F33F1B0063022A /* objc */,
-				9515ABD31BE456DB008B8FDA /* Images */,
-				95A8B7961BDEC75C007494D1 /* Theme */,
-				95DF40351B76827E007C89A4 /* Settings */,
-				95DF40331B768246007C89A4 /* Graphics */,
-				278DD63126EB484B0079F8B8 /* Swift */,
-				95FC67551B5E607C00C756F5 /* InstrumentScene.h */,
-				95FC67561B5E607C00C756F5 /* InstrumentScene.m */,
-				95FC67581B5E607C00C756F5 /* InstrumentScene.sks */,
+				278DD63326EB485E0079F8B8 /* AppDelegate.swift */,
+				278DD63226EB485D0079F8B8 /* monoleap-Bridging-Header.h */,
+				278DD63526EB4A1E0079F8B8 /* MidiConnectorImpl.swift */,
+				278DD63726EB4A9F0079F8B8 /* MIDIConnector.swift */,
+				277FA7CA26F33FA70063022A /* InstrumentViewController.swift */,
+				277FA7CF26F350130063022A /* InstrumentScene.swift */,
+				9586002B26E76BE800A4A712 /* SynthManager.swift */,
 				95D147221B6D470C00770BF3 /* App.storyboard */,
+				95FC67621B5E607C00C756F5 /* LaunchScreen.xib */,
+				277FA7D126F358170063022A /* Settings */,
+				277FA7D426F361050063022A /* Theme */,
+				9515ABD31BE456DB008B8FDA /* Images */,
+				95FC67581B5E607C00C756F5 /* InstrumentScene.sks */,
 				95D147241B6D510600770BF3 /* Model.xcdatamodeld */,
 				95FC67601B5E607C00C756F5 /* Images.xcassets */,
-				95FC67621B5E607C00C756F5 /* LaunchScreen.xib */,
+				277FA7C926F33F1B0063022A /* objc */,
 				95FC674E1B5E607C00C756F5 /* Supporting Files */,
-				9586002B26E76BE800A4A712 /* SynthManager.swift */,
-				9586003026E7721D00A4A712 /* Second.swift */,
 				9586002A26E76BE700A4A712 /* monoleap-Bridging-Header.h */,
 			);
 			name = monoleap;
@@ -678,7 +667,6 @@
 				277FA7CD26F343CB0063022A /* InstrumentViewController.swift in Sources */,
 				2757768326ED0AEC00134DDC /* MIDIConnector.swift in Sources */,
 				277FA7E026F381880063022A /* SettingsManager.swift in Sources */,
-				9586003126E7721D00A4A712 /* Second.swift in Sources */,
 				9586002C26E76BE800A4A712 /* SynthManager.swift in Sources */,
 				952BCD401B6971A800B67629 /* SettingsViewController.m in Sources */,
 			);

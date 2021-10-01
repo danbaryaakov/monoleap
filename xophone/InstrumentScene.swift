@@ -230,8 +230,8 @@ class InstrumentScene1: SKScene {
         }
         self.sortTouches(&left)
         self.sortTouches(&right)
-        theme?.leftHandMoved(left)
-        theme?.rightHandMoved(right)
+        theme?.leftHandMoved(touches: left)
+        theme?.rightHandMoved(touches: right)
         self.drawPatternGuides()
 
         let topRight = left.first
@@ -267,13 +267,13 @@ class InstrumentScene1: SKScene {
         if isInvalidPattern ?? false || rightPattern == 0 {
             // stop audio and clear all visual indication
             noteOff(playedNote, isOtherNotePlaying: false)
-            self.theme?.drawLeftHandTouches(0, touches: left)
-            self.theme?.drawRightHandTouches(0, touches: right)
+            self.theme?.drawLeftHandTouches(pattern: 0, touches: left)
+            self.theme?.drawRightHandTouches(pattern: 0, touches: right)
             
             self.debounce(action: #selector(showMenu), delay: 1)
             return
         } else {
-            theme?.drawRightHandTouches(Int32(rightPattern), touches: right)
+            theme?.drawRightHandTouches(pattern: rightPattern, touches: right)
             baseNote = 48 + 6 * (rightPattern - 1)
         }
         
@@ -310,8 +310,8 @@ class InstrumentScene1: SKScene {
         switch leftPattern {
         case 0:
             self.noteOff(playedNote, isOtherNotePlaying: false)
-            theme?.drawLeftHandTouches(0, touches: left)
-            theme?.drawRightHandTouches(0, touches: right)
+            theme?.drawLeftHandTouches(pattern: 0, touches: left)
+            theme?.drawRightHandTouches(pattern: 0, touches: right)
         case 1:
             prevNote = playedNote
             self.noteOn(baseNote, velocity: self.velocity(touch: left.first))
@@ -328,7 +328,7 @@ class InstrumentScene1: SKScene {
         default:
            break
         }
-        theme?.drawLeftHandTouches(Int32(leftPattern), touches: left)
+        theme?.drawLeftHandTouches(pattern: leftPattern, touches: left)
     }
     
     func noteOn(_ noteNumber: Int, velocity: Int) {
@@ -448,7 +448,7 @@ class InstrumentScene1: SKScene {
         let maxPercent = max(0, location.y - height / 4) * 100 / (height / 3)
         let percent = min(maxPercent, 100)
         let currentVal = floor(percent * 127 / 100)
-        self.theme?.verticalLeftChanged(Int32(currentVal))
+        self.theme?.verticalLeftChanged(Int(currentVal))
         if Int(currentVal) != leftYCurrent {
             leftYCurrent = Int(currentVal)
             midiConnector.sendControllerChange(SettingsManager.leftYCtrlValue, value: Int(currentVal), inChannel: 1)
@@ -488,7 +488,7 @@ class InstrumentScene1: SKScene {
         let maxPercent = max(0, location.y - height / 4) * 100 / (height / 3)
         let percent = min(maxPercent, 100)
         let currentVal = Int(floor(percent * 127 / 100))
-        self.theme?.verticalRightChanged(Int32(currentVal))
+        self.theme?.verticalRightChanged(currentVal)
         if Int(currentVal) != rightYCurrent {
             rightYCurrent = Int(currentVal)
             midiConnector.sendControllerChange(SettingsManager.rightYCtrlValue, value: Int(currentVal), inChannel: 1)

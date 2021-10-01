@@ -8,8 +8,8 @@
 
 import Foundation
 
-@objc public class RGBShaderTheme : Theme {
-    
+public class RGBShaderTheme : Theme {
+   
     var backgroundShaderName: String
     
     var scene: SKScene?
@@ -29,10 +29,9 @@ import Foundation
     
     @objc init(_ shader: String) {
         self.backgroundShaderName = shader
-        super.init()
     }
     
-    @objc public override func apply(to: SKScene) {
+    public func apply(to: SKScene) {
         self.scene = to
         shader = createCircleWave()
         background = SKEmitterNode(fileNamed: "MagicParticle.sks")
@@ -61,7 +60,7 @@ import Foundation
         scene!.addChild(bgGreen!)
     }
     
-    @objc public override func drawRightHandTouches(_ pattern: Int32, touches: [UITouch]!) {
+    public func drawRightHandTouches(pattern: Int, touches: [UITouch]) {
         draw(pattern: Int(pattern), touches: touches, nodes: &rightNodes);
         if (pattern == 0) {
             bgRed!.run(SKAction.fadeAlpha(to: 0.0, duration: 1))
@@ -72,26 +71,26 @@ import Foundation
         }
     }
     
-    @objc public override func rightHandMoved(_ touches: [UITouch]!) {
+    public func rightHandMoved(touches: [UITouch]) {
         adjustPositions(nodes: &rightNodes, touches: touches)
     }
     
-    @objc public override func drawLeftHandTouches(_ pattern: Int32, touches: [UITouch]!) {
+    public func drawLeftHandTouches(pattern: Int, touches: [UITouch]) {
         draw(pattern: Int(pattern), touches: touches, nodes: &leftNodes);
     }
     
-    @objc public override func leftHandMoved(_ touches: [UITouch]!) {
+    public func leftHandMoved(touches: [UITouch]) {
         adjustPositions(nodes: &leftNodes, touches: touches)
     }
     
-    @objc public override func verticalLeftChanged(_ position: Int32) {
+    public func verticalLeftChanged(_ position: Int) {
         let alpha = max(0.1, Float(position) / 127.0)
         green = max(50, Float(position) / 127.0 * 255)
         shader?.uniformNamed("u_color")?.vectorFloat3Value = vector_float3(red, green, 120)
         bgGreen!.run(SKAction.fadeAlpha(to: CGFloat(alpha), duration: 1))
     }
     
-    @objc public override func verticalRightChanged(_ position: Int32) {
+    public func verticalRightChanged(_ position: Int) {
         let alpha = max(0.1, Float(position) / 127.0)
         red = max(50, Float(position) / 127.0 * 255)
         shader?.uniformNamed("u_color")?.vectorFloat3Value = vector_float3(red, green, 120)

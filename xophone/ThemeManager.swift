@@ -26,14 +26,14 @@ public struct ThemeInfo : Hashable {
     
 }
 
-@objc public class ThemeManager : NSObject {
+public class ThemeManager : NSObject {
     
-    @objc static public let instance = ThemeManager()
+    static public let instance = ThemeManager()
     
     var allKeys: [String] = []
     var themes: [String:ThemeInfo] = [:]
     
-    @objc public var themeNames: [String] {
+    public var themeNames: [String] {
         get {
             allKeys
         }
@@ -59,14 +59,14 @@ public struct ThemeInfo : Hashable {
         allKeys.append(key)
     }
     
-    @objc public func createTheme(key: String) -> Theme? {
+    public func createTheme(key: String) -> Theme? {
         if let info = themes[key] {
             return info.creator()
         }
         return nil
     }
     
-    @objc public func createCurrentTheme() -> Theme? {
+    public func createCurrentTheme() -> Theme? {
         if let info = themes[Settings.selectedTheme.value] {
             return info.creator()
         } else {

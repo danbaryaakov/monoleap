@@ -99,6 +99,7 @@
 		ECC1DF3627073B03006ADBAA /* Rainbow.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ECC1DF2427073B03006ADBAA /* Rainbow.fsh */; };
 		ECC1DF3727073B03006ADBAA /* Circles.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ECC1DF2527073B03006ADBAA /* Circles.fsh */; };
 		ECC1DF3927073DFB006ADBAA /* Flower.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ECC1DF3827073DFB006ADBAA /* Flower.fsh */; };
+		ECC1DF3B27073FDA006ADBAA /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC1DF3A27073FDA006ADBAA /* Theme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -224,6 +225,7 @@
 		ECC1DF2427073B03006ADBAA /* Rainbow.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Rainbow.fsh; sourceTree = "<group>"; };
 		ECC1DF2527073B03006ADBAA /* Circles.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Circles.fsh; sourceTree = "<group>"; };
 		ECC1DF3827073DFB006ADBAA /* Flower.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Flower.fsh; sourceTree = "<group>"; };
+		ECC1DF3A27073FDA006ADBAA /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,6 +281,7 @@
 				277FA7D526F361670063022A /* ThemeImpl.swift */,
 				ECC1DF0F27073AA1006ADBAA /* ThemeManager.swift */,
 				ECC1DF1127073ABC006ADBAA /* RGBShaderTheme.swift */,
+				ECC1DF3A27073FDA006ADBAA /* Theme.swift */,
 			);
 			name = Theme;
 			sourceTree = "<group>";
@@ -690,6 +693,7 @@
 				ECC1DEFE270725B1006ADBAA /* BigRoundButton.swift in Sources */,
 				9586002C26E76BE800A4A712 /* SynthManager.swift in Sources */,
 				ECC1DF0227072D3B006ADBAA /* Settings.swift in Sources */,
+				ECC1DF3B27073FDA006ADBAA /* Theme.swift in Sources */,
 				952BCD401B6971A800B67629 /* SettingsViewController.m in Sources */,
 				ECC1DF1027073AA1006ADBAA /* ThemeManager.swift in Sources */,
 			);

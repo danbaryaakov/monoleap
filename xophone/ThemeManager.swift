@@ -41,19 +41,18 @@ public class ThemeManager : NSObject {
     
     private override init() {
         super.init()
-        register("SPARK", name: "Spark", creator: { RGBShaderTheme("Spark") })
-        register("WATER_COLORS", name: "Water Colors", creator: { RGBShaderTheme("WaterColors") })
-        register("COLOR_CIRCLE", name: "Circle of Light", image: "theme_circle_of_color", creator: { RGBShaderTheme("Circles") })
-        register("FLOWER", name: "Flower", creator: { RGBShaderTheme("Flower") })
-        register("WARP_LINES", name: "Warp Lines", creator: { RGBShaderTheme("WarpLines") })
-        register("RAINBOW", name: "Rainbow", creator: { RGBShaderTheme("Rainbow") })
+        register("SPARK", name: "Spark", image: "theme_spark", creator: { RGBShaderTheme("Spark") })
+        register("WATER_COLORS", name: "Water Colors", image: "theme_water_colors", creator: { RGBShaderTheme("WaterColors") })
+        register("COLOR_CIRCLE", name: "Circle of Light", image: "theme_circle_of_light", creator: { RGBShaderTheme("Circles") })
+        register("FLOWER", name: "Flower", image: "theme_flower", creator: { RGBShaderTheme("Flower") })
+        register("FIRE", name: "Fire", image: "theme_fire", creator: { RGBShaderTheme("WarpLines") })
+        register("RAINBOW", name: "Rainbow", image: "theme_rainbow", creator: { RGBShaderTheme("Rainbow") })
         register("DISCO", name: "Disco", image: "theme_disco", creator: { RGBShaderTheme("Splash") })
-        register("RAINBOW_CIRCLES", name: "Rainbow Circles", creator: { RGBShaderTheme("ColorSquares") })
-        register("NEW", name: "New", creator: { RGBShaderTheme("WaveForm") })
+        register("RAINBOW_CIRCLES", name: "Rainbow Circles", image: "theme_rainbow_circles", creator: { RGBShaderTheme("ColorSquares") })
 //        register("PARTICLES", name: "Particles", creator: { ColorBurstTheme() })
     }
     
-    private func register(_ key: String, name: String, image: String = "theme_test", creator: @escaping () -> Theme) {
+    private func register(_ key: String, name: String, image: String = "theme_spark", creator: @escaping () -> Theme) {
         let info = ThemeInfo(key: key, name: name, image: image, creator: creator)
         themes[key] = info
         allKeys.append(key)

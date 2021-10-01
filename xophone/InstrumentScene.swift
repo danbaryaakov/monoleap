@@ -137,6 +137,11 @@ class InstrumentScene1: SKScene {
         
     }
     
+    private func hidePatternGuides() {
+        [rectFingerOneLeft, rectFingerTwoLeft, rectFingerThreeLeft, rectFingerFourLeft].forEach({$0?.isHidden = true})
+        [rectFingerOneRight, rectFingerTwoRight, rectFingerThreeRight, rectFingerFourRight].forEach({$0?.isHidden = true })
+    }
+    
     func createGradientRect(width: CGFloat, height: CGFloat) -> SKSpriteNode {
         let topColor = CIColor(red: 248/255, green: 182/255, blue: 250/255, alpha: 0.15)
         let bottomColor = CIColor(red: 248/255, green: 182/255, blue: 250/255, alpha: 0.01)
@@ -232,7 +237,9 @@ class InstrumentScene1: SKScene {
         self.sortTouches(&right)
         theme?.leftHandMoved(touches: left)
         theme?.rightHandMoved(touches: right)
-        self.drawPatternGuides()
+        if (Settings.showPatternGuides.value) {
+            self.drawPatternGuides()
+        }
 
         let topRight = left.first
         lastRightTop = topRight?.location(in: view).y
@@ -251,11 +258,16 @@ class InstrumentScene1: SKScene {
         
         self.sortTouches(&left)
         self.sortTouches(&right)
-        self.drawPatternGuides()
         
         let rightPattern = self.getPattern(&right, withAux: true)
         let leftPattern = self.getPattern(&left, withAux: true )
     
+        if (Settings.showPatternGuides.value) {
+            self.drawPatternGuides()
+        } else {
+            self.hidePatternGuides()
+        }
+        
         var baseNote: Int = 0
         if leftPattern == 8 {
             // calibrate

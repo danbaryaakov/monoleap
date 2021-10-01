@@ -8,18 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-#import "InstrumentScene.h"
+#import "InstrumentSceneOld.h"
 
 @interface Theme : NSObject
 
--(void)applyTo:(InstrumentScene*)scene;
--(void)removeFrom:(InstrumentScene*)scene;
+-(void)applyTo:(SKScene*)scene;
+-(void)removeFrom:(InstrumentSceneOld*)scene;
 -(void)verticalRightChanged:(int)position;
 -(void)verticalLeftChanged:(int)position;
--(void)drawLeftHandTouches:(int)pattern touches:(NSArray*)touches;
--(void)drawRightHandTouches:(int)pattern touches:(NSArray*)touches;
--(void)leftHandMoved:(NSArray*)touches;
--(void)rightHandMoved:(NSArray*)touches;
+-(void)drawLeftHandTouches:(int)pattern touches:(NSArray<UITouch*>*)touches;
+-(void)drawRightHandTouches:(int)pattern touches:(NSArray<UITouch*>*)touches;
+-(void)leftHandMoved:(NSArray<UITouch*>*)touches;
+-(void)rightHandMoved:(NSArray<UITouch*>*)touches;
 
 +(instancetype)byName:(NSString*)name;
 +(NSString*)description;

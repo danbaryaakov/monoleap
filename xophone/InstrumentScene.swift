@@ -11,7 +11,7 @@ import SpriteKit
 import UIKit
 import CoreMIDI
 
-class InstrumentScene1: SKScene {
+class InstrumentScene: SKScene {
     
     var playedNote: Int? = nil
     
@@ -25,10 +25,8 @@ class InstrumentScene1: SKScene {
     var fingerWidth: CGFloat!
     var prevNote: Int?
     
-    var theme: BasicTheme?
+    var theme: Theme?
 
-    
-    var synthEnabled: Bool?
     var isLeftMuted, isRightMuted: Bool?
     
     var rectFingerOneLeft: SKSpriteNode?
@@ -50,7 +48,7 @@ class InstrumentScene1: SKScene {
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         
-        self.backgroundColor = SKColor.black
+        self.backgroundColor = SKColor(MonoleapAssets.darkBackground)
         
         self.midiConnector = MIDIConnector.sharedInstance
         self.left = [UITouch]()
@@ -58,14 +56,14 @@ class InstrumentScene1: SKScene {
     
         isRightMuted = false
         isLeftMuted = false
-        if theme == nil {
-            self.theme = BasicTheme()
-            theme?.apply(to: self)
-        }
-        self.fingerWidth = SettingsManager.fingerWidth
-        if SettingsManager.pitchBendEnabled {
-            self.drawPitchBendArea()
-        }
+        
+        theme = ThemeManager.instance.createCurrentTheme()
+        theme?.apply(to: self)
+        
+        self.fingerWidth = Settings.fingerWidth.value
+//        if SettingsManager.pitchBendEnabled {
+//            self.drawPitchBendArea()
+//        }
         
         let _ = SynthManager.instance
         
@@ -137,6 +135,11 @@ class InstrumentScene1: SKScene {
             [rectFingerOneRight, rectFingerTwoRight, rectFingerThreeRight, rectFingerFourRight].forEach({$0?.isHidden = true })
         }
         
+    }
+    
+    private func hidePatternGuides() {
+        [rectFingerOneLeft, rectFingerTwoLeft, rectFingerThreeLeft, rectFingerFourLeft].forEach({$0?.isHidden = true})
+        [rectFingerOneRight, rectFingerTwoRight, rectFingerThreeRight, rectFingerFourRight].forEach({$0?.isHidden = true })
     }
     
     func createGradientRect(width: CGFloat, height: CGFloat) -> SKSpriteNode {
@@ -232,9 +235,11 @@ class InstrumentScene1: SKScene {
         }
         self.sortTouches(&left)
         self.sortTouches(&right)
-        theme?.leftHandMoved(left)
-        theme?.rightHandMoved(right)
-        self.drawPatternGuides()
+        theme?.leftHandMoved(touches: left)
+        theme?.rightHandMoved(touches: right)
+        if (Settings.showPatternGuides.value) {
+            self.drawPatternGuides()
+        }
 
         let topRight = left.first
         lastRightTop = topRight?.location(in: view).y
@@ -253,27 +258,37 @@ class InstrumentScene1: SKScene {
         
         self.sortTouches(&left)
         self.sortTouches(&right)
-        self.drawPatternGuides()
         
         let rightPattern = self.getPattern(&right, withAux: true)
         let leftPattern = self.getPattern(&left, withAux: true )
     
-        var baseNote: Int = 0
-        if leftPattern == 8 {
-            // calibrate
-            debounce(action: #selector(calibrate), delay: 1.0)
+        if (Settings.showPatternGuides.value) {
+            self.drawPatternGuides()
         } else {
-            NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(calibrate), object: nil)
+            self.hidePatternGuides()
+        }
+        
+        var baseNote: Int = 0
+        
+        if Settings.calibrationEnabled.value {
+            if leftPattern == 8 {
+                // calibrate
+                debounce(action: #selector(calibrate), delay: 1.0)
+            } else {
+                NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(calibrate), object: nil)
+            }
         }
         
         if isInvalidPattern ?? false || rightPattern == 0 {
             // stop audio and clear all visual indication
-            self.theme?.drawLeftHandTouches(0, touches: left)
-            self.theme?.drawRightHandTouches(0, touches: right)
+            noteOff(playedNote, isOtherNotePlaying: false)
+            self.theme?.drawLeftHandTouches(pattern: 0, touches: left)
+            self.theme?.drawRightHandTouches(pattern: 0, touches: right)
             
             self.debounce(action: #selector(showMenu), delay: 1)
+            return
         } else {
-            theme?.drawRightHandTouches(rightPattern, touches: right)
+            theme?.drawRightHandTouches(pattern: rightPattern, touches: right)
             baseNote = 48 + 6 * (rightPattern - 1)
         }
         
@@ -307,11 +322,19 @@ class InstrumentScene1: SKScene {
             self.handleRightXCtrl(touch: left.first)
         }
         
+        theme?.drawLeftHandTouches(pattern: leftPattern, touches: left)
+        if (leftPattern > 0) {
+            let noteToPlay = baseNote + leftPattern - 1;
+            if !ScaleMatcher.doesNoteMatchCurrentScale(noteToPlay) {
+                return;
+            }
+        }
+        
         switch leftPattern {
         case 0:
             self.noteOff(playedNote, isOtherNotePlaying: false)
-            theme?.drawLeftHandTouches(0, touches: left)
-            theme?.drawRightHandTouches(0, touches: right)
+            theme?.drawLeftHandTouches(pattern: 0, touches: left)
+            theme?.drawRightHandTouches(pattern: 0, touches: right)
         case 1:
             prevNote = playedNote
             self.noteOn(baseNote, velocity: self.velocity(touch: left.first))
@@ -328,14 +351,16 @@ class InstrumentScene1: SKScene {
         default:
            break
         }
-        theme?.drawLeftHandTouches(leftPattern, touches: left)
+        
     }
     
     func noteOn(_ noteNumber: Int, velocity: Int) {
-        midiConnector.sendNote(on: noteNumber, inChannel: 1, withVelocity: velocity)
+        if (Settings.isMidiEnabled.value) {
+            midiConnector.sendNote(on: noteNumber, inChannel: 1, withVelocity: velocity)
+        }
         playedNote = noteNumber
         self.sendMidiToPDwithNoteNumner(noteNumber, andVelocity: velocity)
-        if SettingsManager.synthEnabled {
+        if Settings.isSynthEnabled.value {
             SynthManager.instance.noteOn(noteNumber)
         }
     }
@@ -351,11 +376,13 @@ class InstrumentScene1: SKScene {
     
     func noteOff(_ noteNumber: Int?, isOtherNotePlaying: Bool) {
         guard let noteNumber = noteNumber else { return }
-        midiConnector.sendNoteOff(noteNumber, inChannel: 1, withVelocity: 120)
+        if Settings.isMidiEnabled.value {
+            midiConnector.sendNoteOff(noteNumber, inChannel: 1, withVelocity: 120)
+        }
         if !isOtherNotePlaying {
             self.sendMidiToPDwithNoteNumner(noteNumber, andVelocity: 0)
         }
-        if SettingsManager.synthEnabled {
+        if Settings.isSynthEnabled.value {
             SynthManager.instance.noteOff(noteNumber)
         }
     }
@@ -421,7 +448,7 @@ class InstrumentScene1: SKScene {
         let secondDistance = self.distance(first: left[1], second: left[2])
         print("FirstDiscance \(firstDistance), Second: \(secondDistance)")
         fingerWidth = (firstDistance + secondDistance) / 2
-        SettingsManager.fingerWidth = abs(fingerWidth) // quick calibration fix but might not be accurate
+        Settings.fingerWidth.value = max(firstDistance, secondDistance) // quick calibration fix but might not be accurate
         print("Calibrate --> new finger width is \(fingerWidth ?? 0)")
         self.drawPatternGuides()
         
@@ -440,7 +467,7 @@ class InstrumentScene1: SKScene {
     //MARK: - Operator handling
     func handleLeftYCtrl(touch: UITouch?) {
         guard let touch = touch else { return }
-        if !SettingsManager.leftYCtrlEnabled || isLeftMuted ?? false {
+        if !Settings.leftYCtrlEnabled.value || isLeftMuted ?? false {
             return
         }
         let location = touch.location(in: self.view)
@@ -451,8 +478,10 @@ class InstrumentScene1: SKScene {
         self.theme?.verticalLeftChanged(Int(currentVal))
         if Int(currentVal) != leftYCurrent {
             leftYCurrent = Int(currentVal)
-            midiConnector.sendControllerChange(SettingsManager.leftYCtrlValue, value: Int(currentVal), inChannel: 1)
-            if SettingsManager.synthEnabled {
+            if Settings.isMidiEnabled.value {
+                midiConnector.sendControllerChange(Settings.leftYCtrlValue.value, value: Int(currentVal), inChannel: 1)
+            }
+            if Settings.isSynthEnabled.value {
                 SynthManager.instance.resonance(Int(currentVal))
             }
         }
@@ -460,7 +489,7 @@ class InstrumentScene1: SKScene {
     
     func handleLeftXCtrl(touch: UITouch?, isMoved: Bool) {
         guard let touch = touch else { return }
-        if !SettingsManager.leftXCtrlEnabled { return }
+        if !Settings.leftXCtrlEnabled.value { return }
         let location = touch.location(in: self.view)
         let width = self.view?.bounds.width ?? 0
         let minPercent = min(100, (width - location.x) * 100 / (width / 2))
@@ -468,18 +497,20 @@ class InstrumentScene1: SKScene {
         let currentVal = Int(floor(percent * 127 / 100))
         if currentVal != leftXCurrent {
             leftXCurrent = currentVal
-            midiConnector.sendControllerChange(SettingsManager.leftXCtrlValue, value: currentVal, inChannel: 1)
+            if Settings.isMidiEnabled.value {
+                midiConnector.sendControllerChange(Settings.leftXCtrlValue.value, value: currentVal, inChannel: 1)
+            }
         }
     }
     
     func handleRightYCtrl(touch: UITouch?) {
         guard let touch = touch else { return }
-        if SettingsManager.keySwitchEnabled {
-            self.handleKeySwitch(touch: touch)
-            return
-        }
+//        if SettingsManager.keySwitchEnabled {
+//            self.handleKeySwitch(touch: touch)
+//            return
+//        }
         
-        if !SettingsManager.rightYCtrlEnabled || self.isRightMuted ?? false {
+        if !Settings.rightYCtrlEnabled.value || self.isRightMuted ?? false {
             return
         }
         let location = touch.location(in: self.view)
@@ -491,8 +522,10 @@ class InstrumentScene1: SKScene {
         self.theme?.verticalRightChanged(currentVal)
         if Int(currentVal) != rightYCurrent {
             rightYCurrent = Int(currentVal)
-            midiConnector.sendControllerChange(SettingsManager.rightYCtrlValue, value: Int(currentVal), inChannel: 1)
-            if SettingsManager.synthEnabled {
+            if Settings.isMidiEnabled.value {
+                midiConnector.sendControllerChange(Settings.rightYCtrlValue.value, value: Int(currentVal), inChannel: 1)
+            }
+            if Settings.isSynthEnabled.value {
                 SynthManager.instance.filterCutoff(currentVal)
             }
         }
@@ -500,10 +533,10 @@ class InstrumentScene1: SKScene {
     
     func handleRightXCtrl(touch: UITouch?) {
         guard let touch = touch else { return }
-        if SettingsManager.pitchBendEnabled {
-            self.handlePitchBend(touch)
-        }
-        if !SettingsManager.rightXCtrlEnabled { return }
+//        if SettingsManager.pitchBendEnabled {
+//            self.handlePitchBend(touch)
+//        }
+        if !Settings.rightXCtrlEnabled.value { return }
         let location = touch.location(in: self.view)
         let width = self.view?.bounds.width ?? 0
         let maxPercent = max(0, location.x * 100 / (width / 2))
@@ -511,27 +544,28 @@ class InstrumentScene1: SKScene {
         let currentVal = Int(floor(percent * 127 / 100))
         if currentVal != rightXCurrent {
             rightXCurrent = currentVal
-            midiConnector.sendControllerChange(SettingsManager.rightXCtrlValue, value: currentVal, inChannel: 1)
+            if Settings.isMidiEnabled.value {
+                midiConnector.sendControllerChange(Settings.rightXCtrlValue.value, value: currentVal, inChannel: 1)
+            }
         }
     }
     
-    
-    func handleKeySwitch(touch: UITouch?) {
-        guard let touch = touch else { return }
-    }
-    
-    func handlePitchBend(_ touch: UITouch?) {
-        guard let touch = touch else { return }
-    }
+//    func handleKeySwitch(touch: UITouch?) {
+//        guard let touch = touch else { return }
+//    }
+//
+//    func handlePitchBend(_ touch: UITouch?) {
+//        guard let touch = touch else { return }
+//    }
     
     func velocity(touch: UITouch?) -> Int {
-        guard let touch = touch, let width = view?.bounds.width else { return 100 }
-        if SettingsManager.velocityEnabled {
-            let location = touch.location(in: self.view)
-            let percent = Int(location.x * 100 / (width / 2))
-            let velocity: Int = Int(floor(Double(percent * 127 / 100)) + 20)
-            return velocity
-        }
+//        guard let touch = touch, let width = view?.bounds.width else { return 100 }
+//        if SettingsManager.velocityEnabled {
+//            let location = touch.location(in: self.view)
+//            let percent = Int(location.x * 100 / (width / 2))
+//            let velocity: Int = Int(floor(Double(percent * 127 / 100)) + 20)
+//            return velocity
+//        }
         return 100
     }
 }

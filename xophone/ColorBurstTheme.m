@@ -17,7 +17,7 @@
     NSMutableDictionary* rightParticles;
 }
 
--(void)applyTo:(InstrumentScene *)scene {
+-(void)applyTo:(InstrumentSceneOld *)scene {
     parent = scene;
     leftParticles = [NSMutableDictionary new];
     rightParticles = [NSMutableDictionary new];
@@ -39,7 +39,7 @@
     return @"Colorful background and touch indication according to touch position";
 }
 
--(void)removeFrom:(InstrumentScene *)scene {
+-(void)removeFrom:(InstrumentSceneOld *)scene {
     parent = nil;
     
 }

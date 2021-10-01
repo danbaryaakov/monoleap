@@ -14,13 +14,16 @@ class MainViewController : UIViewController {
     var contentView: UIHostingController<MainSettingsView>?
     
     override func viewDidLoad() {
+        view.backgroundColor = UIColor(MonoleapAssets.dark_background)
         var settingsView = MainSettingsView()
         settingsView.parent = self
         contentView = UIHostingController(rootView: settingsView)
         
         super.viewDidLoad()
         addChild(contentView!)
+        
         view.addSubview(contentView!.view)
+        
         setupConstraints()
     }
     

@@ -50,7 +50,7 @@ class InstrumentScene1: SKScene {
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         
-        self.backgroundColor = SKColor.black
+        self.backgroundColor = SKColor(MonoleapAssets.dark_background)
         
         self.midiConnector = MIDIConnector.sharedInstance
         self.left = [UITouch]()

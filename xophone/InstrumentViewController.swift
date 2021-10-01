@@ -14,7 +14,7 @@ import SpriteKit
     
     var settingsButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.setImage(UIImage(named: "showSettings.png"), for: .normal)
+        button.setImage(UIImage(named: "settings_new"), for: .normal)
         return button
     }()
     
@@ -52,7 +52,7 @@ import SpriteKit
     
     func initMenuButton() {
         settingsButton.addTarget(self, action: #selector(showSettings), for: .touchUpInside)
-        settingsButton.frame = CGRect(x: view.frame.width - 138, y: view.frame.height - 138, width: 128, height: 128)
+        settingsButton.frame = CGRect(x: view.frame.width - 168, y: view.frame.height - 168, width: 140, height: 140)
         self.view.addSubview(settingsButton)
     }
     

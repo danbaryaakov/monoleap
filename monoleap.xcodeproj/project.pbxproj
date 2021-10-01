@@ -68,6 +68,14 @@
 		BA4AA2721C04E18D0067635F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA4AA2711C04E18D0067635F /* AudioToolbox.framework */; };
 		EC59C3DC2707191300866708 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC59C3DB2707191300866708 /* MainViewController.swift */; };
 		EC59C3DE2707193B00866708 /* MainSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC59C3DD2707193B00866708 /* MainSettingsView.swift */; };
+		ECC1DEFC270724BF006ADBAA /* MonoleapAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC1DEFB270724BF006ADBAA /* MonoleapAssets.swift */; };
+		ECC1DEFE270725B1006ADBAA /* BigRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC1DEFD270725B1006ADBAA /* BigRoundButton.swift */; };
+		ECC1DF0027072844006ADBAA /* PageToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC1DEFF27072844006ADBAA /* PageToggleButton.swift */; };
+		ECC1DF0227072D3B006ADBAA /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC1DF0127072D3B006ADBAA /* Settings.swift */; };
+		ECC1DF0427072E82006ADBAA /* InstrumentSettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC1DF0327072E82006ADBAA /* InstrumentSettingsPage.swift */; };
+		ECC1DF0627072E8B006ADBAA /* MIDISettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC1DF0527072E8B006ADBAA /* MIDISettingsPage.swift */; };
+		ECC1DF0827072E96006ADBAA /* ThemeSettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC1DF0727072E96006ADBAA /* ThemeSettingsPage.swift */; };
+		ECC1DF0A27073073006ADBAA /* splash_new.png in Resources */ = {isa = PBXBuildFile; fileRef = ECC1DF0927073073006ADBAA /* splash_new.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,6 +172,14 @@
 		BA4AA2711C04E18D0067635F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		EC59C3DB2707191300866708 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		EC59C3DD2707193B00866708 /* MainSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSettingsView.swift; sourceTree = "<group>"; };
+		ECC1DEFB270724BF006ADBAA /* MonoleapAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonoleapAssets.swift; sourceTree = "<group>"; };
+		ECC1DEFD270725B1006ADBAA /* BigRoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigRoundButton.swift; sourceTree = "<group>"; };
+		ECC1DEFF27072844006ADBAA /* PageToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageToggleButton.swift; sourceTree = "<group>"; };
+		ECC1DF0127072D3B006ADBAA /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		ECC1DF0327072E82006ADBAA /* InstrumentSettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentSettingsPage.swift; sourceTree = "<group>"; };
+		ECC1DF0527072E8B006ADBAA /* MIDISettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDISettingsPage.swift; sourceTree = "<group>"; };
+		ECC1DF0727072E96006ADBAA /* ThemeSettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSettingsPage.swift; sourceTree = "<group>"; };
+		ECC1DF0927073073006ADBAA /* splash_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash_new.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				277FA7D226F358200063022A /* SettingsManager.swift */,
+				ECC1DF0127072D3B006ADBAA /* Settings.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -248,6 +265,7 @@
 				95DCBC8C1BC1ABCE001957D4 /* monoleap.png */,
 				95DDBE4C1B81E52A002BDA8B /* menubtn.png */,
 				95DDBE4E1B81EEA2002BDA8B /* spiral.png */,
+				ECC1DF0927073073006ADBAA /* splash_new.png */,
 				957A9EE61B85CC1700543172 /* play.png */,
 				9586FFF526E213F100A4A712 /* hand_left.png */,
 				9586FFF626E213F100A4A712 /* hand_right.png */,
@@ -396,6 +414,12 @@
 			isa = PBXGroup;
 			children = (
 				EC59C3DD2707193B00866708 /* MainSettingsView.swift */,
+				ECC1DEFB270724BF006ADBAA /* MonoleapAssets.swift */,
+				ECC1DEFD270725B1006ADBAA /* BigRoundButton.swift */,
+				ECC1DEFF27072844006ADBAA /* PageToggleButton.swift */,
+				ECC1DF0327072E82006ADBAA /* InstrumentSettingsPage.swift */,
+				ECC1DF0527072E8B006ADBAA /* MIDISettingsPage.swift */,
+				ECC1DF0727072E96006ADBAA /* ThemeSettingsPage.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -522,6 +546,7 @@
 				9586FFFE26E2165600A4A712 /* left_h.png in Resources */,
 				952C466F1B621ADE00548952 /* Magic.sks in Resources */,
 				959916071B63A7FA00784C6E /* Smoke.sks in Resources */,
+				ECC1DF0A27073073006ADBAA /* splash_new.png in Resources */,
 				952C46711B621AF900548952 /* Spark.sks in Resources */,
 				957624431B8A46C400319411 /* logo.png in Resources */,
 				9586000026E2165600A4A712 /* right_v.png in Resources */,
@@ -546,23 +571,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECC1DF0027072844006ADBAA /* PageToggleButton.swift in Sources */,
 				277FA7DF26F380300063022A /* ThemeImpl.swift in Sources */,
 				952BCD381B6917E800B67629 /* SKTexture+Gradient.m in Sources */,
 				95A8B79C1BDEC7C9007494D1 /* ColorBurstTheme.m in Sources */,
+				ECC1DEFC270724BF006ADBAA /* MonoleapAssets.swift in Sources */,
 				272D07552703792E0039D6FB /* InstrumentScene.m in Sources */,
 				95A8B7991BDEC77C007494D1 /* Theme.m in Sources */,
 				95BE49891BE36D800094A02B /* SettingsView.m in Sources */,
 				272D075627037AA90039D6FB /* InstrumentScene.swift in Sources */,
 				EC59C3DC2707191300866708 /* MainViewController.swift in Sources */,
+				ECC1DF0627072E8B006ADBAA /* MIDISettingsPage.swift in Sources */,
 				95BE49841BE298700094A02B /* ThemeSelectionController.m in Sources */,
 				278DD63626EB4A1E0079F8B8 /* MidiConnectorImpl.swift in Sources */,
 				278DD63426EB485E0079F8B8 /* AppDelegate.swift in Sources */,
 				95D147261B6D510600770BF3 /* Model.xcdatamodeld in Sources */,
 				277FA7CD26F343CB0063022A /* InstrumentViewController.swift in Sources */,
+				ECC1DF0827072E96006ADBAA /* ThemeSettingsPage.swift in Sources */,
 				2757768326ED0AEC00134DDC /* MIDIConnector.swift in Sources */,
 				EC59C3DE2707193B00866708 /* MainSettingsView.swift in Sources */,
 				277FA7E026F381880063022A /* SettingsManager.swift in Sources */,
+				ECC1DF0427072E82006ADBAA /* InstrumentSettingsPage.swift in Sources */,
+				ECC1DEFE270725B1006ADBAA /* BigRoundButton.swift in Sources */,
 				9586002C26E76BE800A4A712 /* SynthManager.swift in Sources */,
+				ECC1DF0227072D3B006ADBAA /* Settings.swift in Sources */,
 				952BCD401B6971A800B67629 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -634,7 +666,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -672,7 +704,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

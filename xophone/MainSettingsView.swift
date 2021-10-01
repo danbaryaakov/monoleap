@@ -8,14 +8,79 @@
 
 import SwiftUI
 
+extension Bundle {
+    var releaseVersionNumber: String? {
+        return infoDictionary?["CFBundleShortVersionString"] as? String
+    }
+    var buildVersionNumber: String? {
+        return infoDictionary?["CFBundleVersion"] as? String
+    }
+}
+
+enum SelectedPage {
+    case instrument
+    case theme
+    case midi
+}
+
 struct MainSettingsView: View {
     
     var parent: MainViewController?
     
+    @State private var selectedPage: SelectedPage = .instrument
+    @State private var showVersion = false
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/).onTapGesture {
-            parent?.performSegue(withIdentifier: "instrument", sender: self)
-        }
+        ZStack {
+            MonoleapAssets.dark_background
+            VStack {
+                HStack(alignment: .center) {
+                    Image("final_logo_w").resizable().scaledToFit().frame(height: 50).onTapGesture {
+                        showVersion = !showVersion
+                    }
+                    if showVersion {
+                        Text(Bundle.main.releaseVersionNumber ?? "").foregroundColor(MonoleapAssets.controlColor).font(.system(size: 12))
+                    }
+                    Spacer()
+                    Link(destination: URL(string: "https://www.monoleap.com/documentation")!) {
+                        PageToggleButton(image: "help_icon", showLabel: false)
+                    }
+                }.padding(30)
+                VStack {
+                    switch selectedPage {
+                    case .instrument:
+                        InstrumentSettingsPage()
+                    case .midi:
+                        MIDISettingsPage()
+                    case .theme:
+                        ThemeSettingsPage()
+                    }
+                }.frame(maxWidth: .infinity, maxHeight: .infinity)
+                HStack {
+                    ZStack {
+                        Capsule().fill(MonoleapAssets.dark_background).shadow(color: .black.opacity(0.75), radius: 4, x: 0, y: 4).shadow(color: .white.opacity(0.1), radius: 4, x: 0, y: -2).frame(width: 300, height: 100)
+                        HStack {
+                            PageToggleButton(image: "theme_icon", label: "Theme", selected: selectedPage == .theme).onTapGesture {
+                                selectedPage = .theme
+                            }.padding(.leading, 40)
+                            PageToggleButton(image: "settings_icon", selected: selectedPage == .instrument).onTapGesture {
+                                selectedPage = .instrument
+                            }
+                            PageToggleButton(image: "midi_icon", label: "MIDI", selected: selectedPage == .midi).onTapGesture {
+                                selectedPage = .midi
+                            }.padding(.trailing, 40)
+                        }
+                    }.padding(30)
+                    Spacer()
+                    BigRoundButton(image: "play", size: 140).onTapGesture {
+                        parent?.performSegue(withIdentifier: "instrument", sender: self)
+                    }.padding(30)
+                }
+            }
+//            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/).onTapGesture {
+//                parent?.performSegue(withIdentifier: "instrument", sender: self)
+//            }
+        }.ignoresSafeArea()
     }
 }
 

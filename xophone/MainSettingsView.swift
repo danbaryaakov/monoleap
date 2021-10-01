@@ -28,7 +28,7 @@ struct MainSettingsView: View {
     var parent: MainViewController?
     
     @State private var selectedPage: SelectedPage = .instrument
-    @State private var showVersion = false
+    @State private var showAbout = false
     
     var body: some View {
         ZStack {
@@ -36,11 +36,8 @@ struct MainSettingsView: View {
             VStack(spacing: 0) {
                 HStack(alignment: .center) {
                     Image("final_logo_w").resizable().scaledToFit().frame(height: 55).onTapGesture {
-                        showVersion = !showVersion
+                        showAbout.toggle()
                     }
-//                    if showVersion {
-//                        Text(Bundle.main.releaseVersionNumber ?? "").foregroundColor(MonoleapAssets.controlColor).font(.system(size: 12))
-//                    }
                     Spacer()
                     Link(destination: URL(string: "https://www.monoleap.com/documentation")!) {
                         PageToggleButton(image: "help_icon", showLabel: false)

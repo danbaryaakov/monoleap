@@ -10,7 +10,10 @@ import SwiftUI
 
 struct ThemeSettingsPage: View {
     var body: some View {
-        Text("Theme Settings")
+        VStack {
+            ScrollView {
+            }
+        }.overlay(RoundedRectangle(cornerRadius:10).strokeBorder(MonoleapAssets.controlColor)).padding([.top, .leading, .trailing], 30)
     }
 }
 

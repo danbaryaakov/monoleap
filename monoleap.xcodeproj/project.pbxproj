@@ -78,6 +78,27 @@
 		ECC1DF0A27073073006ADBAA /* splash_new.png in Resources */ = {isa = PBXBuildFile; fileRef = ECC1DF0927073073006ADBAA /* splash_new.png */; };
 		ECC1DF0C27073123006ADBAA /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC1DF0B27073123006ADBAA /* SettingsSection.swift */; };
 		ECC1DF0E270732DE006ADBAA /* MonoleapToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC1DF0D270732DE006ADBAA /* MonoleapToggleStyle.swift */; };
+		ECC1DF1027073AA1006ADBAA /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC1DF0F27073AA1006ADBAA /* ThemeManager.swift */; };
+		ECC1DF1227073ABC006ADBAA /* RGBShaderTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC1DF1127073ABC006ADBAA /* RGBShaderTheme.swift */; };
+		ECC1DF2627073B03006ADBAA /* WaterColors.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ECC1DF1427073B02006ADBAA /* WaterColors.fsh */; };
+		ECC1DF2727073B03006ADBAA /* Julia.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ECC1DF1527073B02006ADBAA /* Julia.fsh */; };
+		ECC1DF2827073B03006ADBAA /* ColorSquares.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ECC1DF1627073B02006ADBAA /* ColorSquares.fsh */; };
+		ECC1DF2927073B03006ADBAA /* Spark.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ECC1DF1727073B02006ADBAA /* Spark.fsh */; };
+		ECC1DF2A27073B03006ADBAA /* Grid.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ECC1DF1827073B02006ADBAA /* Grid.fsh */; };
+		ECC1DF2B27073B03006ADBAA /* Spotlight.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ECC1DF1927073B03006ADBAA /* Spotlight.fsh */; };
+		ECC1DF2C27073B03006ADBAA /* StrobeLight.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ECC1DF1A27073B03006ADBAA /* StrobeLight.fsh */; };
+		ECC1DF2D27073B03006ADBAA /* SHKCircleWave.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ECC1DF1B27073B03006ADBAA /* SHKCircleWave.fsh */; };
+		ECC1DF2E27073B03006ADBAA /* ColorFlower.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ECC1DF1C27073B03006ADBAA /* ColorFlower.fsh */; };
+		ECC1DF2F27073B03006ADBAA /* Lightning.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ECC1DF1D27073B03006ADBAA /* Lightning.fsh */; };
+		ECC1DF3027073B03006ADBAA /* Splash.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ECC1DF1E27073B03006ADBAA /* Splash.fsh */; };
+		ECC1DF3127073B03006ADBAA /* WaveForm.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ECC1DF1F27073B03006ADBAA /* WaveForm.fsh */; };
+		ECC1DF3227073B03006ADBAA /* SHKLightGrid.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ECC1DF2027073B03006ADBAA /* SHKLightGrid.fsh */; };
+		ECC1DF3327073B03006ADBAA /* WarpLines.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ECC1DF2127073B03006ADBAA /* WarpLines.fsh */; };
+		ECC1DF3427073B03006ADBAA /* Waves.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ECC1DF2227073B03006ADBAA /* Waves.fsh */; };
+		ECC1DF3527073B03006ADBAA /* MorphGrid.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ECC1DF2327073B03006ADBAA /* MorphGrid.fsh */; };
+		ECC1DF3627073B03006ADBAA /* Rainbow.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ECC1DF2427073B03006ADBAA /* Rainbow.fsh */; };
+		ECC1DF3727073B03006ADBAA /* Circles.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ECC1DF2527073B03006ADBAA /* Circles.fsh */; };
+		ECC1DF3927073DFB006ADBAA /* Flower.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ECC1DF3827073DFB006ADBAA /* Flower.fsh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,8 +184,6 @@
 		95FC67551B5E607C00C756F5 /* InstrumentScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstrumentScene.h; sourceTree = "<group>"; };
 		95FC67561B5E607C00C756F5 /* InstrumentScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstrumentScene.m; sourceTree = "<group>"; };
 		95FC67581B5E607C00C756F5 /* InstrumentScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = InstrumentScene.sks; sourceTree = "<group>"; };
-		95FC675A1B5E607C00C756F5 /* InstrumentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstrumentViewController.h; sourceTree = "<group>"; };
-		95FC675B1B5E607C00C756F5 /* InstrumentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstrumentViewController.m; sourceTree = "<group>"; };
 		95FC67601B5E607C00C756F5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		95FC67631B5E607C00C756F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		95FC67691B5E607C00C756F5 /* monoleapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = monoleapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,6 +203,27 @@
 		ECC1DF0927073073006ADBAA /* splash_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash_new.png; sourceTree = "<group>"; };
 		ECC1DF0B27073123006ADBAA /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
 		ECC1DF0D270732DE006ADBAA /* MonoleapToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonoleapToggleStyle.swift; sourceTree = "<group>"; };
+		ECC1DF0F27073AA1006ADBAA /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		ECC1DF1127073ABC006ADBAA /* RGBShaderTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBShaderTheme.swift; sourceTree = "<group>"; };
+		ECC1DF1427073B02006ADBAA /* WaterColors.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = WaterColors.fsh; sourceTree = "<group>"; };
+		ECC1DF1527073B02006ADBAA /* Julia.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Julia.fsh; sourceTree = "<group>"; };
+		ECC1DF1627073B02006ADBAA /* ColorSquares.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ColorSquares.fsh; sourceTree = "<group>"; };
+		ECC1DF1727073B02006ADBAA /* Spark.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Spark.fsh; sourceTree = "<group>"; };
+		ECC1DF1827073B02006ADBAA /* Grid.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Grid.fsh; sourceTree = "<group>"; };
+		ECC1DF1927073B03006ADBAA /* Spotlight.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Spotlight.fsh; sourceTree = "<group>"; };
+		ECC1DF1A27073B03006ADBAA /* StrobeLight.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = StrobeLight.fsh; sourceTree = "<group>"; };
+		ECC1DF1B27073B03006ADBAA /* SHKCircleWave.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SHKCircleWave.fsh; sourceTree = "<group>"; };
+		ECC1DF1C27073B03006ADBAA /* ColorFlower.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ColorFlower.fsh; sourceTree = "<group>"; };
+		ECC1DF1D27073B03006ADBAA /* Lightning.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Lightning.fsh; sourceTree = "<group>"; };
+		ECC1DF1E27073B03006ADBAA /* Splash.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Splash.fsh; sourceTree = "<group>"; };
+		ECC1DF1F27073B03006ADBAA /* WaveForm.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = WaveForm.fsh; sourceTree = "<group>"; };
+		ECC1DF2027073B03006ADBAA /* SHKLightGrid.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SHKLightGrid.fsh; sourceTree = "<group>"; };
+		ECC1DF2127073B03006ADBAA /* WarpLines.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = WarpLines.fsh; sourceTree = "<group>"; };
+		ECC1DF2227073B03006ADBAA /* Waves.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Waves.fsh; sourceTree = "<group>"; };
+		ECC1DF2327073B03006ADBAA /* MorphGrid.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = MorphGrid.fsh; sourceTree = "<group>"; };
+		ECC1DF2427073B03006ADBAA /* Rainbow.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Rainbow.fsh; sourceTree = "<group>"; };
+		ECC1DF2527073B03006ADBAA /* Circles.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Circles.fsh; sourceTree = "<group>"; };
+		ECC1DF3827073DFB006ADBAA /* Flower.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Flower.fsh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,8 +254,6 @@
 				95DF40331B768246007C89A4 /* Graphics */,
 				95DF40351B76827E007C89A4 /* Settings */,
 				95A8B7961BDEC75C007494D1 /* Theme */,
-				95FC675A1B5E607C00C756F5 /* InstrumentViewController.h */,
-				95FC675B1B5E607C00C756F5 /* InstrumentViewController.m */,
 				95145EBA1BEB7C1E0040FD28 /* MIDIConnector.h */,
 				95145EBB1BEB7C1E0040FD28 /* MIDIConnector.m */,
 				95FC67551B5E607C00C756F5 /* InstrumentScene.h */,
@@ -236,8 +274,11 @@
 		277FA7D426F361050063022A /* Theme */ = {
 			isa = PBXGroup;
 			children = (
+				ECC1DF1327073AEF006ADBAA /* Shaders */,
 				9515ABD21BE456A1008B8FDA /* Particles */,
 				277FA7D526F361670063022A /* ThemeImpl.swift */,
+				ECC1DF0F27073AA1006ADBAA /* ThemeManager.swift */,
+				ECC1DF1127073ABC006ADBAA /* RGBShaderTheme.swift */,
 			);
 			name = Theme;
 			sourceTree = "<group>";
@@ -430,6 +471,32 @@
 			name = UI;
 			sourceTree = "<group>";
 		};
+		ECC1DF1327073AEF006ADBAA /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				ECC1DF2527073B03006ADBAA /* Circles.fsh */,
+				ECC1DF1C27073B03006ADBAA /* ColorFlower.fsh */,
+				ECC1DF1627073B02006ADBAA /* ColorSquares.fsh */,
+				ECC1DF1827073B02006ADBAA /* Grid.fsh */,
+				ECC1DF1527073B02006ADBAA /* Julia.fsh */,
+				ECC1DF3827073DFB006ADBAA /* Flower.fsh */,
+				ECC1DF1D27073B03006ADBAA /* Lightning.fsh */,
+				ECC1DF2327073B03006ADBAA /* MorphGrid.fsh */,
+				ECC1DF2427073B03006ADBAA /* Rainbow.fsh */,
+				ECC1DF1B27073B03006ADBAA /* SHKCircleWave.fsh */,
+				ECC1DF2027073B03006ADBAA /* SHKLightGrid.fsh */,
+				ECC1DF1727073B02006ADBAA /* Spark.fsh */,
+				ECC1DF1E27073B03006ADBAA /* Splash.fsh */,
+				ECC1DF1927073B03006ADBAA /* Spotlight.fsh */,
+				ECC1DF1A27073B03006ADBAA /* StrobeLight.fsh */,
+				ECC1DF2127073B03006ADBAA /* WarpLines.fsh */,
+				ECC1DF1427073B02006ADBAA /* WaterColors.fsh */,
+				ECC1DF1F27073B03006ADBAA /* WaveForm.fsh */,
+				ECC1DF2227073B03006ADBAA /* Waves.fsh */,
+			);
+			path = Shaders;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -521,35 +588,52 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECC1DF2B27073B03006ADBAA /* Spotlight.fsh in Resources */,
+				ECC1DF2F27073B03006ADBAA /* Lightning.fsh in Resources */,
 				95F342E91B9583F200B4DC6C /* sliderBg.png in Resources */,
 				959916051B63A7E900784C6E /* Rain.sks in Resources */,
 				952C466D1B60F6F300548952 /* spark.png in Resources */,
+				ECC1DF2627073B03006ADBAA /* WaterColors.fsh in Resources */,
 				9586FFF726E213F100A4A712 /* hand_left.png in Resources */,
 				95FC67641B5E607C00C756F5 /* LaunchScreen.xib in Resources */,
 				95F342E71B95165900B4DC6C /* settingsBg.png in Resources */,
 				9572370B1BEA1395005AE954 /* leftHand.png in Resources */,
 				959916011B63A7B400784C6E /* Snow.sks in Resources */,
+				ECC1DF2A27073B03006ADBAA /* Grid.fsh in Resources */,
+				ECC1DF3627073B03006ADBAA /* Rainbow.fsh in Resources */,
 				9576243F1B8773FC00319411 /* transmit.png in Resources */,
 				95FC67611B5E607C00C756F5 /* Images.xcassets in Resources */,
 				952C46681B60F14C00548952 /* Bokeh.sks in Resources */,
 				95DDBE4D1B81E52A002BDA8B /* menubtn.png in Resources */,
 				952C46691B60F14C00548952 /* bokeh.png in Resources */,
 				9586FFFD26E2165600A4A712 /* left_v.png in Resources */,
+				ECC1DF3427073B03006ADBAA /* Waves.fsh in Resources */,
 				95BE88D11B94A7BD008E0C72 /* splash.png in Resources */,
 				957A9EEF1B862DE500543172 /* rightVertical.png in Resources */,
 				957A9EEE1B862DE500543172 /* rightHorizontal.png in Resources */,
+				ECC1DF2827073B03006ADBAA /* ColorSquares.fsh in Resources */,
+				ECC1DF3027073B03006ADBAA /* Splash.fsh in Resources */,
 				957A9EF11B862DE500543172 /* leftHorizontal.png in Resources */,
 				95DDBE4F1B81EEA2002BDA8B /* spiral.png in Resources */,
+				ECC1DF3527073B03006ADBAA /* MorphGrid.fsh in Resources */,
+				ECC1DF2C27073B03006ADBAA /* StrobeLight.fsh in Resources */,
 				952C466C1B60F6F300548952 /* Fire.sks in Resources */,
 				957237081BEA067E005AE954 /* rightHand.png in Resources */,
 				9586FFF826E213F100A4A712 /* hand_right.png in Resources */,
+				ECC1DF2D27073B03006ADBAA /* SHKCircleWave.fsh in Resources */,
+				ECC1DF3127073B03006ADBAA /* WaveForm.fsh in Resources */,
 				95BE49861BE36CB90094A02B /* dropup.png in Resources */,
 				957A9EF01B862DE500543172 /* leftVertical.png in Resources */,
 				957A9EE51B85C97000543172 /* showSettings.png in Resources */,
 				956A7E541BDFED6C00687A0C /* MyParticle.sks in Resources */,
 				957A9EE71B85CC1700543172 /* play.png in Resources */,
 				9586FFFF26E2165600A4A712 /* right_h.png in Resources */,
+				ECC1DF3327073B03006ADBAA /* WarpLines.fsh in Resources */,
+				ECC1DF3727073B03006ADBAA /* Circles.fsh in Resources */,
 				9586FFFE26E2165600A4A712 /* left_h.png in Resources */,
+				ECC1DF2727073B03006ADBAA /* Julia.fsh in Resources */,
+				ECC1DF3927073DFB006ADBAA /* Flower.fsh in Resources */,
+				ECC1DF3227073B03006ADBAA /* SHKLightGrid.fsh in Resources */,
 				952C466F1B621ADE00548952 /* Magic.sks in Resources */,
 				959916071B63A7FA00784C6E /* Smoke.sks in Resources */,
 				ECC1DF0A27073073006ADBAA /* splash_new.png in Resources */,
@@ -558,6 +642,8 @@
 				9586000026E2165600A4A712 /* right_v.png in Resources */,
 				959916031B63A7D100784C6E /* Fireflies.sks in Resources */,
 				95FC67591B5E607C00C756F5 /* InstrumentScene.sks in Resources */,
+				ECC1DF2E27073B03006ADBAA /* ColorFlower.fsh in Resources */,
+				ECC1DF2927073B03006ADBAA /* Spark.fsh in Resources */,
 				95DCBC8D1BC1ABCE001957D4 /* monoleap.png in Resources */,
 				95D147231B6D470C00770BF3 /* App.storyboard in Resources */,
 			);
@@ -591,6 +677,7 @@
 				ECC1DF0627072E8B006ADBAA /* MIDISettingsPage.swift in Sources */,
 				95BE49841BE298700094A02B /* ThemeSelectionController.m in Sources */,
 				278DD63626EB4A1E0079F8B8 /* MidiConnectorImpl.swift in Sources */,
+				ECC1DF1227073ABC006ADBAA /* RGBShaderTheme.swift in Sources */,
 				278DD63426EB485E0079F8B8 /* AppDelegate.swift in Sources */,
 				ECC1DF0C27073123006ADBAA /* SettingsSection.swift in Sources */,
 				95D147261B6D510600770BF3 /* Model.xcdatamodeld in Sources */,
@@ -604,6 +691,7 @@
 				9586002C26E76BE800A4A712 /* SynthManager.swift in Sources */,
 				ECC1DF0227072D3B006ADBAA /* Settings.swift in Sources */,
 				952BCD401B6971A800B67629 /* SettingsViewController.m in Sources */,
+				ECC1DF1027073AA1006ADBAA /* ThemeManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

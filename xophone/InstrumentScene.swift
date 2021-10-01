@@ -25,7 +25,7 @@ class InstrumentScene1: SKScene {
     var fingerWidth: CGFloat!
     var prevNote: Int?
     
-    var theme: BasicTheme?
+    var theme: Theme?
 
     var isLeftMuted, isRightMuted: Bool?
     
@@ -56,10 +56,10 @@ class InstrumentScene1: SKScene {
     
         isRightMuted = false
         isLeftMuted = false
-        if theme == nil {
-            self.theme = BasicTheme()
-            theme?.apply(to: self)
-        }
+        
+        theme = ThemeManager.instance.createCurrentTheme()
+        theme?.apply(to: self)
+        
         self.fingerWidth = SettingsManager.fingerWidth
         if SettingsManager.pitchBendEnabled {
             self.drawPitchBendArea()
@@ -273,7 +273,7 @@ class InstrumentScene1: SKScene {
             self.debounce(action: #selector(showMenu), delay: 1)
             return
         } else {
-            theme?.drawRightHandTouches(rightPattern, touches: right)
+            theme?.drawRightHandTouches(Int32(rightPattern), touches: right)
             baseNote = 48 + 6 * (rightPattern - 1)
         }
         
@@ -328,7 +328,7 @@ class InstrumentScene1: SKScene {
         default:
            break
         }
-        theme?.drawLeftHandTouches(leftPattern, touches: left)
+        theme?.drawLeftHandTouches(Int32(leftPattern), touches: left)
     }
     
     func noteOn(_ noteNumber: Int, velocity: Int) {
@@ -448,7 +448,7 @@ class InstrumentScene1: SKScene {
         let maxPercent = max(0, location.y - height / 4) * 100 / (height / 3)
         let percent = min(maxPercent, 100)
         let currentVal = floor(percent * 127 / 100)
-        self.theme?.verticalLeftChanged(Int(currentVal))
+        self.theme?.verticalLeftChanged(Int32(currentVal))
         if Int(currentVal) != leftYCurrent {
             leftYCurrent = Int(currentVal)
             midiConnector.sendControllerChange(SettingsManager.leftYCtrlValue, value: Int(currentVal), inChannel: 1)
@@ -488,7 +488,7 @@ class InstrumentScene1: SKScene {
         let maxPercent = max(0, location.y - height / 4) * 100 / (height / 3)
         let percent = min(maxPercent, 100)
         let currentVal = Int(floor(percent * 127 / 100))
-        self.theme?.verticalRightChanged(currentVal)
+        self.theme?.verticalRightChanged(Int32(currentVal))
         if Int(currentVal) != rightYCurrent {
             rightYCurrent = Int(currentVal)
             midiConnector.sendControllerChange(SettingsManager.rightYCtrlValue, value: Int(currentVal), inChannel: 1)

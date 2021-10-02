@@ -33,6 +33,15 @@ struct MainSettingsView: View {
     var body: some View {
         ZStack {
             MonoleapAssets.darkBackground
+            if (showAbout) {
+                VStack {
+                    Image("final_logo_w").resizable().scaledToFit().frame(height: 80)
+                    HStack {
+                        Text("Version")
+                        Text(Bundle.main.releaseVersionNumber ?? "Unknown")
+                    }.padding(30)
+                }.padding(20).background(MonoleapAssets.sectionBackground).overlay(RoundedRectangle(cornerRadius: 10).strokeBorder(MonoleapAssets.linearGradientTopBottom)).zIndex(1.0)
+            }
             VStack(spacing: 0) {
                 HStack(alignment: .center) {
                     Image("final_logo_w").resizable().scaledToFit().frame(height: 55).onTapGesture {
@@ -79,7 +88,11 @@ struct MainSettingsView: View {
 //            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/).onTapGesture {
 //                parent?.performSegue(withIdentifier: "instrument", sender: self)
 //            }
-        }.ignoresSafeArea()
+        }.ignoresSafeArea().onTapGesture {
+            if (showAbout) {
+                showAbout = false
+            }
+        }
     }
 }
 

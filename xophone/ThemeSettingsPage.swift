@@ -41,7 +41,7 @@ struct ThemeSettingsPage: View {
                 }.padding(30)
                 Spacer()
 //            }
-        }.background(MonoleapAssets.sectionBackground).overlay(RoundedRectangle(cornerRadius:10).strokeBorder(MonoleapAssets.controlColor)).padding([.top, .leading, .trailing], 30)
+        }.background(MonoleapAssets.sectionBackground).overlay(RoundedRectangle(cornerRadius:10).strokeBorder(MonoleapAssets.controlColor)).padding([.leading, .trailing], 30).padding(.top, 15)
     }
 }
 

@@ -18,9 +18,11 @@ struct InstrumentSettingsPage: View {
     var body: some View {
         SettingsSection(image: "settings_icon", label: "General") {
             Toggle("Internal Synth", isOn: $isSynthEnabled).toggleStyle(MonoleapToggleStyle())
+            Spacer().frame(height: 10)
             Toggle("Show Pattern Guides", isOn: $showPatternGuides).toggleStyle(MonoleapToggleStyle())
             Toggle("Calibration Enabled", isOn: $calibrationEnabled).toggleStyle(MonoleapToggleStyle())
-            Toggle("Leading Hand", isOn: $isRightHanded).toggleStyle(MonoleapToggleStyle(offText: "Left", onText: "Right"))
+            Spacer().frame(height: 10)
+//            Toggle("Leading Hand", isOn: $isRightHanded).toggleStyle(MonoleapToggleStyle(offText: "Left", onText: "Right"))
         }
         SettingsSection(image: "scale_icon", label: "Scale") {
             ScaleSelector()

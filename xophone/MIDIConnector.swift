@@ -23,17 +23,17 @@ class MIDIConnector: NSObject, MidiConnectorImpl {
     
     func sendNote(on noteNumber: Int, inChannel channel: Int, withVelocity velocity: Int) {
         midi.openOutput()
-        midi.sendEvent(MIDIEvent(noteOn: MIDINoteNumber(noteNumber), velocity: MIDIVelocity(127), channel: MIDIChannel(0)))
+        midi.sendEvent(MIDIEvent(noteOn: MIDINoteNumber(noteNumber), velocity: MIDIVelocity(127), channel: MIDIChannel(channel)))
     }
     
     public func sendNoteOff(_ noteNumber: Int, inChannel channel: Int, withVelocity velocity: Int) {
         midi.openOutput()
-        midi.sendEvent(MIDIEvent(noteOff: MIDINoteNumber(noteNumber), velocity: MIDIVelocity(127), channel: MIDIChannel(0)))
+        midi.sendEvent(MIDIEvent(noteOff: MIDINoteNumber(noteNumber), velocity: MIDIVelocity(127), channel: MIDIChannel(channel)))
     }
     
     public func sendControllerChange(_ ccNumber: Int, value: Int, inChannel channel: Int) {
         midi.openOutput()
-        midi.sendEvent(MIDIEvent(controllerChange: MIDIByte(ccNumber), value: MIDIByte(value), channel: 0))
+        midi.sendEvent(MIDIEvent(controllerChange: MIDIByte(ccNumber), value: MIDIByte(value), channel: MIDIChannel(channel)))
     }
 
 }

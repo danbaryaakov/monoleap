@@ -42,6 +42,8 @@ class InstrumentScene: SKScene {
     var lastLeftTop, lastRightTop: CGFloat?
     var midiConnector: MIDIConnector!
     
+    var midiChannel = Settings.midiChannel.value - 1
+    
     var leftYCurrent, leftXCurrent, rightYCurrent, rightXCurrent: Int?
     
     var isTouchesEnded, isInvalidPattern, PDEnabled: Bool?
@@ -356,7 +358,7 @@ class InstrumentScene: SKScene {
     
     func noteOn(_ noteNumber: Int, velocity: Int) {
         if (Settings.isMidiEnabled.value) {
-            midiConnector.sendNote(on: noteNumber, inChannel: 1, withVelocity: velocity)
+            midiConnector.sendNote(on: noteNumber, inChannel: midiChannel, withVelocity: velocity)
         }
         playedNote = noteNumber
         self.sendMidiToPDwithNoteNumner(noteNumber, andVelocity: velocity)
@@ -377,7 +379,7 @@ class InstrumentScene: SKScene {
     func noteOff(_ noteNumber: Int?, isOtherNotePlaying: Bool) {
         guard let noteNumber = noteNumber else { return }
         if Settings.isMidiEnabled.value {
-            midiConnector.sendNoteOff(noteNumber, inChannel: 1, withVelocity: 120)
+            midiConnector.sendNoteOff(noteNumber, inChannel: midiChannel, withVelocity: 120)
         }
         if !isOtherNotePlaying {
             self.sendMidiToPDwithNoteNumner(noteNumber, andVelocity: 0)
@@ -479,7 +481,7 @@ class InstrumentScene: SKScene {
         if Int(currentVal) != leftYCurrent {
             leftYCurrent = Int(currentVal)
             if Settings.isMidiEnabled.value {
-                midiConnector.sendControllerChange(Settings.leftYCtrlValue.value, value: Int(currentVal), inChannel: 1)
+                midiConnector.sendControllerChange(Settings.leftYCtrlValue.value, value: Int(currentVal), inChannel: midiChannel)
             }
             if Settings.isSynthEnabled.value {
                 SynthManager.instance.resonance(Int(currentVal))
@@ -498,7 +500,7 @@ class InstrumentScene: SKScene {
         if currentVal != leftXCurrent {
             leftXCurrent = currentVal
             if Settings.isMidiEnabled.value {
-                midiConnector.sendControllerChange(Settings.leftXCtrlValue.value, value: currentVal, inChannel: 1)
+                midiConnector.sendControllerChange(Settings.leftXCtrlValue.value, value: currentVal, inChannel: midiChannel)
             }
         }
     }
@@ -523,7 +525,7 @@ class InstrumentScene: SKScene {
         if Int(currentVal) != rightYCurrent {
             rightYCurrent = Int(currentVal)
             if Settings.isMidiEnabled.value {
-                midiConnector.sendControllerChange(Settings.rightYCtrlValue.value, value: Int(currentVal), inChannel: 1)
+                midiConnector.sendControllerChange(Settings.rightYCtrlValue.value, value: Int(currentVal), inChannel: midiChannel)
             }
             if Settings.isSynthEnabled.value {
                 SynthManager.instance.filterCutoff(currentVal)
@@ -545,7 +547,7 @@ class InstrumentScene: SKScene {
         if currentVal != rightXCurrent {
             rightXCurrent = currentVal
             if Settings.isMidiEnabled.value {
-                midiConnector.sendControllerChange(Settings.rightXCtrlValue.value, value: currentVal, inChannel: 1)
+                midiConnector.sendControllerChange(Settings.rightXCtrlValue.value, value: currentVal, inChannel: midiChannel)
             }
         }
     }

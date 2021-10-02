@@ -28,12 +28,12 @@ struct SettingsSection<Content: View>: View {
                     }
                     Spacer()
                 }.background(MonoleapAssets.controlColor.opacity(0.2)).frame(maxWidth: .infinity).clipShape(MonoleapAssets.rect(topLeftRadius: 10, bottomLeftRadius: 10)).frame(width: 100)
-                VStack(alignment: .leading, spacing: 20) {
+                VStack(alignment: .leading, spacing: 15) {
                     content
-                }.padding(30).frame(minWidth: 200, maxWidth: .infinity)
+                }.padding([.leading, .trailing], 30).padding([.top, .bottom], 15).frame(minWidth: 200, maxWidth: .infinity)
                 
             }.zIndex(1.0)
-        }.background(MonoleapAssets.sectionBackground).frame(maxWidth: .infinity).padding([.leading, .trailing, .top], 30)
+        }.background(MonoleapAssets.sectionBackground).frame(maxWidth: .infinity).padding([.leading, .trailing], 30).padding(.top, 15)
     }
     
 }

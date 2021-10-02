@@ -133,7 +133,7 @@ struct MonoleapAssets {
 //    static let bright_cyan = Color(hex: "3c6999")
     static let controlColor = blue
     
-    static let selection_forground = controlColor
+    static let selectionBackground = controlColor
     
     static let darkBackground = Color(hex: "120929")
     

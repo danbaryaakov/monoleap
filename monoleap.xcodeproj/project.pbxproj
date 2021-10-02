@@ -59,7 +59,6 @@
 		95FC67591B5E607C00C756F5 /* InstrumentScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 95FC67581B5E607C00C756F5 /* InstrumentScene.sks */; };
 		95FC67611B5E607C00C756F5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95FC67601B5E607C00C756F5 /* Images.xcassets */; };
 		95FC67641B5E607C00C756F5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95FC67621B5E607C00C756F5 /* LaunchScreen.xib */; };
-		95FC67701B5E607C00C756F5 /* xophoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 95FC676F1B5E607C00C756F5 /* xophoneTests.m */; };
 		BA4AA2701C04E0F70067635F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA4AA26F1C04E0F70067635F /* AVFoundation.framework */; };
 		BA4AA2721C04E18D0067635F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA4AA2711C04E18D0067635F /* AudioToolbox.framework */; };
 		EC59C3DC2707191300866708 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC59C3DB2707191300866708 /* MainViewController.swift */; };
@@ -181,7 +180,6 @@
 		95FC67631B5E607C00C756F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		95FC67691B5E607C00C756F5 /* monoleapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = monoleapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		95FC676E1B5E607C00C756F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		95FC676F1B5E607C00C756F5 /* xophoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xophoneTests.m; sourceTree = "<group>"; };
 		BA4AA26F1C04E0F70067635F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		BA4AA2711C04E18D0067635F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		EC59C3DB2707191300866708 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -415,7 +413,6 @@
 		95FC676C1B5E607C00C756F5 /* monoleapTests */ = {
 			isa = PBXGroup;
 			children = (
-				95FC676F1B5E607C00C756F5 /* xophoneTests.m */,
 				95FC676D1B5E607C00C756F5 /* Supporting Files */,
 			);
 			name = monoleapTests;
@@ -689,7 +686,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95FC67701B5E607C00C756F5 /* xophoneTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -821,7 +817,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5.0;
+				MARKETING_VERSION = 1.5.1;
 				PRELINK_LIBS = "AudioToolbox AVFoundation CoreAudio";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = monoleap;
@@ -850,7 +846,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5.0;
+				MARKETING_VERSION = 1.5.1;
 				PRELINK_LIBS = "AudioToolbox AVFoundation CoreAudio";
 				"PRELINK_LIBS[arch=*]" = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_NAME:rfc1034identifier)";

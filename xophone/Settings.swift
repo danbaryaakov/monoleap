@@ -57,6 +57,6 @@ struct Settings {
     static var rightXCtrlEnabled = Setting(key: "rightXCtrlEnabled", defaultValue: false)
     static var rightXCtrlValue = Setting(key: "rightXCtrlValue", defaultValue: 40)
     static var rightYCtrlEnabled = Setting(key: "rightYCtrlEnabled", defaultValue: true)
-    static var rightYCtrlValue = Setting(key: "rightYCtrlValue", defaultValue: 71)
+    static var rightYCtrlValue = Setting(key: "rightYCtrlValue", defaultValue: 74)
     
 }

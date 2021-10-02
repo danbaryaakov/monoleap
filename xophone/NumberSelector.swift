@@ -30,15 +30,15 @@ struct NumberSelector: View {
                 }
             }) {
                 Image(systemName: "minus")
-            }.font(.system(size: 20).bold()).foregroundColor(MonoleapAssets.controlColor).padding([.leading, .trailing], 20)
-            TextField("", value: $selectedNumber, formatter: formatter).frame(minWidth: 70, maxWidth: 70, maxHeight: .infinity).multilineTextAlignment(.center).padding(0).border(MonoleapAssets.controlColor.opacity(0.2)).background(MonoleapAssets.sectionBackground)
+            }.frame(width: 60, height: 40).background(MonoleapAssets.sectionBackground).font(.system(size: 20).bold()).foregroundColor(MonoleapAssets.controlColor).contentShape(Rectangle())
+            TextField("", value: $selectedNumber, formatter: formatter).frame(minWidth: 70, maxWidth: 70, maxHeight: .infinity).multilineTextAlignment(.center).padding(0).border(MonoleapAssets.controlColor.opacity(0.2))
             Button(action: {
                 if selectedNumber < maximum {
                     selectedNumber += 1
                 }
             }) {
                 Image(systemName: "plus")
-            }.font(.system(size: 20).bold()).foregroundColor(MonoleapAssets.controlColor).padding([.leading, .trailing], 20).contentShape(Rectangle())
+            }.frame(width: 60, height: 40).background(MonoleapAssets.sectionBackground).font(.system(size: 20).bold()).foregroundColor(MonoleapAssets.controlColor).contentShape(Rectangle())
         }.frame(height: 40).overlay(RoundedRectangle(cornerRadius: 10).strokeBorder(MonoleapAssets.controlColor))
     }
 }

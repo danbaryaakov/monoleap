@@ -15,6 +15,6 @@ public protocol Theme {
     func verticalLeftChanged(_ position: Int)
     func drawLeftHandTouches(pattern: Int, touches: [UITouch])
     func drawRightHandTouches(pattern: Int, touches: [UITouch])
-    func leftHandMoved(touches: [UITouch])
-    func rightHandMoved(touches: [UITouch])
+    func leftHandMoved(touches: [UITouch], pattern: Int)
+    func rightHandMoved(touches: [UITouch], pattern: Int)
 }

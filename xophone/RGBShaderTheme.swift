@@ -71,16 +71,16 @@ public class RGBShaderTheme : Theme {
         }
     }
     
-    public func rightHandMoved(touches: [UITouch]) {
-        adjustPositions(nodes: &rightNodes, touches: touches)
+    public func rightHandMoved(touches: [UITouch], pattern: Int) {
+        adjustPositions(nodes: &rightNodes, touches: touches, pattern: pattern)
     }
     
     public func drawLeftHandTouches(pattern: Int, touches: [UITouch]) {
         draw(pattern: Int(pattern), touches: touches, nodes: &leftNodes);
     }
     
-    public func leftHandMoved(touches: [UITouch]) {
-        adjustPositions(nodes: &leftNodes, touches: touches)
+    public func leftHandMoved(touches: [UITouch], pattern: Int) {
+        adjustPositions(nodes: &leftNodes, touches: touches, pattern: pattern)
     }
     
     public func verticalLeftChanged(_ position: Int) {
@@ -158,19 +158,54 @@ public class RGBShaderTheme : Theme {
         }
     }
     
-    func adjustPositions(nodes: inout [Int:SKNode], touches: [UITouch]) {
+    func adjustPositions(nodes: inout [Int:SKNode], touches: [UITouch], pattern: Int) {
         if nodes.values.count == touches.count {
             let sortedKeys = nodes.keys.sorted()
+            for key in sortedKeys {
+                if !isTouchInPattern(touchIndex: key, pattern: pattern) {
+                    return
+                }
+            }
             var idx = 0
             for index in sortedKeys {
+                
                 let node = nodes[index]!
                 if !node.isHidden && idx < touches.count {
                     let touch = touches[idx]
                     node.position = touch.location(in: scene!)
                     idx += 1
                 }
+            
             }
         }
+    }
+    
+    private func isTouchInPattern(touchIndex: Int, pattern: Int) -> Bool {
+        if pattern == 1 {
+            return true
+        }
+        if pattern == 2 {
+            return [0, 1].contains(touchIndex)
+        }
+        if pattern == 3 {
+            return [0, 1, 2].contains(touchIndex)
+        }
+        if pattern == 4 {
+            return [0, 2].contains(touchIndex)
+        }
+        if pattern == 5 {
+            return [0, 2, 3].contains(touchIndex)
+        }
+        if pattern == 6 {
+            return [0, 3].contains(touchIndex)
+        }
+        if pattern == 7 {
+            return [0, 1, 3].contains(touchIndex)
+        }
+        if pattern == 8 {
+            return [0, 1, 2, 3].contains(touchIndex)
+        }
+        return false
     }
     
     func drawNode(index: Int, touch: UITouch, nodes: inout [Int:SKNode]) {

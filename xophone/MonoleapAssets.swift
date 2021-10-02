@@ -126,11 +126,11 @@ struct RoundedCorners: Shape {
 struct MonoleapAssets {
     
     static let cyan = Color(hex: "35F5E6")
-    static let blue = Color(hex: "5664E8")
-    static let pink = Color(hex: "D165F6")
     
-//    static let bright_cyan = Color(hex: "35F5E6")
-//    static let bright_cyan = Color(hex: "3c6999")
+    static let blue = Color(hex: "5664E8")
+    
+    static let pink = Color(hex: "D165F6")
+
     static let controlColor = blue
     
     static let selectionBackground = controlColor

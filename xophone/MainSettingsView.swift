@@ -85,9 +85,6 @@ struct MainSettingsView: View {
                     }.padding(30)
                 }
             }
-//            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/).onTapGesture {
-//                parent?.performSegue(withIdentifier: "instrument", sender: self)
-//            }
         }.ignoresSafeArea().onTapGesture {
             if (showAbout) {
                 showAbout = false

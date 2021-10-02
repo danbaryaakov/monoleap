@@ -22,7 +22,6 @@ struct ThemeSettingsPage: View {
     
     var body: some View {
         VStack {
-//            ScrollView {
                 Spacer()
                 LazyVGrid(columns: columns, spacing: 30) {
                     ForEach(ThemeManager.instance.getAllThemes(), id: \.self) { theme in
@@ -40,7 +39,6 @@ struct ThemeSettingsPage: View {
                     }
                 }.padding(30)
                 Spacer()
-//            }
         }.background(MonoleapAssets.sectionBackground).overlay(RoundedRectangle(cornerRadius:10).strokeBorder(MonoleapAssets.controlColor)).padding([.leading, .trailing], 30).padding(.top, 15)
     }
 }

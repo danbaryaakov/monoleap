@@ -172,6 +172,7 @@ class InstrumentScene: SKScene {
         }
         isTouchesEnded = false
         isInvalidPattern = false
+        
         self.debounce(action: #selector(handleTouches(args:)), delay: noPatterenPlayedPreviously ? 0.015 : 0.05)
     }
     
@@ -237,8 +238,8 @@ class InstrumentScene: SKScene {
         }
         self.sortTouches(&left)
         self.sortTouches(&right)
-        theme?.leftHandMoved(touches: left)
-        theme?.rightHandMoved(touches: right)
+        theme?.leftHandMoved(touches: left, pattern: getPattern(&left, withAux: true))
+        theme?.rightHandMoved(touches: right, pattern: getPattern(&right, withAux: true))
         if (Settings.showPatternGuides.value) {
             self.drawPatternGuides()
         }
@@ -254,6 +255,11 @@ class InstrumentScene: SKScene {
         }
 
     }
+    
+    func handleTouchesNew(left: [UITouch], right: [UITouch]) {
+        
+    }
+    
     @objc func handleTouches(args: [Any]) {
         
         hideMenu()

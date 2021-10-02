@@ -49,7 +49,6 @@ public class ThemeManager : NSObject {
         register("RAINBOW", name: "Rainbow", image: "theme_rainbow", creator: { RGBShaderTheme("Rainbow") })
         register("DISCO", name: "Disco", image: "theme_disco", creator: { RGBShaderTheme("Splash") })
         register("RAINBOW_CIRCLES", name: "Rainbow Circles", image: "theme_rainbow_circles", creator: { RGBShaderTheme("ColorSquares") })
-//        register("PARTICLES", name: "Particles", creator: { ColorBurstTheme() })
     }
     
     private func register(_ key: String, name: String, image: String = "theme_spark", creator: @escaping () -> Theme) {

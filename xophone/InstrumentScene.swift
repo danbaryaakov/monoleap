@@ -259,10 +259,6 @@ class InstrumentScene: SKScene {
 
     }
     
-    func handleTouchesNew(left: [UITouch], right: [UITouch]) {
-        
-    }
-    
     @objc func handleTouches(args: [Any]) {
         
         hideMenu()

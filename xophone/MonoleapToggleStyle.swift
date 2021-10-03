@@ -19,6 +19,7 @@ struct MonoleapToggleStyle: ToggleStyle {
             Spacer()
             ZStack {
                 if !configuration.isOn {
+                    MonoleapAssets.rect(topLeftRadius: 10, bottomLeftRadius: 10).stroke(MonoleapAssets.controlColor).frame(width: 70, height: 35).contentShape(Rectangle())
                     MonoleapAssets.rect(topLeftRadius: 10, bottomLeftRadius: 10).fill(
                         MonoleapAssets.controlColor
                     ).frame(width: 70, height: 35)
@@ -33,6 +34,7 @@ struct MonoleapToggleStyle: ToggleStyle {
                 if !configuration.isOn {
                     RoundedCorners(tl: 0, tr: 10, bl: 0, br: 10).stroke(MonoleapAssets.controlColor).frame(width: 70, height: 35).contentShape(Rectangle())
                 } else {
+                    RoundedCorners(tl: 0, tr: 10, bl: 0, br: 10).stroke(MonoleapAssets.controlColor).frame(width: 70, height: 35).contentShape(Rectangle())
                     MonoleapAssets.rect(topRightRadius: 10, bottomRightRadius: 10).fill(
                         MonoleapAssets.controlColor
                     ).frame(width: 70, height: 35)

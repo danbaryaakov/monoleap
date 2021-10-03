@@ -75,7 +75,7 @@ struct ScaleSelector: View {
                     }
                 }
             }.padding(20).overlay(RoundedRectangle(cornerRadius: 10)
-                        .strokeBorder(MonoleapAssets.controlColor)).frame(height: 180)
+                                    .strokeBorder(MonoleapAssets.controlColor)).frame(minHeight: 180, maxHeight: 220)
         }
     }
 }

@@ -269,6 +269,9 @@ class InstrumentScene: SKScene {
         let rightPattern = self.getPattern(&right, withAux: true)
         let leftPattern = self.getPattern(&left, withAux: true )
     
+        let leadingPattern = Settings.isRightHanded.value ? leftPattern : rightPattern
+        let followingPattern = Settings.isRightHanded.value ? rightPattern : leftPattern
+        
         if (Settings.showPatternGuides.value) {
             self.drawPatternGuides()
         } else {
@@ -278,7 +281,7 @@ class InstrumentScene: SKScene {
         var baseNote: Int = 0
         
         if Settings.calibrationEnabled.value {
-            if leftPattern == 8 {
+            if leadingPattern == 8 {
                 // calibrate
                 debounce(action: #selector(calibrate), delay: 1.0)
             } else {
@@ -286,7 +289,7 @@ class InstrumentScene: SKScene {
             }
         }
         
-        if isInvalidPattern ?? false || rightPattern == 0 {
+        if isInvalidPattern ?? false || followingPattern == 0 {
             // stop audio and clear all visual indication
             noteOff(playedNote, isOtherNotePlaying: false)
             self.theme?.drawLeftHandTouches(pattern: 0, touches: left)
@@ -294,10 +297,10 @@ class InstrumentScene: SKScene {
             
             self.debounce(action: #selector(showMenu), delay: 1)
             return
-        } else {
-            theme?.drawRightHandTouches(pattern: rightPattern, touches: right)
-            baseNote = 48 + 6 * (rightPattern - 1)
         }
+        
+        theme?.drawRightHandTouches(pattern: rightPattern, touches: right)
+        baseNote = 48 + 6 * (followingPattern - 1)
         
         print("handleTouches() - left touches:")
         for touch in left {
@@ -330,14 +333,14 @@ class InstrumentScene: SKScene {
         }
         
         theme?.drawLeftHandTouches(pattern: leftPattern, touches: left)
-        if (leftPattern > 0) {
-            let noteToPlay = baseNote + leftPattern - 1;
+        if (leadingPattern > 0) {
+            let noteToPlay = baseNote + leadingPattern - 1;
             if !ScaleMatcher.doesNoteMatchCurrentScale(noteToPlay) {
                 return;
             }
         }
         
-        switch leftPattern {
+        switch leadingPattern {
         case 0:
             self.noteOff(playedNote, isOtherNotePlaying: false)
             theme?.drawLeftHandTouches(pattern: 0, touches: left)
@@ -350,7 +353,7 @@ class InstrumentScene: SKScene {
             }
         case 2, 3, 4, 5, 6:
             prevNote = playedNote
-            self.noteOn(baseNote + (leftPattern - 1) , velocity: self.velocity(touch: left.first))
+            self.noteOn(baseNote + (leadingPattern - 1) , velocity: self.velocity(touch: left.first))
             if prevNote != playedNote {
                 self.noteOff(prevNote, isOtherNotePlaying: true)
             }
@@ -489,7 +492,11 @@ class InstrumentScene: SKScene {
                 midiConnector.sendControllerChange(Settings.leftYCtrlValue.value, value: Int(currentVal), inChannel: midiChannel)
             }
             if Settings.isSynthEnabled.value {
-                synthManager?.resonance(Int(currentVal))
+                if Settings.isRightHanded.value {
+                    synthManager?.resonance(Int(currentVal))
+                } else {
+                    synthManager?.filterCutoff(Int(currentVal))
+                }
             }
         }
     }
@@ -533,7 +540,11 @@ class InstrumentScene: SKScene {
                 midiConnector.sendControllerChange(Settings.rightYCtrlValue.value, value: Int(currentVal), inChannel: midiChannel)
             }
             if Settings.isSynthEnabled.value {
-                synthManager?.filterCutoff(currentVal)
+                if Settings.isRightHanded.value {
+                    synthManager?.filterCutoff(currentVal)
+                } else {
+                    synthManager?.resonance(currentVal)
+                }
             }
         }
     }

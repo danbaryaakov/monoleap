@@ -98,7 +98,7 @@
 //        [self drawPitchBendArea];
     }
     if (synthEnabled) {
-        SynthManager.instance;
+//        SynthManager.instance;
     }
 //    self.patch = [[PDPatch alloc]initWithFile:@"MidiSyth.pd"];
 }
@@ -339,7 +339,7 @@
     playedNote = noteNumber;
     [self sendMidiToPDwithNoteNumner:noteNumber andVelocity:velocity];
     if (synthEnabled) {
-        [SynthManager.instance noteOn:noteNumber];
+//        [SynthManager.instance noteOn:noteNumber];
     }
 }
 
@@ -349,7 +349,7 @@
         [self sendMidiToPDwithNoteNumner:noteNumber andVelocity:0];
     }
     if (synthEnabled) {
-        [SynthManager.instance noteOff:noteNumber];
+//        [SynthManager.instance noteOff:noteNumber];
     }
 }
 
@@ -593,7 +593,7 @@
         leftYCurrent = currentVal;
         [midiConnector sendControllerChange:leftYCtrlValue value:currentVal inChannel:1];
         if (synthEnabled) {
-            [SynthManager.instance resonance:currentVal];
+//            [SynthManager.instance resonance:currentVal];
         }
     }
 
@@ -647,7 +647,7 @@
         rightYCurrent = val;
         [midiConnector sendControllerChange:rightYCtrlValue value:val inChannel:1];
         if (synthEnabled) {
-            [SynthManager.instance filterCutoff:val];
+//            [SynthManager.instance filterCutoff:val];
         }
     }
 }

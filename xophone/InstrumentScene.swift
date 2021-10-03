@@ -47,6 +47,9 @@ class InstrumentScene: SKScene {
     var leftYCurrent, leftXCurrent, rightYCurrent, rightXCurrent: Int?
     
     var isTouchesEnded, isInvalidPattern, PDEnabled: Bool?
+    
+    var synthManager: SynthManager?
+    
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         
@@ -66,8 +69,8 @@ class InstrumentScene: SKScene {
 //        if SettingsManager.pitchBendEnabled {
 //            self.drawPitchBendArea()
 //        }
+        synthManager = SynthManager()
         
-        let _ = SynthManager.instance
         
     }
     
@@ -369,7 +372,7 @@ class InstrumentScene: SKScene {
         playedNote = noteNumber
         self.sendMidiToPDwithNoteNumner(noteNumber, andVelocity: velocity)
         if Settings.isSynthEnabled.value {
-            SynthManager.instance.noteOn(noteNumber)
+            synthManager?.noteOn(noteNumber)
         }
     }
     
@@ -391,7 +394,7 @@ class InstrumentScene: SKScene {
             self.sendMidiToPDwithNoteNumner(noteNumber, andVelocity: 0)
         }
         if Settings.isSynthEnabled.value {
-            SynthManager.instance.noteOff(noteNumber)
+            synthManager?.noteOff(noteNumber)
         }
     }
     
@@ -490,7 +493,7 @@ class InstrumentScene: SKScene {
                 midiConnector.sendControllerChange(Settings.leftYCtrlValue.value, value: Int(currentVal), inChannel: midiChannel)
             }
             if Settings.isSynthEnabled.value {
-                SynthManager.instance.resonance(Int(currentVal))
+                synthManager?.resonance(Int(currentVal))
             }
         }
     }
@@ -534,7 +537,7 @@ class InstrumentScene: SKScene {
                 midiConnector.sendControllerChange(Settings.rightYCtrlValue.value, value: Int(currentVal), inChannel: midiChannel)
             }
             if Settings.isSynthEnabled.value {
-                SynthManager.instance.filterCutoff(currentVal)
+                synthManager?.filterCutoff(currentVal)
             }
         }
     }

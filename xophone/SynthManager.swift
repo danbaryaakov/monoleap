@@ -12,8 +12,6 @@ import SoundpipeAudioKit
 
 @objc public class SynthManager : NSObject {
     
-    @objc static public let instance = SynthManager()
-    
     let engine = AudioEngine()
     var osc: PWMOscillator
     var osc2: DynamicOscillator
@@ -25,7 +23,8 @@ import SoundpipeAudioKit
     var dryWetMixer: DryWetMixer
     var mixer: Mixer
     
-    private override init() {
+    override init() {
+        
         osc = PWMOscillator()
         osc2 = DynamicOscillator()
         osc2.setWaveform(Table(.sawtooth))
@@ -52,6 +51,12 @@ import SoundpipeAudioKit
         filter.cutoffFrequency = 0
         filter.resonance = 0
         
+        super.init()
+        
+        start()
+    }
+    
+    private func start() {
         do {
             try engine.start()
         } catch let err {
@@ -60,6 +65,7 @@ import SoundpipeAudioKit
     }
     
     @objc func noteOn(_ noteNumber: Int) {
+        start()
         osc.frequency = noteNumber.midiNoteToFrequency()
         osc2.frequency = noteNumber.midiNoteToFrequency()
         

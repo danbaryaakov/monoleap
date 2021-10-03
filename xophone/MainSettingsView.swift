@@ -81,11 +81,6 @@ struct MainSettingsView: View {
                     Button("") {
                         parent?.performSegue(withIdentifier: "instrument", sender: self)
                     }.buttonStyle(BigRoundButtonStyle(image: "play", size: 140)).padding(30)
-//                    BigRoundButton(image: "play", size: 140).onTapGesture {
-//                        parent?.performSegue(withIdentifier: "instrument", sender: self)
-//                    }.onLongPressGesture {
-//                        parent?.performSegue(withIdentifier: "instrument", sender: self)
-//                    }.padding(30)
                 }
             }
         }.ignoresSafeArea().onTapGesture {

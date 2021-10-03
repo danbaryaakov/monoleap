@@ -78,11 +78,14 @@ struct MainSettingsView: View {
                         }
                     }.padding([.trailing, .top, .bottom], 30).padding(.leading, 20)
                     Spacer()
-                    BigRoundButton(image: "play", size: 140).onTapGesture {
+                    Button("") {
                         parent?.performSegue(withIdentifier: "instrument", sender: self)
-                    }.onLongPressGesture {
-                        parent?.performSegue(withIdentifier: "instrument", sender: self)
-                    }.padding(30)
+                    }.buttonStyle(BigRoundButtonStyle(image: "play", size: 140)).padding(30)
+//                    BigRoundButton(image: "play", size: 140).onTapGesture {
+//                        parent?.performSegue(withIdentifier: "instrument", sender: self)
+//                    }.onLongPressGesture {
+//                        parent?.performSegue(withIdentifier: "instrument", sender: self)
+//                    }.padding(30)
                 }
             }
         }.ignoresSafeArea().onTapGesture {

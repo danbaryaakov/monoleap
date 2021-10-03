@@ -52,12 +52,16 @@ import SpriteKit
     
     func initMenuButton() {
         settingsButton.addTarget(self, action: #selector(showSettings), for: .touchUpInside)
-        settingsButton.frame = CGRect(x: view.frame.width - 168, y: view.frame.height - 168, width: 140, height: 140)
+        updateSettingsButton()
         self.view.addSubview(settingsButton)
     }
     
     @objc func orientationChanged(_ notification: Notification) {
-        settingsButton.frame = CGRect(x: view.frame.width - 168, y: view.frame.height - 168, width: 140, height: 140)
+        updateSettingsButton()
+    }
+    
+    func updateSettingsButton() {
+        settingsButton.frame = CGRect(x: view.frame.width - 170, y: view.frame.height - 170, width: 140, height: 142)
     }
     
     @objc func showSettings() {

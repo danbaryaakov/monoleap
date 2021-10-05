@@ -454,11 +454,15 @@ class InstrumentScene: SKScene {
     
     
     @objc func calibrate() {
-        let firstDistance = self.distance(first: left.first, second: left[1])
-        let secondDistance = self.distance(first: left[1], second: left[2])
+        let touches = Settings.isRightHanded.value ? left : right
+        if touches.count < 4 {
+            return
+        }
+        let firstDistance = self.distance(first: touches.first, second: touches[1])
+        let secondDistance = self.distance(first: touches[1], second: touches[2])
         print("FirstDiscance \(firstDistance), Second: \(secondDistance)")
-        fingerWidth = (firstDistance + secondDistance) / 2
-        Settings.fingerWidth.value = max(firstDistance, secondDistance) // quick calibration fix but might not be accurate
+        fingerWidth = max(firstDistance, secondDistance)
+        Settings.fingerWidth.value =  fingerWidth
         print("Calibrate --> new finger width is \(fingerWidth ?? 0)")
         self.drawPatternGuides()
         

@@ -28,13 +28,10 @@ import SpriteKit
         self.view.isMultipleTouchEnabled = true
         skView.isMultipleTouchEnabled = true
         view.addSubview(skView)
-        let scene = InstrumentScene.unarchive(fromFile: "InstrumentScene")
-        scene?.anchorPoint = CGPoint(x: 0, y: 0)
-        scene?.scaleMode = .resizeFill
-        
-
+        let scene = InstrumentScene()
+        scene.anchorPoint = CGPoint(x: 0, y: 0)
+        scene.scaleMode = .resizeFill
         skView.presentScene(scene)
-        
         initMenuButton()
     }
     
@@ -90,26 +87,4 @@ extension Notification.Name {
     static let showSettings = Notification.Name("showSettings")
     static let hideMenu = Notification.Name("hideMenu")
     static let showMenu = Notification.Name("showMenu")
-}
-
-extension SKScene {
-    //  Converted to Swift 5.5 by Swiftify v5.5.22923 - https://swiftify.com/
-    class func unarchive(fromFile file: String?) -> SKScene? {
-        let nodePath = Bundle.main.path(forResource: file, ofType: "sks")
-        var data: Data? = nil
-        do {
-            data = try NSData(contentsOfFile: nodePath ?? "", options: .mappedIfSafe) as Data?
-        } catch {
-        }
-        var arch: NSKeyedUnarchiver? = nil
-        if let data = data {
-            arch = NSKeyedUnarchiver(forReadingWith: data)
-        }
-        arch?.setClass(self, forClassName: "SKScene")
-        let scene = arch?.decodeObject(forKey: NSKeyedArchiveRootObjectKey) as? SKScene
-        arch?.finishDecoding()
-        return scene
-    }
-    
-    
 }

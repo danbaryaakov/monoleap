@@ -75,12 +75,12 @@ class InstrumentScene: SKScene {
     }
     
     func drawPitchBendArea() {
-        let rightColor: CIColor = CIColor(red: 248.0/255.0, green:182.0/255.0, blue:250.0/255.0, alpha:0.2)
-        let leftColor: CIColor = CIColor(red: 248.0/255.0, green:182.0/255.0, blue:250.0/255.0, alpha:0.0)
-        let tx = SKTexture.init(horizontalGradientofSize: CGSize(width: self.frame.size.width/8, height: self.frame.height), topColor: rightColor, bottomColor: leftColor)
-        let backgroundGradient = SKSpriteNode(texture: tx)
-        backgroundGradient.position = CGPoint(x: self.frame.width / 2 - self.frame.size.width / 16, y: self.frame.height / 2)
-        self.addChild(backgroundGradient)
+//        let rightColor: CIColor = CIColor(red: 248.0/255.0, green:182.0/255.0, blue:250.0/255.0, alpha:0.2)
+//        let leftColor: CIColor = CIColor(red: 248.0/255.0, green:182.0/255.0, blue:250.0/255.0, alpha:0.0)
+//        let tx = SKTexture(horizontalGradientofSize: CGSize(width: self.frame.size.width/8, height: self.frame.height), topColor: rightColor, bottomColor: leftColor)
+//        let backgroundGradient = SKSpriteNode(texture: tx)
+//        backgroundGradient.position = CGPoint(x: self.frame.width / 2 - self.frame.size.width / 16, y: self.frame.height / 2)
+//        self.addChild(backgroundGradient)
     }
     
     func drawPatternGuides() {

@@ -10,7 +10,7 @@ import Foundation
 import AudioKit
 import SoundpipeAudioKit
 
-@objc public class SynthManager : NSObject {
+public class SynthManager : NSObject {
     
     let engine = AudioEngine()
     var osc: PWMOscillator
@@ -64,7 +64,7 @@ import SoundpipeAudioKit
         }
     }
     
-    @objc func noteOn(_ noteNumber: Int) {
+    func noteOn(_ noteNumber: Int) {
         start()
         osc.frequency = noteNumber.midiNoteToFrequency()
         osc2.frequency = noteNumber.midiNoteToFrequency()
@@ -77,7 +77,7 @@ import SoundpipeAudioKit
         playingNote = noteNumber;
     }
     
-    @objc func noteOff(_ noteNumber: Int) {
+    func noteOff(_ noteNumber: Int) {
         if (playingNote == noteNumber) {
             osc.stop();
             osc2.stop();
@@ -85,14 +85,14 @@ import SoundpipeAudioKit
         }
     }
     
-    @objc func filterCutoff(_ value: Int) {
+    func filterCutoff(_ value: Int) {
         NSLog("Setting Filter cutoff: %d", value)
         let cutoff =  max(200, Float(value) / 127 * 6000)
         NSLog("Filter cutoff: %f", cutoff)
         filter.cutoffFrequency = cutoff
     }
     
-    @objc func resonance(_ value: Int) {
+    func resonance(_ value: Int) {
         let resonance = min(Float(value) / 127, 0.8)
         filter.resonance = resonance
     }

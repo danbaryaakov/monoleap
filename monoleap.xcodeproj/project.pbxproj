@@ -7,14 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		272D07552703792E0039D6FB /* InstrumentSceneOld.m in Sources */ = {isa = PBXBuildFile; fileRef = 95FC67561B5E607C00C756F5 /* InstrumentSceneOld.m */; };
 		272D075627037AA90039D6FB /* InstrumentScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277FA7CF26F350130063022A /* InstrumentScene.swift */; };
 		2757768326ED0AEC00134DDC /* MIDIConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278DD63726EB4A9F0079F8B8 /* MIDIConnector.swift */; };
 		277FA7CD26F343CB0063022A /* InstrumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277FA7CA26F33FA70063022A /* InstrumentViewController.swift */; };
 		277FA7DF26F380300063022A /* ThemeImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277FA7D526F361670063022A /* ThemeImpl.swift */; };
 		278DD63426EB485E0079F8B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278DD63326EB485E0079F8B8 /* AppDelegate.swift */; };
 		278DD63626EB4A1E0079F8B8 /* MidiConnectorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278DD63526EB4A1E0079F8B8 /* MidiConnectorImpl.swift */; };
-		952BCD381B6917E800B67629 /* SKTexture+Gradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 952BCD371B6917E800B67629 /* SKTexture+Gradient.m */; };
 		952C46681B60F14C00548952 /* Bokeh.sks in Resources */ = {isa = PBXBuildFile; fileRef = 952C46661B60F14C00548952 /* Bokeh.sks */; };
 		952C46691B60F14C00548952 /* bokeh.png in Resources */ = {isa = PBXBuildFile; fileRef = 952C46671B60F14C00548952 /* bokeh.png */; };
 		952C466C1B60F6F300548952 /* Fire.sks in Resources */ = {isa = PBXBuildFile; fileRef = 952C466A1B60F6F300548952 /* Fire.sks */; };
@@ -29,8 +27,6 @@
 		959916031B63A7D100784C6E /* Fireflies.sks in Resources */ = {isa = PBXBuildFile; fileRef = 959916021B63A7D100784C6E /* Fireflies.sks */; };
 		959916051B63A7E900784C6E /* Rain.sks in Resources */ = {isa = PBXBuildFile; fileRef = 959916041B63A7E900784C6E /* Rain.sks */; };
 		959916071B63A7FA00784C6E /* Smoke.sks in Resources */ = {isa = PBXBuildFile; fileRef = 959916061B63A7FA00784C6E /* Smoke.sks */; };
-		95A8B7991BDEC77C007494D1 /* Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A8B7981BDEC77C007494D1 /* Theme.m */; };
-		95A8B79C1BDEC7C9007494D1 /* ColorBurstTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A8B79B1BDEC7C9007494D1 /* ColorBurstTheme.m */; };
 		95D147231B6D470C00770BF3 /* App.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95D147221B6D470C00770BF3 /* App.storyboard */; };
 		95D147261B6D510600770BF3 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95D147241B6D510600770BF3 /* Model.xcdatamodeld */; };
 		95FC67591B5E607C00C756F5 /* InstrumentScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 95FC67581B5E607C00C756F5 /* InstrumentScene.sks */; };
@@ -40,6 +36,7 @@
 		BA4AA2721C04E18D0067635F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA4AA2711C04E18D0067635F /* AudioToolbox.framework */; };
 		EC59C3DC2707191300866708 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC59C3DB2707191300866708 /* MainViewController.swift */; };
 		EC59C3DE2707193B00866708 /* MainSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC59C3DD2707193B00866708 /* MainSettingsView.swift */; };
+		EC5FCA16270C382100694854 /* SKTextureGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5FCA15270C382100694854 /* SKTextureGradient.swift */; };
 		ECC1DEFC270724BF006ADBAA /* MonoleapAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC1DEFB270724BF006ADBAA /* MonoleapAssets.swift */; };
 		ECC1DEFE270725B1006ADBAA /* BigRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC1DEFD270725B1006ADBAA /* BigRoundButton.swift */; };
 		ECC1DF0027072844006ADBAA /* PageToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC1DEFF27072844006ADBAA /* PageToggleButton.swift */; };
@@ -96,12 +93,6 @@
 		278DD63326EB485E0079F8B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		278DD63526EB4A1E0079F8B8 /* MidiConnectorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidiConnectorImpl.swift; sourceTree = "<group>"; };
 		278DD63726EB4A9F0079F8B8 /* MIDIConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIConnector.swift; sourceTree = "<group>"; };
-		95145EBA1BEB7C1E0040FD28 /* MIDIConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIDIConnector.h; sourceTree = "<group>"; };
-		95145EBB1BEB7C1E0040FD28 /* MIDIConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIDIConnector.m; sourceTree = "<group>"; };
-		9515ABD41BE458C2008B8FDA /* CalmTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalmTheme.h; sourceTree = "<group>"; };
-		9515ABD51BE458C2008B8FDA /* CalmTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalmTheme.m; sourceTree = "<group>"; };
-		952BCD361B6917E800B67629 /* SKTexture+Gradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKTexture+Gradient.h"; sourceTree = "<group>"; };
-		952BCD371B6917E800B67629 /* SKTexture+Gradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKTexture+Gradient.m"; sourceTree = "<group>"; };
 		952C46661B60F14C00548952 /* Bokeh.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Bokeh.sks; sourceTree = "<group>"; };
 		952C46671B60F14C00548952 /* bokeh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bokeh.png; sourceTree = "<group>"; };
 		952C466A1B60F6F300548952 /* Fire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Fire.sks; sourceTree = "<group>"; };
@@ -115,18 +106,10 @@
 		959916021B63A7D100784C6E /* Fireflies.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Fireflies.sks; sourceTree = "<group>"; };
 		959916041B63A7E900784C6E /* Rain.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Rain.sks; sourceTree = "<group>"; };
 		959916061B63A7FA00784C6E /* Smoke.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Smoke.sks; sourceTree = "<group>"; };
-		95A8B7971BDEC77C007494D1 /* Theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Theme.h; sourceTree = "<group>"; };
-		95A8B7981BDEC77C007494D1 /* Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Theme.m; sourceTree = "<group>"; };
-		95A8B79A1BDEC7C9007494D1 /* ColorBurstTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorBurstTheme.h; sourceTree = "<group>"; };
-		95A8B79B1BDEC7C9007494D1 /* ColorBurstTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorBurstTheme.m; sourceTree = "<group>"; };
-		95A8B79D1BDF8B0E007494D1 /* BasicTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicTheme.h; sourceTree = "<group>"; };
-		95A8B79E1BDF8B0E007494D1 /* BasicTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicTheme.m; sourceTree = "<group>"; };
 		95D147221B6D470C00770BF3 /* App.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = App.storyboard; sourceTree = "<group>"; };
 		95D147251B6D510600770BF3 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		95FC674B1B5E607C00C756F5 /* monoleap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = monoleap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95FC674F1B5E607C00C756F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		95FC67551B5E607C00C756F5 /* InstrumentSceneOld.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstrumentSceneOld.h; sourceTree = "<group>"; };
-		95FC67561B5E607C00C756F5 /* InstrumentSceneOld.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstrumentSceneOld.m; sourceTree = "<group>"; };
 		95FC67581B5E607C00C756F5 /* InstrumentScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = InstrumentScene.sks; sourceTree = "<group>"; };
 		95FC67601B5E607C00C756F5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		95FC67631B5E607C00C756F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -136,6 +119,7 @@
 		BA4AA2711C04E18D0067635F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		EC59C3DB2707191300866708 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		EC59C3DD2707193B00866708 /* MainSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSettingsView.swift; sourceTree = "<group>"; };
+		EC5FCA15270C382100694854 /* SKTextureGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKTextureGradient.swift; sourceTree = "<group>"; };
 		ECC1DEFB270724BF006ADBAA /* MonoleapAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonoleapAssets.swift; sourceTree = "<group>"; };
 		ECC1DEFD270725B1006ADBAA /* BigRoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigRoundButton.swift; sourceTree = "<group>"; };
 		ECC1DEFF27072844006ADBAA /* PageToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageToggleButton.swift; sourceTree = "<group>"; };
@@ -196,20 +180,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		277FA7C926F33F1B0063022A /* objc */ = {
-			isa = PBXGroup;
-			children = (
-				95DF40331B768246007C89A4 /* Graphics */,
-				95DF40351B76827E007C89A4 /* Settings */,
-				95A8B7961BDEC75C007494D1 /* Theme */,
-				95145EBA1BEB7C1E0040FD28 /* MIDIConnector.h */,
-				95145EBB1BEB7C1E0040FD28 /* MIDIConnector.m */,
-				95FC67551B5E607C00C756F5 /* InstrumentSceneOld.h */,
-				95FC67561B5E607C00C756F5 /* InstrumentSceneOld.m */,
-			);
-			name = objc;
-			sourceTree = "<group>";
-		};
 		277FA7D426F361050063022A /* Theme */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,44 +210,6 @@
 			);
 			name = Particles;
 			path = ..;
-			sourceTree = "<group>";
-		};
-		9515ABD31BE456DB008B8FDA /* Images */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Images;
-			sourceTree = "<group>";
-		};
-		95A8B7961BDEC75C007494D1 /* Theme */ = {
-			isa = PBXGroup;
-			children = (
-				95A8B7971BDEC77C007494D1 /* Theme.h */,
-				95A8B7981BDEC77C007494D1 /* Theme.m */,
-				95A8B79A1BDEC7C9007494D1 /* ColorBurstTheme.h */,
-				95A8B79B1BDEC7C9007494D1 /* ColorBurstTheme.m */,
-				95A8B79D1BDF8B0E007494D1 /* BasicTheme.h */,
-				95A8B79E1BDF8B0E007494D1 /* BasicTheme.m */,
-				9515ABD41BE458C2008B8FDA /* CalmTheme.h */,
-				9515ABD51BE458C2008B8FDA /* CalmTheme.m */,
-			);
-			name = Theme;
-			sourceTree = "<group>";
-		};
-		95DF40331B768246007C89A4 /* Graphics */ = {
-			isa = PBXGroup;
-			children = (
-				952BCD361B6917E800B67629 /* SKTexture+Gradient.h */,
-				952BCD371B6917E800B67629 /* SKTexture+Gradient.m */,
-			);
-			name = Graphics;
-			sourceTree = "<group>";
-		};
-		95DF40351B76827E007C89A4 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Settings;
 			sourceTree = "<group>";
 		};
 		95FC67421B5E607C00C756F5 = {
@@ -311,16 +243,15 @@
 				9586002B26E76BE800A4A712 /* SynthManager.swift */,
 				EC59C3DB2707191300866708 /* MainViewController.swift */,
 				ECC1DF0127072D3B006ADBAA /* Settings.swift */,
+				EC5FCA15270C382100694854 /* SKTextureGradient.swift */,
 				ECC1DF44270764CC006ADBAA /* Scale.swift */,
 				95D147221B6D470C00770BF3 /* App.storyboard */,
 				95FC67621B5E607C00C756F5 /* LaunchScreen.xib */,
 				EC59C3DF2707220700866708 /* UI */,
 				277FA7D426F361050063022A /* Theme */,
-				9515ABD31BE456DB008B8FDA /* Images */,
 				95FC67581B5E607C00C756F5 /* InstrumentScene.sks */,
 				95D147241B6D510600770BF3 /* Model.xcdatamodeld */,
 				95FC67601B5E607C00C756F5 /* Images.xcassets */,
-				277FA7C926F33F1B0063022A /* objc */,
 				95FC674E1B5E607C00C756F5 /* Supporting Files */,
 				9586002A26E76BE700A4A712 /* monoleap-Bridging-Header.h */,
 			);
@@ -554,17 +485,14 @@
 				ECC1DF0027072844006ADBAA /* PageToggleButton.swift in Sources */,
 				ECC1DF3F27075DAD006ADBAA /* MIDICCSelector.swift in Sources */,
 				277FA7DF26F380300063022A /* ThemeImpl.swift in Sources */,
-				952BCD381B6917E800B67629 /* SKTexture+Gradient.m in Sources */,
-				95A8B79C1BDEC7C9007494D1 /* ColorBurstTheme.m in Sources */,
 				ECC1DF412707649E006ADBAA /* DropdownSelector.swift in Sources */,
 				ECC1DEFC270724BF006ADBAA /* MonoleapAssets.swift in Sources */,
-				272D07552703792E0039D6FB /* InstrumentSceneOld.m in Sources */,
 				ECC1DF0E270732DE006ADBAA /* MonoleapToggleStyle.swift in Sources */,
-				95A8B7991BDEC77C007494D1 /* Theme.m in Sources */,
 				272D075627037AA90039D6FB /* InstrumentScene.swift in Sources */,
 				EC59C3DC2707191300866708 /* MainViewController.swift in Sources */,
 				ECC1DF0627072E8B006ADBAA /* MIDISettingsPage.swift in Sources */,
 				278DD63626EB4A1E0079F8B8 /* MidiConnectorImpl.swift in Sources */,
+				EC5FCA16270C382100694854 /* SKTextureGradient.swift in Sources */,
 				ECC1DF1227073ABC006ADBAA /* RGBShaderTheme.swift in Sources */,
 				278DD63426EB485E0079F8B8 /* AppDelegate.swift in Sources */,
 				ECC1DF0C27073123006ADBAA /* SettingsSection.swift in Sources */,

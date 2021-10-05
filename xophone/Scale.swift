@@ -8,15 +8,13 @@
 import Foundation
 import SwiftUI
 
-@objc public class ScaleMatcher : NSObject {
+public class ScaleMatcher : NSObject {
     
-    @objc static public func doesNoteMatchCurrentScale(_ noteNumber: Int) -> Bool {
+    static public func doesNoteMatchCurrentScale(_ noteNumber: Int) -> Bool {
         let rootNote = Settings.scaleRoot.value
         let scale = Settings.scale.value
         let noteIndex = noteNumber % 12
         let distance = noteIndex - rootNote
-//        print("noteNumber: \(noteNumber), rootNote: \(rootNote), noteIndex: \(noteIndex), distance: \(distance)")
-        
         if distance >= 0 {
             return scale.contains(distance)
         } else {

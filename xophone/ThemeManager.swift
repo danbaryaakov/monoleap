@@ -33,12 +33,6 @@ public class ThemeManager : NSObject {
     var allKeys: [String] = []
     var themes: [String:ThemeInfo] = [:]
     
-    public var themeNames: [String] {
-        get {
-            allKeys
-        }
-    }
-    
     private override init() {
         super.init()
         register("SPARK", name: "Spark", image: "theme_spark", creator: { RGBShaderTheme("Spark") })

@@ -43,6 +43,8 @@ struct Scale {
         Scale(name: "Mixolydian", notes: [0, 2, 4, 5, 7, 9, 10]),
         Scale(name: "Aeolian", notes: [0, 2, 3, 5, 7, 8, 10]),
         Scale(name: "Locrian", notes: [0, 1, 3, 5, 6, 8, 10]),
+        Scale(name: "Major Pentatonic", notes: [0, 2, 4, 7, 9]),
+        Scale(name: "Minor Pentatonic", notes: [0, 3, 5, 7, 10]),
         Scale(name: "Whole Tone", notes: [0, 2, 4, 6, 8, 10]),
         Scale(name: "Spanish", notes: [0, 1, 4, 5, 7, 8, 10]),
         Scale(name: "Gypsy", notes: [0, 2, 3, 6, 7, 8, 11]),

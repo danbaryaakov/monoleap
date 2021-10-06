@@ -89,7 +89,6 @@
 		277FA7CA26F33FA70063022A /* InstrumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentViewController.swift; sourceTree = "<group>"; };
 		277FA7CF26F350130063022A /* InstrumentScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentScene.swift; sourceTree = "<group>"; };
 		277FA7D526F361670063022A /* ThemeImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeImpl.swift; sourceTree = "<group>"; };
-		278DD63226EB485D0079F8B8 /* monoleap-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "monoleap-Bridging-Header.h"; sourceTree = "<group>"; };
 		278DD63326EB485E0079F8B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		278DD63526EB4A1E0079F8B8 /* MidiConnectorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidiConnectorImpl.swift; sourceTree = "<group>"; };
 		278DD63726EB4A9F0079F8B8 /* MIDIConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIConnector.swift; sourceTree = "<group>"; };
@@ -235,7 +234,6 @@
 			isa = PBXGroup;
 			children = (
 				278DD63326EB485E0079F8B8 /* AppDelegate.swift */,
-				278DD63226EB485D0079F8B8 /* monoleap-Bridging-Header.h */,
 				278DD63526EB4A1E0079F8B8 /* MidiConnectorImpl.swift */,
 				278DD63726EB4A9F0079F8B8 /* MIDIConnector.swift */,
 				277FA7CA26F33FA70063022A /* InstrumentViewController.swift */,

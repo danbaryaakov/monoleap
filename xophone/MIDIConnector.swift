@@ -9,15 +9,12 @@
 import Foundation
 import AudioKit
 
-class MIDIConnector: NSObject, MidiConnectorImpl {
-    func sendMidi(_ message: UnsafePointer<Byte>) {
-        
-    }
-    @objc static let sharedInstance = MIDIConnector()
+class MIDIConnector {
+    
+    static let instance = MIDIConnector()
     var midi = AudioKit.MIDI()
     
-    override init() {
-        super.init()
+    init() {
         midi.openOutput()
     }
     

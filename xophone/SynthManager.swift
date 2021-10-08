@@ -13,8 +13,7 @@ import SoundpipeAudioKit
 public class SynthManager : NSObject {
     
     let engine = AudioEngine()
-    var osc: PWMOscillator
-    var osc2: DynamicOscillator
+    var osc: DynamicOscillator
     
     var playingNote: Int?
     var filter: MoogLadder
@@ -25,12 +24,11 @@ public class SynthManager : NSObject {
     
     override init() {
         
-        osc = PWMOscillator()
-        osc2 = DynamicOscillator()
-        osc2.setWaveform(Table(.sawtooth))
-        osc2.amplitude = 0.8;
+        osc = DynamicOscillator()
+        osc.setWaveform(Table(.sawtooth))
+        osc.amplitude = 0.8;
         
-        mixer = Mixer(osc2)
+        mixer = Mixer(osc)
         
         filter = MoogLadder(mixer)
         filter.start()
@@ -42,11 +40,8 @@ public class SynthManager : NSObject {
         
         limiter = PeakLimiter(dryWetMixer)
         engine.output = limiter
-        
-//        osc.setWaveform(Table(.sawtooth))
+
         osc.stop()
-        osc2.stop()
-        osc.amplitude = 0.6
         
         filter.cutoffFrequency = 0
         filter.resonance = 0
@@ -67,20 +62,15 @@ public class SynthManager : NSObject {
     func noteOn(_ noteNumber: Int) {
         start()
         osc.frequency = noteNumber.midiNoteToFrequency()
-        osc2.frequency = noteNumber.midiNoteToFrequency()
-        
         if (playingNote == nil) {
             osc.start();
-            osc2.start();
         }
-        
         playingNote = noteNumber;
     }
     
     func noteOff(_ noteNumber: Int) {
         if (playingNote == noteNumber) {
             osc.stop();
-            osc2.stop();
             playingNote = nil;
         }
     }

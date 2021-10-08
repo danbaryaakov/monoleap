@@ -17,7 +17,6 @@ struct ThemeSettingsPage: View {
         GridItem(.flexible()),
         GridItem(.flexible()),
         GridItem(.flexible())
-//        GridItem(.flexible())
     ]
     
     var body: some View {

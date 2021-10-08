@@ -21,7 +21,7 @@ struct MIDICCSelector: View {
             NumberSelector(selectedNumber: $value, minimum: 0, maximum: 127)
             Button("TRANSMIT") {
                 for i in 0...127 {
-                    MIDIConnector.sharedInstance.sendControllerChange(Int(value), value: i, inChannel: 0)
+                    MIDIConnector.instance.sendControllerChange(Int(value), value: i, inChannel: 0)
                 }
             }.padding(10).frame(width: 140).foregroundColor(MonoleapAssets.controlColor).overlay(RoundedRectangle(cornerRadius: 10).strokeBorder(MonoleapAssets.controlColor))
         }

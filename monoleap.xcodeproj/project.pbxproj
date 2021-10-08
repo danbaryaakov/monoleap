@@ -12,7 +12,6 @@
 		277FA7CD26F343CB0063022A /* InstrumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277FA7CA26F33FA70063022A /* InstrumentViewController.swift */; };
 		277FA7DF26F380300063022A /* ThemeImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277FA7D526F361670063022A /* ThemeImpl.swift */; };
 		278DD63426EB485E0079F8B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278DD63326EB485E0079F8B8 /* AppDelegate.swift */; };
-		278DD63626EB4A1E0079F8B8 /* MidiConnectorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278DD63526EB4A1E0079F8B8 /* MidiConnectorImpl.swift */; };
 		952C46681B60F14C00548952 /* Bokeh.sks in Resources */ = {isa = PBXBuildFile; fileRef = 952C46661B60F14C00548952 /* Bokeh.sks */; };
 		952C46691B60F14C00548952 /* bokeh.png in Resources */ = {isa = PBXBuildFile; fileRef = 952C46671B60F14C00548952 /* bokeh.png */; };
 		952C466C1B60F6F300548952 /* Fire.sks in Resources */ = {isa = PBXBuildFile; fileRef = 952C466A1B60F6F300548952 /* Fire.sks */; };
@@ -37,6 +36,8 @@
 		EC59C3DC2707191300866708 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC59C3DB2707191300866708 /* MainViewController.swift */; };
 		EC59C3DE2707193B00866708 /* MainSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC59C3DD2707193B00866708 /* MainSettingsView.swift */; };
 		EC5FCA16270C382100694854 /* SKTextureGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5FCA15270C382100694854 /* SKTextureGradient.swift */; };
+		EC5FCA18270F198000694854 /* monoleapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5FCA17270F198000694854 /* monoleapTests.swift */; };
+		EC5FCA19270F1A1100694854 /* monoleapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5FCA17270F198000694854 /* monoleapTests.swift */; };
 		ECC1DEFC270724BF006ADBAA /* MonoleapAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC1DEFB270724BF006ADBAA /* MonoleapAssets.swift */; };
 		ECC1DEFE270725B1006ADBAA /* BigRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC1DEFD270725B1006ADBAA /* BigRoundButton.swift */; };
 		ECC1DF0027072844006ADBAA /* PageToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC1DEFF27072844006ADBAA /* PageToggleButton.swift */; };
@@ -90,7 +91,6 @@
 		277FA7CF26F350130063022A /* InstrumentScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentScene.swift; sourceTree = "<group>"; };
 		277FA7D526F361670063022A /* ThemeImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeImpl.swift; sourceTree = "<group>"; };
 		278DD63326EB485E0079F8B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		278DD63526EB4A1E0079F8B8 /* MidiConnectorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidiConnectorImpl.swift; sourceTree = "<group>"; };
 		278DD63726EB4A9F0079F8B8 /* MIDIConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIConnector.swift; sourceTree = "<group>"; };
 		952C46661B60F14C00548952 /* Bokeh.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Bokeh.sks; sourceTree = "<group>"; };
 		952C46671B60F14C00548952 /* bokeh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bokeh.png; sourceTree = "<group>"; };
@@ -119,6 +119,7 @@
 		EC59C3DB2707191300866708 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		EC59C3DD2707193B00866708 /* MainSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSettingsView.swift; sourceTree = "<group>"; };
 		EC5FCA15270C382100694854 /* SKTextureGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKTextureGradient.swift; sourceTree = "<group>"; };
+		EC5FCA17270F198000694854 /* monoleapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = monoleapTests.swift; sourceTree = "<group>"; };
 		ECC1DEFB270724BF006ADBAA /* MonoleapAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonoleapAssets.swift; sourceTree = "<group>"; };
 		ECC1DEFD270725B1006ADBAA /* BigRoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigRoundButton.swift; sourceTree = "<group>"; };
 		ECC1DEFF27072844006ADBAA /* PageToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageToggleButton.swift; sourceTree = "<group>"; };
@@ -234,7 +235,6 @@
 			isa = PBXGroup;
 			children = (
 				278DD63326EB485E0079F8B8 /* AppDelegate.swift */,
-				278DD63526EB4A1E0079F8B8 /* MidiConnectorImpl.swift */,
 				278DD63726EB4A9F0079F8B8 /* MIDIConnector.swift */,
 				277FA7CA26F33FA70063022A /* InstrumentViewController.swift */,
 				277FA7CF26F350130063022A /* InstrumentScene.swift */,
@@ -269,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				95FC676D1B5E607C00C756F5 /* Supporting Files */,
+				EC5FCA17270F198000694854 /* monoleapTests.swift */,
 			);
 			name = monoleapTests;
 			path = xophoneTests;
@@ -489,7 +490,6 @@
 				272D075627037AA90039D6FB /* InstrumentScene.swift in Sources */,
 				EC59C3DC2707191300866708 /* MainViewController.swift in Sources */,
 				ECC1DF0627072E8B006ADBAA /* MIDISettingsPage.swift in Sources */,
-				278DD63626EB4A1E0079F8B8 /* MidiConnectorImpl.swift in Sources */,
 				EC5FCA16270C382100694854 /* SKTextureGradient.swift in Sources */,
 				ECC1DF1227073ABC006ADBAA /* RGBShaderTheme.swift in Sources */,
 				278DD63426EB485E0079F8B8 /* AppDelegate.swift in Sources */,
@@ -507,6 +507,7 @@
 				ECC1DF0227072D3B006ADBAA /* Settings.swift in Sources */,
 				ECC1DF3B27073FDA006ADBAA /* Theme.swift in Sources */,
 				ECC1DF1027073AA1006ADBAA /* ThemeManager.swift in Sources */,
+				EC5FCA18270F198000694854 /* monoleapTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,6 +515,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC5FCA19270F1A1100694854 /* monoleapTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -733,6 +735,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "danbar.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = monoleapTests;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/xophone.app/xophone";
 			};
 			name = Debug;
@@ -754,6 +757,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "danbar.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = monoleapTests;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/xophone.app/xophone";
 			};
 			name = Release;

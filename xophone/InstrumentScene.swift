@@ -356,7 +356,7 @@ class InstrumentScene: SKScene {
             return 5
         } else if touches.count == 2 && distance(first: touches[0], second: touches[1]) < fingerWidth * 4.5 {
             return 6
-        } else if touches.count == 3 && distance(first: touches[0], second: touches[1]) < fingerWidth * 1.5 && distance(first: touches[1], second: touches[2]) < fingerWidth * 2.5 {
+        } else if touches.count == 3 && distance(first: touches[0], second: touches[1]) < fingerWidth * 1.5 && distance(first: touches[1], second: touches[2]) > fingerWidth * 1.5 {
             return 7
         } else if touches.count == 4 {
             return 8

@@ -47,6 +47,8 @@ class InstrumentScene: SKScene {
     
     var synthManager: SynthManager?
     
+    let fingeringScheme = FingeringSchemeManager.instance.getCurrentScheme()
+    
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         
@@ -278,8 +280,6 @@ class InstrumentScene: SKScene {
             return
         }
         
-        baseNote = 48 + 6 * (followingPattern - 1)
-        
         let leftTop = leftHandTouches.first
         let rightTop = rightHandTouches.first
         
@@ -297,24 +297,18 @@ class InstrumentScene: SKScene {
         theme?.drawRightHandTouches(pattern: rightPattern, touches: rightHandTouches)
         
         if (leadingPattern > 0) {
-            let noteToPlay = baseNote + leadingPattern - 1;
-            if !ScaleMatcher.doesNoteMatchCurrentScale(noteToPlay) {
-                return;
+            if let noteToPlay = fingeringScheme.getNoteNumber(leadingPattern: leadingPattern, followingPattern: followingPattern) {
+                if !ScaleMatcher.doesNoteMatchCurrentScale(noteToPlay) {
+                    return;
+                }
+                prevNote = playedNote
+                self.noteOn(noteToPlay , velocity: 100)
+                if prevNote != playedNote {
+                    self.noteOff(prevNote, isOtherNotePlaying: true)
+                }
             }
-        }
-        
-        switch leadingPattern {
-        case 0:
+        } else {
             self.noteOff(playedNote, isOtherNotePlaying: false)
-        case 1, 2, 3, 4, 5, 6:
-            prevNote = playedNote
-            self.noteOn(baseNote + (leadingPattern - 1) , velocity: 100)
-            if prevNote != playedNote {
-                self.noteOff(prevNote, isOtherNotePlaying: true)
-            }
-            break
-        default:
-           break
         }
         
     }

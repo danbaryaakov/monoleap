@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum PlayingDifficulty : String {
+public enum PlayingDifficulty : String {
     case easy = "EASY"
     case normal = "NORMAL"
     case pro = "PRO"
@@ -41,6 +41,8 @@ struct Settings {
     static var scaleRoot = Setting(key: "SCALE_ROOT", defaultValue: 0)
     static var fingerWidth = Setting(key: "FINGER_WIDTH", defaultValue: 130.0)
     static var playingDifficulty = Setting(key: "PLAYING_DIFFICULTY", defaultValue: PlayingDifficulty.normal)
+    
+    static var fingeringScheme = Setting(key: "FINGERING_SCHEME", defaultValue: "Default")
     
     // theme
     static var selectedTheme = Setting(key: "selectedTheme", defaultValue: "SPARK")

@@ -14,6 +14,9 @@ struct InstrumentSettingsPage: View {
     @AppStorage(Settings.showPatternGuides.key) private var showPatternGuides = Settings.showPatternGuides.defaultValue
     @AppStorage(Settings.calibrationEnabled.key) private var calibrationEnabled = Settings.calibrationEnabled.defaultValue
     @AppStorage(Settings.isRightHanded.key) private var isRightHanded = Settings.isRightHanded.defaultValue
+    @AppStorage(Settings.fingeringScheme.key) private var fingeringScheme = Settings.fingeringScheme.defaultValue
+    
+    let options = FingeringSchemeManager.instance.allKeys.map{DropdownOption(key: $0, value: $0)}
     
     var body: some View {
         SettingsSection(image: "settings_icon", label: "General") {
@@ -22,8 +25,19 @@ struct InstrumentSettingsPage: View {
             Toggle("Show Pattern Guides", isOn: $showPatternGuides).toggleStyle(MonoleapToggleStyle())
             Toggle("Calibration Enabled", isOn: $calibrationEnabled).toggleStyle(MonoleapToggleStyle())
             Spacer().frame(height: 10)
+            HStack {
+                Text("Fingering Scheme")
+                Spacer()
+                DropdownSelector(
+                    selectedOption: options.filter{$0.key == fingeringScheme}.first ?? options[0],
+                    placeholder: "Fingering Scheme",
+                    options: options,
+                    onOptionSelected: { option in
+                        fingeringScheme = option.key
+                    }).zIndex(2.0).frame(width: 140)
+            }.zIndex(1.0)
             Toggle("Leading Hand", isOn: $isRightHanded).toggleStyle(MonoleapToggleStyle(offText: "Left", onText: "Right"))
-        }
+        }.zIndex(1.0)
         SettingsSection(image: "scale_icon", label: "Scale") {
             ScaleSelector()
         }

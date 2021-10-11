@@ -43,6 +43,7 @@ struct Settings {
     static var playingDifficulty = Setting(key: "PLAYING_DIFFICULTY", defaultValue: PlayingDifficulty.normal)
     
     static var fingeringScheme = Setting(key: "FINGERING_SCHEME", defaultValue: "Default")
+    static var transpose = Setting(key: "TRANSPOSE", defaultValue: 0)
     
     // theme
     static var selectedTheme = Setting(key: "selectedTheme", defaultValue: "SPARK")

@@ -297,7 +297,8 @@ class InstrumentScene: SKScene {
         theme?.drawRightHandTouches(pattern: rightPattern, touches: rightHandTouches)
         
         if (leadingPattern > 0) {
-            if let noteToPlay = fingeringScheme.getNoteNumber(leadingPattern: leadingPattern, followingPattern: followingPattern) {
+            if var noteToPlay = fingeringScheme.getNoteNumber(leadingPattern: leadingPattern, followingPattern: followingPattern) {
+                noteToPlay += Settings.transpose.value
                 if !ScaleMatcher.doesNoteMatchCurrentScale(noteToPlay) {
                     return;
                 }

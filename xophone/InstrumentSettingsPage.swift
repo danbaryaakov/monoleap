@@ -15,15 +15,20 @@ struct InstrumentSettingsPage: View {
     @AppStorage(Settings.calibrationEnabled.key) private var calibrationEnabled = Settings.calibrationEnabled.defaultValue
     @AppStorage(Settings.isRightHanded.key) private var isRightHanded = Settings.isRightHanded.defaultValue
     @AppStorage(Settings.fingeringScheme.key) private var fingeringScheme = Settings.fingeringScheme.defaultValue
+    @AppStorage(Settings.transpose.key) private var transpose = Settings.transpose.defaultValue
     
     let options = FingeringSchemeManager.instance.allKeys.map{DropdownOption(key: $0, value: $0)}
     
     var body: some View {
         SettingsSection(image: "settings_icon", label: "General") {
             Toggle("Internal Synth", isOn: $isSynthEnabled).toggleStyle(MonoleapToggleStyle())
-            Spacer().frame(height: 10)
+//            Spacer().frame(height: 10)
+            
             Toggle("Show Pattern Guides", isOn: $showPatternGuides).toggleStyle(MonoleapToggleStyle())
             Toggle("Calibration Enabled", isOn: $calibrationEnabled).toggleStyle(MonoleapToggleStyle())
+
+            Toggle("Leading Hand", isOn: $isRightHanded).toggleStyle(MonoleapToggleStyle(offText: "Left", onText: "Right"))
+                
             Spacer().frame(height: 10)
             HStack {
                 Text("Fingering Scheme")
@@ -35,8 +40,11 @@ struct InstrumentSettingsPage: View {
                     onOptionSelected: { option in
                         fingeringScheme = option.key
                     }).zIndex(2.0).frame(width: 140)
+                Spacer().frame(width: 20)
+                Text("Transpose")
+                Spacer()
+                NumberSelector(selectedNumber: $transpose, minimum: -48, maximum: 48, interval: 12)
             }.zIndex(1.0)
-            Toggle("Leading Hand", isOn: $isRightHanded).toggleStyle(MonoleapToggleStyle(offText: "Left", onText: "Right"))
         }.zIndex(1.0)
         SettingsSection(image: "scale_icon", label: "Scale") {
             ScaleSelector()

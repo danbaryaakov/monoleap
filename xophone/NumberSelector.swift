@@ -12,7 +12,7 @@ struct NumberSelector: View {
     @Binding var selectedNumber: Int
     var minimum = 0
     var maximum = 10
-    
+    var interval = 1
     var body: some View {
         
         let formatter: NumberFormatter = {
@@ -25,16 +25,16 @@ struct NumberSelector: View {
         
         HStack(spacing: 0) {
             Button(action: {
-                if selectedNumber > minimum {
-                    selectedNumber -= 1
+                if selectedNumber - interval >= minimum {
+                    selectedNumber -= interval
                 }
             }) {
                 Image(systemName: "minus")
             }.frame(width: 60, height: 40).background(MonoleapAssets.sectionBackground).font(.system(size: 20).bold()).foregroundColor(MonoleapAssets.controlColor).contentShape(Rectangle())
-            TextField("", value: $selectedNumber, formatter: formatter).frame(minWidth: 70, maxWidth: 70, maxHeight: .infinity).multilineTextAlignment(.center).padding(0).border(MonoleapAssets.controlColor.opacity(0.2))
+            TextField("", value: $selectedNumber, formatter: formatter).frame(minWidth: 80, maxWidth: 80, maxHeight: .infinity).multilineTextAlignment(.center).padding(0).border(MonoleapAssets.controlColor.opacity(0.2))
             Button(action: {
-                if selectedNumber < maximum {
-                    selectedNumber += 1
+                if selectedNumber + interval <= maximum {
+                    selectedNumber += interval
                 }
             }) {
                 Image(systemName: "plus")

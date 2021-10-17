@@ -3,6 +3,22 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "closure #1 in closure #1 in ScaleSelector.body.getter:ScaleSelector.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.scaleRoot">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "InstrumentScene.touchesBegan(_:with:):InstrumentScene.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Settings.playingSensitivity.value">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "InstrumentScene1.handleTouches(args:):InstrumentScene.swift">
          <PersistentStrings>
             <PersistentString

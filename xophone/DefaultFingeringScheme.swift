@@ -16,7 +16,7 @@ struct DefaultFingeringScheme : FingeringScheme {
         if leadingPattern == 0 || followingPattern == 0 || leadingPattern > 6 {
             return nil
         }
-        return 48 + 6 * (followingPattern - 1) + leadingPattern - 1
+        return 6 * (followingPattern - 1) + leadingPattern - 1
     }
     
 }

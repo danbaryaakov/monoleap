@@ -12,6 +12,7 @@ struct SettingsSection<Content: View>: View {
 
     var image: String = "settings_icon"
     var label: String = "Settings"
+    var onRestoreDefaults: (() -> ())?
     @ViewBuilder var content: Content
     
     var body: some View {

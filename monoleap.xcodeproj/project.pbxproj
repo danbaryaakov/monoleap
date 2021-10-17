@@ -37,6 +37,10 @@
 		EC4EA9FB27142A2000642144 /* DefaultFingeringScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4EA9FA27142A2000642144 /* DefaultFingeringScheme.swift */; };
 		EC4EA9FD27142D7700642144 /* FingeringSchemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4EA9FC27142D7700642144 /* FingeringSchemeManager.swift */; };
 		EC4EA9FF2714316800642144 /* JDFingeringScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4EA9FE2714316800642144 /* JDFingeringScheme.swift */; };
+		EC4EAA012714937F00642144 /* FeatureFlags.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4EAA002714937F00642144 /* FeatureFlags.swift */; };
+		EC4EAA032715F71A00642144 /* JDV2FingeringScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4EAA022715F71A00642144 /* JDV2FingeringScheme.swift */; };
+		EC4EAA0527181F5A00642144 /* TransposeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4EAA0427181F5A00642144 /* TransposeSelector.swift */; };
+		EC4EAA09271AF44000642144 /* SensitivitySelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4EAA08271AF44000642144 /* SensitivitySelector.swift */; };
 		EC59C3DC2707191300866708 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC59C3DB2707191300866708 /* MainViewController.swift */; };
 		EC59C3DE2707193B00866708 /* MainSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC59C3DD2707193B00866708 /* MainSettingsView.swift */; };
 		EC5FCA16270C382100694854 /* SKTextureGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5FCA15270C382100694854 /* SKTextureGradient.swift */; };
@@ -124,6 +128,10 @@
 		EC4EA9FA27142A2000642144 /* DefaultFingeringScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFingeringScheme.swift; sourceTree = "<group>"; };
 		EC4EA9FC27142D7700642144 /* FingeringSchemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingeringSchemeManager.swift; sourceTree = "<group>"; };
 		EC4EA9FE2714316800642144 /* JDFingeringScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JDFingeringScheme.swift; sourceTree = "<group>"; };
+		EC4EAA002714937F00642144 /* FeatureFlags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFlags.swift; sourceTree = "<group>"; };
+		EC4EAA022715F71A00642144 /* JDV2FingeringScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JDV2FingeringScheme.swift; sourceTree = "<group>"; };
+		EC4EAA0427181F5A00642144 /* TransposeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransposeSelector.swift; sourceTree = "<group>"; };
+		EC4EAA08271AF44000642144 /* SensitivitySelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensitivitySelector.swift; sourceTree = "<group>"; };
 		EC59C3DB2707191300866708 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		EC59C3DD2707193B00866708 /* MainSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSettingsView.swift; sourceTree = "<group>"; };
 		EC5FCA15270C382100694854 /* SKTextureGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKTextureGradient.swift; sourceTree = "<group>"; };
@@ -251,6 +259,7 @@
 				ECC1DF0127072D3B006ADBAA /* Settings.swift */,
 				EC5FCA15270C382100694854 /* SKTextureGradient.swift */,
 				ECC1DF44270764CC006ADBAA /* Scale.swift */,
+				EC4EAA002714937F00642144 /* FeatureFlags.swift */,
 				95D147221B6D470C00770BF3 /* App.storyboard */,
 				95FC67621B5E607C00C756F5 /* LaunchScreen.xib */,
 				EC4EA9F72714299200642144 /* Fingerings */,
@@ -308,6 +317,7 @@
 				EC4EA9FA27142A2000642144 /* DefaultFingeringScheme.swift */,
 				EC4EA9FC27142D7700642144 /* FingeringSchemeManager.swift */,
 				EC4EA9FE2714316800642144 /* JDFingeringScheme.swift */,
+				EC4EAA022715F71A00642144 /* JDV2FingeringScheme.swift */,
 			);
 			name = Fingerings;
 			sourceTree = "<group>";
@@ -328,6 +338,8 @@
 				ECC1DF3E27075DAD006ADBAA /* MIDICCSelector.swift */,
 				ECC1DF402707649E006ADBAA /* DropdownSelector.swift */,
 				ECC1DF42270764B3006ADBAA /* ScaleSelector.swift */,
+				EC4EAA0427181F5A00642144 /* TransposeSelector.swift */,
+				EC4EAA08271AF44000642144 /* SensitivitySelector.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -500,12 +512,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC4EAA09271AF44000642144 /* SensitivitySelector.swift in Sources */,
 				ECC1DF45270764CC006ADBAA /* Scale.swift in Sources */,
 				ECC1DF0027072844006ADBAA /* PageToggleButton.swift in Sources */,
+				EC4EAA032715F71A00642144 /* JDV2FingeringScheme.swift in Sources */,
 				ECC1DF3F27075DAD006ADBAA /* MIDICCSelector.swift in Sources */,
 				277FA7DF26F380300063022A /* ThemeImpl.swift in Sources */,
 				EC4EA9FB27142A2000642144 /* DefaultFingeringScheme.swift in Sources */,
 				ECC1DF412707649E006ADBAA /* DropdownSelector.swift in Sources */,
+				EC4EAA012714937F00642144 /* FeatureFlags.swift in Sources */,
 				ECC1DEFC270724BF006ADBAA /* MonoleapAssets.swift in Sources */,
 				ECC1DF0E270732DE006ADBAA /* MonoleapToggleStyle.swift in Sources */,
 				272D075627037AA90039D6FB /* InstrumentScene.swift in Sources */,
@@ -523,6 +538,7 @@
 				277FA7CD26F343CB0063022A /* InstrumentViewController.swift in Sources */,
 				ECC1DF0827072E96006ADBAA /* ThemeSettingsPage.swift in Sources */,
 				2757768326ED0AEC00134DDC /* MIDIConnector.swift in Sources */,
+				EC4EAA0527181F5A00642144 /* TransposeSelector.swift in Sources */,
 				EC59C3DE2707193B00866708 /* MainSettingsView.swift in Sources */,
 				EC4EA9F9271429A200642144 /* FingeringScheme.swift in Sources */,
 				ECC1DF0427072E82006ADBAA /* InstrumentSettingsPage.swift in Sources */,
@@ -681,7 +697,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 487DXBLVBM;
 				HEADER_SEARCH_PATHS = (
@@ -697,7 +713,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.6.2;
+				MARKETING_VERSION = 1.6.3;
 				PRELINK_LIBS = "AudioToolbox AVFoundation CoreAudio";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = monoleap;
@@ -718,7 +734,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 487DXBLVBM;
 				INFOPLIST_FILE = xophone/Info.plist;
@@ -727,7 +743,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.6.2;
+				MARKETING_VERSION = 1.6.3;
 				PRELINK_LIBS = "AudioToolbox AVFoundation CoreAudio";
 				"PRELINK_LIBS[arch=*]" = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_NAME:rfc1034identifier)";

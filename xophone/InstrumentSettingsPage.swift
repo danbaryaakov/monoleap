@@ -17,9 +17,20 @@ struct InstrumentSettingsPage: View {
     @AppStorage(Settings.fingeringScheme.key) private var fingeringScheme = Settings.fingeringScheme.defaultValue
     @AppStorage(Settings.transpose.key) private var transpose = Settings.transpose.defaultValue
     
+    @AppStorage(Settings.initialDebounceValue.key) private var initialDebounce = Settings.initialDebounceValue.defaultValue
+    @AppStorage(Settings.debounceValue.key) private var debounce = Settings.debounceValue.defaultValue
+    
     let options = FingeringSchemeManager.instance.allKeys.map{DropdownOption(key: $0, value: $0)}
     
     var body: some View {
+        
+        let formatter: NumberFormatter = {
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .decimal
+            formatter.allowsFloats = true
+            return formatter
+        }()
+        
         SettingsSection(image: "settings_icon", label: "General") {
             Toggle("Internal Synth", isOn: $isSynthEnabled).toggleStyle(MonoleapToggleStyle())
 //            Spacer().frame(height: 10)
@@ -28,23 +39,41 @@ struct InstrumentSettingsPage: View {
             Toggle("Calibration Enabled", isOn: $calibrationEnabled).toggleStyle(MonoleapToggleStyle())
 
             Toggle("Leading Hand", isOn: $isRightHanded).toggleStyle(MonoleapToggleStyle(offText: "Left", onText: "Right"))
-                
-            Spacer().frame(height: 10)
+            
+            if FeatureFlags.alternateFingeringsEnabled {
+                HStack {
+                    Text("Fingering Scheme")
+                    Spacer()
+                    DropdownSelector(
+                        selectedOption: options.filter{$0.key == fingeringScheme}.first ?? options[0],
+                        placeholder: "Fingering Scheme",
+                        options: options,
+                        onOptionSelected: { option in
+                            fingeringScheme = option.key
+                        }).zIndex(2.0).frame(width: 140)
+                }.zIndex(1.0)
+            }
+            
             HStack {
-                Text("Fingering Scheme")
-                Spacer()
-                DropdownSelector(
-                    selectedOption: options.filter{$0.key == fingeringScheme}.first ?? options[0],
-                    placeholder: "Fingering Scheme",
-                    options: options,
-                    onOptionSelected: { option in
-                        fingeringScheme = option.key
-                    }).zIndex(2.0).frame(width: 140)
-                Spacer().frame(width: 20)
                 Text("Transpose")
                 Spacer()
-                NumberSelector(selectedNumber: $transpose, minimum: -48, maximum: 48, interval: 12)
-            }.zIndex(1.0)
+                TransposeSelector(value: $transpose)
+            }
+            if FeatureFlags.playingSensitivity {
+                HStack {
+                    Text("Playing Sensitivity")
+                    Spacer()
+                    SensitivitySelector()
+                }
+            }
+            if FeatureFlags.debounceSetting {
+                HStack {
+                    Text("Initial Delay")
+                    TextField("", value: $initialDebounce, formatter: formatter).multilineTextAlignment(.center).padding(5).overlay(RoundedRectangle(cornerRadius: 10).stroke(MonoleapAssets.controlColor))
+                    Text("Transition Delay")
+                    TextField("", value: $debounce, formatter: formatter).multilineTextAlignment(.center).padding(5).overlay(RoundedRectangle(cornerRadius: 10).stroke(MonoleapAssets.controlColor))
+                }
+            }
         }.zIndex(1.0)
         SettingsSection(image: "scale_icon", label: "Scale") {
             ScaleSelector()

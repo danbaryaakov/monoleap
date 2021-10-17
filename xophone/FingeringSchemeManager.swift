@@ -18,6 +18,7 @@ class FingeringSchemeManager {
     private init() {
         register(DefaultFingeringScheme())
         register(JDFingeringScheme())
+        register(JDV2FingeringScheme())
     }
     
     func register(_ scheme: FingeringScheme) {
@@ -26,6 +27,9 @@ class FingeringSchemeManager {
     }
     
     func getCurrentScheme() -> FingeringScheme {
+        if !FeatureFlags.alternateFingeringsEnabled {
+            return DefaultFingeringScheme()
+        }
         if let scheme = schemes[Settings.fingeringScheme.value] {
             return scheme
         }

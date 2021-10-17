@@ -10,6 +10,8 @@ import SwiftUI
 
 struct ScaleSelector: View {
     @State var selection: Set<Int> = Set<Int>(Settings.scale.value)
+    @AppStorage(Settings.scaleRoot.key) private var scaleRoot = Settings.scaleRoot.defaultValue
+    
     var onScaleChanged: (() -> Void)?
     var options = Scale.scales.map { DropdownOption(key: $0.name, value: $0.name) }
     var noteOptions = [
@@ -28,6 +30,11 @@ struct ScaleSelector: View {
     ]
     let whites = [0, 2, 4, 5, 7, 9, 11]
     let blacks = [1, 3, 6, 8, 10]
+    
+    init() {
+        
+    }
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -40,14 +47,14 @@ struct ScaleSelector: View {
                         Settings.scale.value = Array(selection)
                         onScaleChanged?()
                     }).zIndex(2.0).frame(width: 200)
-                Spacer()
+                    Spacer()
                     DropdownSelector(
-                        selectedOption: noteOptions[Settings.scaleRoot.value],
+                        selectedOption: noteOptions[scaleRoot],
                         placeholder: "Scale Root",
                         options: noteOptions,
                         onOptionSelected: { option in
                             let index: Int = Int(option.key) ?? 0
-                            Settings.scaleRoot.value = index
+                            scaleRoot = index
                         }).zIndex(2.0).frame(width: 100)
             }.zIndex(1.0)
             HStack {

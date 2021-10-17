@@ -157,8 +157,9 @@ class InstrumentScene: SKScene {
         }
         isTouchesEnded = false
         isInvalidPattern = false
+        let sensitivity = Settings.getPlayingSensitivity()
         
-        self.debounce(action: #selector(handleTouches(args:)), delay: noPatterenPlayedPreviously ? 0.015 : 0.05)
+        self.debounce(action: #selector(handleTouches(args:)), delay: noPatterenPlayedPreviously ? sensitivity.initialDebounceValue() / 1000 : sensitivity.debounceValue() / 1000)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -168,8 +169,11 @@ class InstrumentScene: SKScene {
         let allTouches = event!.touches(for: view)
         let allTouchesRemoved = allTouches?.count ?? 0 == 0
         
-        var touchesMinY = Int.max
-        var removedTouchMinY = Int.max
+        var touchesRightMinY = Int.max
+        var removedTouchRightMinY = Int.max
+        var touchesLeftMinY = Int.max
+        var removedTouchLeftMinY = Int.max
+    
         let width = view.bounds.width
         
         for touch in allTouches! {
@@ -179,25 +183,30 @@ class InstrumentScene: SKScene {
                 let position = touch.location(in: view)
 //                print("Removed touch position \(position.x) \(position.y)")
                 if position.x < width / 2 {
-                    removedTouchMinY = min(removedTouchMinY, Int(position.y))
+                    removedTouchRightMinY = min(removedTouchRightMinY, Int(position.y))
+                } else {
+                    removedTouchLeftMinY = min(removedTouchLeftMinY, Int(position.y))
                 }
                 continue
             }
 //            print("touchesEnded(): touch x pos = \(position.x)")
             if position.x < width / 2 {
                 rightHandTouches.append(touch)
-                touchesMinY = min(touchesMinY, Int(position.y))
+                touchesRightMinY = min(touchesRightMinY, Int(position.y))
             } else {
                 leftHandTouches.append(touch)
+                touchesLeftMinY = min(touchesLeftMinY, Int(position.y))
             }
         }
         isTouchesEnded = true
 //        print("removedTouchMinY = \(removedTouchMinY), touchesMinY = \(touchesMinY)")
-        if removedTouchMinY < touchesMinY {
-            print("Invalid pattern found (accidentally released topmost right touch")
+        if removedTouchRightMinY < touchesRightMinY || removedTouchLeftMinY < touchesLeftMinY {
+//            print("Invalid pattern found (accidentally released topmost right touch")
             isInvalidPattern = true
         }
-        debounce(action: #selector(handleTouches(args:)), delay: allTouchesRemoved ? 0 : 0.05)
+        let sensitivity = Settings.getPlayingSensitivity()
+        
+        debounce(action: #selector(handleTouches(args:)), delay: allTouchesRemoved ? 0 : sensitivity.debounceValue() / 1000)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -259,10 +268,8 @@ class InstrumentScene: SKScene {
             self.hidePatternGuides()
         }
         
-        var baseNote: Int = 0
-        
         if Settings.calibrationEnabled.value {
-            if leadingPattern == 8 {
+            if leadingPattern == 8 && followingPattern == 0 {
                 // calibrate
                 debounce(action: #selector(calibrate), delay: 1.0)
             } else {
@@ -298,7 +305,7 @@ class InstrumentScene: SKScene {
         
         if (leadingPattern > 0) {
             if var noteToPlay = fingeringScheme.getNoteNumber(leadingPattern: leadingPattern, followingPattern: followingPattern) {
-                noteToPlay += Settings.transpose.value
+                noteToPlay += 48 + Settings.transpose.value
                 if !ScaleMatcher.doesNoteMatchCurrentScale(noteToPlay) {
                     return;
                 }

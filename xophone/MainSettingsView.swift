@@ -48,6 +48,9 @@ struct MainSettingsView: View {
                         showAbout.toggle()
                     }
                     Spacer()
+//                    PageToggleButton(image: "help_icon", showLabel: false).onTapGesture{
+//                        Settings.restoreAllDefaults()
+//                    }
                     Link(destination: URL(string: "https://www.monoleap.com/documentation")!) {
                         PageToggleButton(image: "help_icon", showLabel: false)
                     }

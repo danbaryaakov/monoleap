@@ -29,6 +29,7 @@ struct MainSettingsView: View {
     
     @State private var selectedPage: SelectedPage = .instrument
     @State private var showAbout = false
+    @State private var confirmationPresented = false
     
     var body: some View {
         ZStack {
@@ -48,9 +49,18 @@ struct MainSettingsView: View {
                         showAbout.toggle()
                     }
                     Spacer()
-//                    PageToggleButton(image: "help_icon", showLabel: false).onTapGesture{
-//                        Settings.restoreAllDefaults()
-//                    }
+                    if #available(iOS 15.0, *) {
+                        PageToggleButton(image: "restore_icon", showLabel: false).onTapGesture{
+                            confirmationPresented = true
+                        }.confirmationDialog("Restore all defaults?", isPresented: $confirmationPresented) {
+                            Button("Restore Default Settings") {
+                                Settings.restoreAllDefaults()
+                                parent?.replaceMainView()
+                            }.foregroundColor(MonoleapAssets.controlColor)
+                        }
+                    } else {
+                        // Fallback on earlier versions
+                    }
                     Link(destination: URL(string: "https://www.monoleap.com/documentation")!) {
                         PageToggleButton(image: "help_icon", showLabel: false)
                     }

@@ -106,7 +106,7 @@ struct Settings {
     static var scale = add(key: "SCALE", defaultValue: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
     static var scaleRoot = add(key: "SCALE_ROOT", defaultValue: 0)
     static var fingerWidth = add(key: "FINGER_WIDTH", defaultValue: 130.0)
-    static var playingSensitivity = add(key: "PLAYING_SENSITIVITY", defaultValue: PlayingSensitivity.normal)
+    static var playingSensitivity = add(key: "PLAYING_SENSITIVITY", defaultValue: PlayingSensitivity.normal.rawValue)
     
     static var fingeringScheme = add(key: "FINGERING_SCHEME", defaultValue: "Default")
     static var transpose = add(key: "TRANSPOSE", defaultValue: 0)
@@ -147,9 +147,6 @@ struct Settings {
         if !FeatureFlags.playingSensitivity {
             return .normal
         }
-        if let rawValue = UserDefaults.standard.string(forKey: Settings.playingSensitivity.key) {
-            return PlayingSensitivity(rawValue: rawValue) ?? .normal
-        }
-        return .normal
+        return PlayingSensitivity(rawValue: Settings.playingSensitivity.value) ?? .normal
     }
 }

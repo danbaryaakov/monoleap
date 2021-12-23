@@ -27,6 +27,17 @@ class MainViewController : UIViewController {
         setupConstraints()
     }
     
+    public func replaceMainView() {
+        var settingsView = MainSettingsView()
+        settingsView.parent = self
+        contentView!.removeFromParent()
+        contentView!.view.removeFromSuperview()
+        contentView = UIHostingController(rootView: settingsView)
+        addChild(contentView!)
+        view.addSubview(contentView!.view)
+        setupConstraints()
+    }
+    
     fileprivate func setupConstraints() {
         contentView!.view.translatesAutoresizingMaskIntoConstraints = false
         contentView!.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true

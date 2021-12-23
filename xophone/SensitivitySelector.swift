@@ -17,20 +17,20 @@ struct SensitivitySelector: View {
             ForEach(PlayingSensitivity.allCases.indices, id: \.self) { index in
                 let sensitivity = PlayingSensitivity.allCases[index]
                 ZStack {
-                    if sensitivity == selectedValue {
+                    if sensitivity.rawValue == selectedValue {
                         MonoleapAssets.rect(topLeftRadius: index == 0 ? 10 : 0, topRightRadius: index == PlayingSensitivity.allCases.count - 1 ? 10 : 0, bottomLeftRadius: index == 0 ? 10 : 0, bottomRightRadius: index == PlayingSensitivity.allCases.count - 1 ? 10 : 0).stroke(MonoleapAssets.controlColor).frame(width: 70, height: 35).onTapGesture {
-                            selectedValue = sensitivity
+                            selectedValue = sensitivity.rawValue
                         }
                         MonoleapAssets.rect(topLeftRadius: index == 0 ? 10 : 0, topRightRadius: index == PlayingSensitivity.allCases.count - 1 ? 10 : 0, bottomLeftRadius: index == 0 ? 10 : 0, bottomRightRadius: index == PlayingSensitivity.allCases.count - 1 ? 10 : 0).fill(MonoleapAssets.controlColor).frame(width: 70, height: 35).onTapGesture {
-                            selectedValue = sensitivity
+                            selectedValue = sensitivity.rawValue
                         }
                     } else {
                         MonoleapAssets.rect(topLeftRadius: index == 0 ? 10 : 0, topRightRadius: index == PlayingSensitivity.allCases.count - 1 ? 10 : 0, bottomLeftRadius: index == 0 ? 10 : 0, bottomRightRadius: index == PlayingSensitivity.allCases.count - 1 ? 10 : 0).stroke(MonoleapAssets.controlColor).frame(width: 70, height: 35).onTapGesture {
-                            selectedValue = sensitivity
+                            selectedValue = sensitivity.rawValue
                         }
                     }
-                    Text(sensitivity.rawValue).foregroundColor(sensitivity == selectedValue ? .white : MonoleapAssets.controlColor).onTapGesture {
-                        selectedValue = sensitivity
+                    Text(sensitivity.rawValue).foregroundColor(sensitivity.rawValue == selectedValue ? .white : MonoleapAssets.controlColor).onTapGesture {
+                        selectedValue = sensitivity.rawValue
                     }
                 }
                     

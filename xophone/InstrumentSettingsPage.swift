@@ -17,30 +17,17 @@ struct InstrumentSettingsPage: View {
     @AppStorage(Settings.fingeringScheme.key) private var fingeringScheme = Settings.fingeringScheme.defaultValue
     @AppStorage(Settings.transpose.key) private var transpose = Settings.transpose.defaultValue
     
-    @AppStorage(Settings.initialDebounceValue.key) private var initialDebounce = Settings.initialDebounceValue.defaultValue
-    @AppStorage(Settings.debounceValue.key) private var debounce = Settings.debounceValue.defaultValue
-    
     let options = FingeringSchemeManager.instance.allKeys.map{DropdownOption(key: $0, value: $0)}
     
     var body: some View {
-        
-        let formatter: NumberFormatter = {
-            let formatter = NumberFormatter()
-            formatter.numberStyle = .decimal
-            formatter.allowsFloats = true
-            return formatter
-        }()
-        
+      
         SettingsSection(image: "settings_icon", label: "General") {
             Toggle("Internal Synth", isOn: $isSynthEnabled).toggleStyle(MonoleapToggleStyle())
-//            Spacer().frame(height: 10)
-            
             Toggle("Show Pattern Guides", isOn: $showPatternGuides).toggleStyle(MonoleapToggleStyle())
             Toggle("Calibration Enabled", isOn: $calibrationEnabled).toggleStyle(MonoleapToggleStyle())
-
             Toggle("Leading Hand", isOn: $isRightHanded).toggleStyle(MonoleapToggleStyle(offText: "Left", onText: "Right"))
             
-            if FeatureFlags.alternateFingeringsEnabled {
+            if FeatureFlags.alternateFingeringSchemes {
                 HStack {
                     Text("Fingering Scheme")
                     Spacer()
@@ -64,14 +51,6 @@ struct InstrumentSettingsPage: View {
                     Text("Playing Sensitivity")
                     Spacer()
                     SensitivitySelector()
-                }
-            }
-            if FeatureFlags.debounceSetting {
-                HStack {
-                    Text("Initial Delay")
-                    TextField("", value: $initialDebounce, formatter: formatter).multilineTextAlignment(.center).padding(5).overlay(RoundedRectangle(cornerRadius: 10).stroke(MonoleapAssets.controlColor))
-                    Text("Transition Delay")
-                    TextField("", value: $debounce, formatter: formatter).multilineTextAlignment(.center).padding(5).overlay(RoundedRectangle(cornerRadius: 10).stroke(MonoleapAssets.controlColor))
                 }
             }
         }.zIndex(1.0)

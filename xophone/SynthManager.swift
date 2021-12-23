@@ -40,7 +40,7 @@ public class SynthManager : NSObject {
         
         limiter = PeakLimiter(dryWetMixer)
         engine.output = limiter
-
+        
         osc.stop()
         
         filter.cutoffFrequency = 0

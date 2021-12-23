@@ -9,7 +9,6 @@
 import Foundation
 
 struct FeatureFlags {
-    static let alternateFingeringsEnabled = true
-    static let debounceSetting = false
+    static let alternateFingeringSchemes = true
     static let playingSensitivity = true
 }

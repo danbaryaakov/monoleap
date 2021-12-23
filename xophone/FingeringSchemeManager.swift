@@ -27,7 +27,7 @@ class FingeringSchemeManager {
     }
     
     func getCurrentScheme() -> FingeringScheme {
-        if !FeatureFlags.alternateFingeringsEnabled {
+        if !FeatureFlags.alternateFingeringSchemes {
             return DefaultFingeringScheme()
         }
         if let scheme = schemes[Settings.fingeringScheme.value] {

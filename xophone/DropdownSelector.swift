@@ -119,32 +119,32 @@ struct DropdownSelector: View {
     }
 }
 
-struct DropdownSelector_Previews: PreviewProvider {
-    static var uniqueKey: String {
-        UUID().uuidString
-    }
-
-    static let options: [DropdownOption] = [
-        DropdownOption(key: uniqueKey, value: "Sunday"),
-        DropdownOption(key: uniqueKey, value: "Monday"),
-        DropdownOption(key: uniqueKey, value: "Tuesday"),
-        DropdownOption(key: uniqueKey, value: "Wednesday"),
-        DropdownOption(key: uniqueKey, value: "Thursday"),
-        DropdownOption(key: uniqueKey, value: "Friday"),
-        DropdownOption(key: uniqueKey, value: "Saturday")
-    ]
-
-
-    static var previews: some View {
-        Group {
-            DropdownSelector(
-                selectedOption: options[3],
-                placeholder: "Day of the week",
-                options: options,
-                onOptionSelected: { option in
-                    print(option)
-            })
-            .padding(.horizontal)
-        }
-    }
-}
+//struct DropdownSelector_Previews: PreviewProvider {
+//    static var uniqueKey: String {
+//        UUID().uuidString
+//    }
+//
+//    static let options: [DropdownOption] = [
+//        DropdownOption(key: uniqueKey, value: "Sunday"),
+//        DropdownOption(key: uniqueKey, value: "Monday"),
+//        DropdownOption(key: uniqueKey, value: "Tuesday"),
+//        DropdownOption(key: uniqueKey, value: "Wednesday"),
+//        DropdownOption(key: uniqueKey, value: "Thursday"),
+//        DropdownOption(key: uniqueKey, value: "Friday"),
+//        DropdownOption(key: uniqueKey, value: "Saturday")
+//    ]
+//
+//
+////    static var previews: some View {
+////        Group {
+////            DropdownSelector(
+////                selectedOption: options[3],
+////                placeholder: "Day of the week",
+////                options: options,
+////                onOptionSelected: { option in
+////                    print(option)
+////            })
+////            .padding(.horizontal)
+////        }
+////    }
+//}

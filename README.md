@@ -4,9 +4,9 @@ Monoleap is a MIDI controller app for the iPAD designed for playing monophonic s
 
 Check out the demonstration videos:
 
-https://youtu.be/anzcbBjzgnE?si=QNg2jckLnXfFuCKP
-https://youtu.be/Ye2kVmR8nlc?si=500OOn8tj3qJX1Wz
-I
+* https://youtu.be/anzcbBjzgnE?si=QNg2jckLnXfFuCKP
+
+* https://youtu.be/Ye2kVmR8nlc?si=500OOn8tj3qJX1Wz
 
 Monoleap comes with a built in synth sound that will help you get started exploring the instrument quickly. Once you are acquainted with the instrument, I recommend you use monoleap as a MIDI controller for playing your favorite software instruments, as will be explained later in this guide.
 

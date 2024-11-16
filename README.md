@@ -1,8 +1,14 @@
 # Monoleap
 
-Monoleap is a MIDI controller app for the iPAD designed for playing monophonic sounds (bass / lead synths, sampled wind / string instruments etc.). We’ve designed the instrument so that you can play without having to look at the device, playing any melody you like in a 4 octave range while changing the sound and expression by just moving your hands intuitively with the music.
+Monoleap is a MIDI controller app for the iPAD designed for playing monophonic sounds (bass / lead synths, sampled wind / string instruments etc.). I designed the instrument so that you can play without having to look at the device, playing any melody you like in a 4 octave range while changing the sound and expression by just moving your hands intuitively with the music.
 
-Monoleap comes with a built in synth sound that will help you get started exploring the instrument quickly. Once you are acquainted with the instrument, we recommend you use monoleap as a MIDI controller for playing your favorite software instruments, as will be explained later in this guide.
+Check out the demonstration videos:
+
+https://youtu.be/anzcbBjzgnE?si=QNg2jckLnXfFuCKP
+https://youtu.be/Ye2kVmR8nlc?si=500OOn8tj3qJX1Wz
+I
+
+Monoleap comes with a built in synth sound that will help you get started exploring the instrument quickly. Once you are acquainted with the instrument, I recommend you use monoleap as a MIDI controller for playing your favorite software instruments, as will be explained later in this guide.
 
 ## Leading Hand Selection (Left handed support)
 
@@ -34,7 +40,7 @@ You will notice that the patterns repeat themselves. There are 6 basic patterns 
 Whatever note you play, both your left and right index fingers (finger 1) will always be pressed against the screen. This allows you to use the movements of those fingers to change the device sound. When you move your leading hand (right by default) up and down it changes the built in synth’s filter cutoff. 
 The more you move the finger down the louder the sound becomes. This allows you to apply a sort of ‘vibrato’ to your performance, adding feel and emotion. The movements of your index finger on the following hand (left by default) are mapped to the synth’s filter resonance, making the sound more aggressive and edgy the more you move the finger downwards. 
 
-When using Monoleap as a MIDI controller, you can map both X and Y positions of both hands to 4 synth parameters. We’ll explain how to set up Monoleap MIDI with a software instrument in the next section.
+When using Monoleap as a MIDI controller, you can map both X and Y positions of both hands to 4 synth parameters. I'll explain how to set up Monoleap MIDI with a software instrument in the next section.
 
 ### Right Handed Patterns
 ![patterns 1](./readme/patterns1.png)
@@ -49,7 +55,7 @@ Monoleap is first and foremost a MIDI controller, capable of playing any softwar
 
 ### Using an iPAD Software Instrument
 
-For best performance, use monoleap for playing an iPAD software instrument. We recommend the Minimoog Model D synthesizer.  It’s a great instrument on it’s own, but combined with Monoleap, you can create a performance that’s rich in emotion and expression. It’s not free, but not too pricey either. Other instruments have similar settings, so you can probably apply this to any other app as well.
+For best performance, use monoleap for playing an iPAD software instrument. I recommend the Minimoog Model D synthesizer.  It’s a great instrument on it’s own, but combined with Monoleap, you can create a performance that’s rich in emotion and expression. It’s not free, but not too pricey either. Other instruments have similar settings, so you can probably apply this to any other app as well.
 
 Install Minimoog Model D from the App Store
 Enable background audio (so that the app can produce sound when in background) by going to the settings page (cogwheel icon) → Configuration → turn on Background Audio
